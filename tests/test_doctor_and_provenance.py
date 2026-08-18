@@ -20,6 +20,7 @@ class DoctorAndProvenanceTests(unittest.TestCase):
         self.assertEqual(report["tools"]["tts-examples"]["status"], "READY")
         self.assertEqual(report["tools"]["local-visual-analysis"]["features"]["pixel_comparison"], "READY")
         self.assertEqual(report["tools"]["toolbox-local-workflows"]["status"], "READY")
+        self.assertEqual(report["tools"]["ace-step-local"]["status"], "READY_LOCAL_SLOW")
 
     def test_provenance_sidecar_preserves_asset(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:

@@ -20,11 +20,11 @@ from .delivery import DeliveryError, audit_delivery, package_delivery
 from .duplicate_finder import find_duplicates
 from .evidence_library import EvidenceLibraryError, search_library
 from .gameplay_review import GameplayReviewError, review_gameplay, write_gameplay_review
-from .game_creation import GameCreationError, asset_manifest, asset_naming_plan, audit_game_prototype, compare_asset_manifests, compare_gameplay_reviews, engine_readiness, generate_tone_asset, inspect_godot_project, map_godot_assets, plan_sprite_animations, plan_watch_highlights, scaffold_game_kit, scaffold_godot_project, video_contact_sheet, write_json
+from .game_creation import GameCreationError, asset_manifest, asset_naming_plan, audit_game_prototype, compare_asset_manifests, compare_gameplay_reviews, engine_readiness, generate_tone_asset, inspect_godot_project, map_godot_assets, plan_game_3d_remediation, plan_game_audio_package, plan_sprite_animations, plan_watch_highlights, scaffold_game_kit, scaffold_game_release_pack, scaffold_godot_project, scaffold_godot_vertical_slice, video_contact_sheet, write_json
 from .generation_research import GenerationResearchError, evaluate_generation, research_generation
 from .image_prep import ImagePrepError, inspect_image_asset, prepare_image
 from .media import MediaError, normalize_media
-from .provenance import create_sidecar, sidecar_path
+from .provenance import create_sidecar, record_external_generation, sidecar_path
 from .registry import RegistryError, load_registry
 from .routing import recommend
 from .semantic_vision import SemanticVisionError, describe_image
@@ -322,6 +322,23 @@ def build_parser() -> argparse.ArgumentParser:
     prototype_handoff = game_commands.add_parser("prototype-handoff")
     prototype_handoff.add_argument("project", type=Path)
     prototype_handoff.add_argument("--require-build", action="store_true")
+    game_3d_plan = game_commands.add_parser("3d-remediation-plan")
+    game_3d_plan.add_argument("asset", type=Path)
+    game_3d_plan.add_argument("--output", type=Path, required=True)
+    game_3d_plan.add_argument("--force", action="store_true")
+    game_audio_plan = game_commands.add_parser("audio-package-plan")
+    game_audio_plan.add_argument("directory", type=Path)
+    game_audio_plan.add_argument("--output", type=Path, required=True)
+    game_audio_plan.add_argument("--max-files", type=int, default=10000)
+    game_audio_plan.add_argument("--force", action="store_true")
+    vertical_slice = game_commands.add_parser("godot-vertical-slice")
+    vertical_slice.add_argument("--output", type=Path, required=True)
+    vertical_slice.add_argument("--name", required=True)
+    vertical_slice.add_argument("--force", action="store_true")
+    release_pack = game_commands.add_parser("release-pack")
+    release_pack.add_argument("--output", type=Path, required=True)
+    release_pack.add_argument("--name", required=True)
+    release_pack.add_argument("--force", action="store_true")
     delivery = commands.add_parser("delivery", help="Audit and package a local handoff directory.")
     delivery_commands = delivery.add_subparsers(dest="delivery_command", required=True)
     delivery_audit = delivery_commands.add_parser("audit")
@@ -371,6 +388,15 @@ def build_parser() -> argparse.ArgumentParser:
     create.add_argument("--human-modifications", default="")
     create.add_argument("--commercial-use", default="requires_review")
     create.add_argument("--force", action="store_true")
+    external = provenance_commands.add_parser("external", help="Record an already-downloaded external generation without contacting its provider.")
+    external.add_argument("asset", type=Path)
+    external.add_argument("--provider", required=True)
+    external.add_argument("--plan", required=True)
+    external.add_argument("--terms-url", required=True)
+    external.add_argument("--output-status", choices=["DRAFT_ONLY", "PERSONAL_ONLY", "ATTRIBUTION_REQUIRED", "RECHECK_TERMS", "RELEASE_APPROVED"], required=True)
+    external.add_argument("--prompt-reference", default="")
+    external.add_argument("--source", action="append", default=[])
+    external.add_argument("--force", action="store_true")
     return parser
 
 
@@ -710,8 +736,18 @@ def main(argv: list[str] | None = None) -> None:
                 result["output"] = str(write_json(result, args.output, overwrite=args.force))
             elif args.game_command == "compare-gameplay":
                 result = compare_gameplay_reviews(args.baseline, args.candidate)
-            else:
+            elif args.game_command == "prototype-handoff":
                 result = audit_game_prototype(args.project, require_build=args.require_build)
+            elif args.game_command == "3d-remediation-plan":
+                result = plan_game_3d_remediation(args.asset)
+                result["output"] = str(write_json(result, args.output, overwrite=args.force))
+            elif args.game_command == "audio-package-plan":
+                result = plan_game_audio_package(args.directory, max_files=args.max_files)
+                result["output"] = str(write_json(result, args.output, overwrite=args.force))
+            elif args.game_command == "godot-vertical-slice":
+                result = scaffold_godot_vertical_slice(args.output, name=args.name, overwrite=args.force)
+            else:
+                result = scaffold_game_release_pack(args.output, name=args.name, overwrite=args.force)
             _print(result)
             return
         if args.command == "delivery":
@@ -756,8 +792,11 @@ def main(argv: list[str] | None = None) -> None:
             path = sidecar_path(args.asset)
             if args.provenance_command == "show":
                 _print(json.loads(path.read_text(encoding="utf-8")))
-            else:
+            elif args.provenance_command == "create":
                 _print({"sidecar": str(create_sidecar(args.asset, tools=args.tools, source_assets=args.source_assets, human_modifications=args.human_modifications, commercial_use=args.commercial_use, force=args.force))})
+            else:
+                result = record_external_generation(args.asset, provider=args.provider, plan=args.plan, terms_url=args.terms_url, output_status=args.output_status, prompt_reference=args.prompt_reference, source_assets=args.source, force=args.force)
+                _print({"sidecar": str(result), "execution": "local_only_no_external_request"})
             return
         registry = load_registry()
         if args.command == "list":

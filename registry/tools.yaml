@@ -102,7 +102,7 @@ tools:
   - id: toolbox-local-workflows
     name: Toolbox local catalog and delivery workflows
     kind: python_component
-    capabilities: [catalog_assets, audit_delivery, package_delivery, evaluate_generation_candidate, find_duplicates, plan_asset_names, create_asset_manifest, compare_asset_manifests, plan_watch_highlights, create_procedural_music, create_procedural_sfx, assess_game_engine_readiness, scaffold_game_kit, scaffold_godot_project, map_godot_assets, plan_sprite_animations, compare_gameplay_reviews, audit_game_prototype]
+    capabilities: [catalog_assets, audit_delivery, package_delivery, evaluate_generation_candidate, find_duplicates, plan_asset_names, create_asset_manifest, compare_asset_manifests, plan_watch_highlights, create_procedural_music, create_procedural_sfx, assess_game_engine_readiness, scaffold_game_kit, scaffold_godot_project, map_godot_assets, plan_sprite_animations, compare_gameplay_reviews, audit_game_prototype, record_external_generation, plan_game_3d_remediation, plan_game_audio_package, scaffold_godot_vertical_slice, scaffold_game_release_pack]
     license_id: mit
     cost: {tier: free}
     execution: {local: true, windows: true}
@@ -111,5 +111,19 @@ tools:
     formats: {input: [json, png, jpg, jpeg, webp, wav, mp3, flac, blend, fbx, obj, gltf, glb], output: [json, zip]}
     hardware: {gpu_required: false}
     routing_priority: 95
+    fallback_ids: []
+    provenance: {record_version: true}
+  - id: ace-step-local
+    name: ACE-Step local music generation
+    kind: local_model_component
+    capabilities: [generate_music]
+    license_id: mit
+    cost: {tier: free}
+    execution: {local: true, windows: true}
+    interfaces: [cli, python, local_http]
+    external_opt_in: false
+    formats: {input: [txt, json, wav], output: [wav, flac, mp3, lrc]}
+    hardware: {gpu_required: true, min_vram_gb: 4, recommended_vram_gb: 6}
+    routing_priority: 85
     fallback_ids: []
     provenance: {record_version: true}

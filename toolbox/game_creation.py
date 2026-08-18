@@ -23,6 +23,8 @@ class GameCreationError(ValueError):
 
 _ASSET_EXTENSIONS = {".png", ".jpg", ".jpeg", ".webp", ".wav", ".mp3", ".ogg", ".glb", ".gltf", ".fbx", ".obj", ".blend"}
 _ENGINE_COMMANDS = {"godot": ["godot", "godot4"], "unity": ["Unity", "Unity.exe"], "unreal": ["UnrealEditor", "UnrealEditor.exe"]}
+_THREE_D_EXTENSIONS = {".glb", ".gltf", ".fbx", ".obj", ".blend"}
+_AUDIO_EXTENSIONS = {".wav", ".mp3", ".ogg"}
 
 
 def _files(directory: Path, *, max_files: int = 10000) -> list[Path]:
@@ -279,3 +281,73 @@ def audit_game_prototype(project: Path, *, require_build: bool = False) -> dict[
     if require_build and not build_files:
         issues.append("build_artifact_missing")
     return {"format": "toolbox-game-prototype-handoff/v1", "project": str(root), "asset_count": len(asset_sidecars), "missing_provenance": missing_provenance, "build_artifacts": [str(item.relative_to(root).as_posix()) for item in build_files], "issues": issues, "status": "READY_FOR_PROTOTYPE_HANDOFF" if not issues else "NEEDS_HANDOFF_REVIEW", "execution": "local_only", "limitations": "This checks project structure and recorded asset provenance; run the game and its engine-specific export checks separately."}
+
+
+def plan_game_3d_remediation(asset: Path) -> dict[str, Any]:
+    """Create a non-mutating handoff plan for a downloaded or generated 3D asset."""
+    asset = asset.resolve()
+    if not asset.is_file():
+        raise FileNotFoundError(f"3D asset does not exist: {asset}")
+    if asset.suffix.casefold() not in _THREE_D_EXTENSIONS:
+        raise GameCreationError("3D remediation requires .blend, .glb, .gltf, .fbx, or .obj input")
+    sidecar = asset.with_name(f"{asset.name}.provenance.json")
+    status = "PROVENANCE_REQUIRED" if not sidecar.is_file() else "READY_FOR_LOCAL_INSPECTION"
+    return {
+        "format": "toolbox-game-3d-remediation-plan/v1", "asset": str(asset),
+        "source_provenance": str(sidecar) if sidecar.is_file() else None, "status": status,
+        "required_checks": ["verify provider, plan, asset license, and attribution from provenance", "inspect scale, orientation, mesh topology, UVs, materials, and texture paths in Blender", "repair non-manifold geometry and apply transforms before 3D printing", "create LOD and collision meshes for real-time use", "export a reviewed game format such as glTF/GLB and re-run local preflight"],
+        "suggested_tools": ["toolbox provenance show", "toolbox blender preflight", "toolbox blender convert", "toolbox blender lod"],
+        "mutation": "none", "execution": "local_only",
+        "limitation": "This is a review plan; it does not claim that generated topology, licensing, rigging, or printability is valid.",
+    }
+
+
+def plan_game_audio_package(directory: Path, *, max_files: int = 10000) -> dict[str, Any]:
+    """Create a non-mutating game-audio packaging plan from existing local files."""
+    directory = directory.resolve()
+    if not directory.is_dir():
+        raise FileNotFoundError(f"Audio directory does not exist: {directory}")
+    audio = [item for item in sorted(directory.rglob("*")) if item.is_file() and item.suffix.casefold() in _AUDIO_EXTENSIONS]
+    if len(audio) > max_files:
+        raise GameCreationError(f"Directory exceeds the {max_files} audio safety limit")
+    records = []
+    for item in audio:
+        provenance = item.with_name(f"{item.name}.provenance.json")
+        records.append({"path": item.relative_to(directory).as_posix(), "format": item.suffix.casefold().lstrip("."), "bytes": item.stat().st_size, "provenance": str(provenance) if provenance.is_file() else None, "target": "music" if "music" in item.parts or "music" in item.name.casefold() else "sfx"})
+    missing = [record["path"] for record in records if record["provenance"] is None]
+    return {
+        "format": "toolbox-game-audio-package-plan/v1", "directory": str(directory), "assets": records, "missing_provenance": missing,
+        "required_checks": ["confirm release rights and attribution before packaging", "trim silence and verify intentional loop boundaries", "normalize loudness by category and preserve a high-quality source master", "export engine-ready OGG/WAV derivatives with stable lowercase names", "test variation, playback, and volume balance in the target engine"],
+        "suggested_tools": ["toolbox audio clean", "toolbox audio mix", "toolbox audio assemble", "toolbox provenance create"],
+        "status": "PROVENANCE_REQUIRED" if missing else "READY_FOR_LOCAL_AUDIO_PRODUCTION", "mutation": "none", "execution": "local_only",
+    }
+
+
+def scaffold_godot_vertical_slice(output: Path, *, name: str, overwrite: bool = False) -> dict[str, Any]:
+    """Create a local, review-first Godot vertical-slice structure without launching Godot."""
+    base = scaffold_godot_project(output, name=name, overwrite=overwrite)
+    root = Path(base["output"])
+    player = root / "scripts" / "player.gd"
+    player.write_text("extends CharacterBody2D\n\n@export var speed := 260.0\n\nfunc _physics_process(_delta: float) -> void:\n\tvar direction := Input.get_vector(\"move_left\", \"move_right\", \"move_up\", \"move_down\")\n\tvelocity = direction * speed\n\tmove_and_slide()\n", encoding="utf-8")
+    checklist = root / "docs" / "vertical-slice-checklist.md"
+    checklist.write_text("# Vertical Slice Checklist\n\n- Configure `move_left`, `move_right`, `move_up`, and `move_down` in Godot Project Settings.\n- Add a Player CharacterBody2D and attach `scripts/player.gd`.\n- Add one interaction, one UI state, one music loop, and one SFX trigger.\n- Import reviewed assets with provenance sidecars.\n- Run locally in Godot and capture gameplay evidence before handoff.\n", encoding="utf-8")
+    manifest = root / "vertical-slice.json"
+    manifest.write_text(json.dumps({"format": "toolbox-godot-vertical-slice/v1", "name": name.strip(), "main_scene": "scenes/main.tscn", "player_script": "scripts/player.gd", "required_input_actions": ["move_left", "move_right", "move_up", "move_down"], "required_demonstrations": ["movement", "one interaction", "one UI state", "music and SFX", "captured gameplay evidence"], "status": "SCAFFOLDED_REQUIRES_LOCAL_GODOT_VALIDATION"}, indent=2) + "\n", encoding="utf-8")
+    return {**base, "format": "toolbox-godot-vertical-slice/v1", "player_script": str(player), "checklist": str(checklist), "vertical_slice_manifest": str(manifest), "note": "No engine was launched and no input mapping was assumed; configure and test this slice in local Godot."}
+
+
+def scaffold_game_release_pack(output: Path, *, name: str, overwrite: bool = False) -> dict[str, Any]:
+    """Create a bounded local delivery layout for gameplay marketing and release materials."""
+    output = output.resolve()
+    if output.exists() and any(output.iterdir()) and not overwrite:
+        raise FileExistsError(f"Release-pack directory is not empty: {output}; use --force to add the standard folders")
+    if not name.strip():
+        raise GameCreationError("Release name must not be empty")
+    folders = ["screenshots", "trailer/source", "trailer/final", "social", "store", "subtitles", "metadata"]
+    for folder in folders:
+        (output / folder).mkdir(parents=True, exist_ok=True)
+    readme = output / "README.md"
+    readme.write_text(f"# {name.strip()} Release Pack\n\nThis folder contains local deliverables only. Add provenance sidecars for every imported or generated media asset.\n\n1. Capture local gameplay with OBS.\n2. Assemble and caption a local trailer with FFmpeg/Kdenlive.\n3. Create screenshot and social variants.\n4. Audit this folder before packaging or publishing.\n", encoding="utf-8")
+    manifest = output / "metadata" / "release-pack.json"
+    manifest.write_text(json.dumps({"format": "toolbox-game-release-pack/v1", "name": name.strip(), "folders": folders, "required_before_publish": ["asset provenance", "license/attribution review", "local preview", "owner approval"], "publication": "not performed by this scaffold"}, indent=2) + "\n", encoding="utf-8")
+    return {"format": "toolbox-game-release-pack/v1", "output": str(output), "manifest": str(manifest), "readme": str(readme), "folders": folders, "execution": "local_only", "publication": "not performed"}

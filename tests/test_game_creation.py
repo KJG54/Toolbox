@@ -5,7 +5,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from toolbox.game_creation import asset_manifest, asset_naming_plan, audit_game_prototype, compare_asset_manifests, compare_gameplay_reviews, generate_tone_asset, map_godot_assets, plan_sprite_animations, plan_watch_highlights, scaffold_game_kit, scaffold_godot_project, write_json
+from toolbox.game_creation import asset_manifest, asset_naming_plan, audit_game_prototype, compare_asset_manifests, compare_gameplay_reviews, generate_tone_asset, map_godot_assets, plan_game_3d_remediation, plan_game_audio_package, plan_sprite_animations, plan_watch_highlights, scaffold_game_kit, scaffold_game_release_pack, scaffold_godot_project, scaffold_godot_vertical_slice, write_json
+from toolbox.provenance import record_external_generation, sidecar_path
 
 
 class GameCreationTests(unittest.TestCase):
@@ -78,3 +79,28 @@ class GameCreationTests(unittest.TestCase):
             audit = audit_game_prototype(root, require_build=True)
             self.assertIn("asset_provenance_missing", audit["issues"])
             self.assertIn("build_artifact_missing", audit["issues"])
+
+    def test_external_generation_receipt_and_3d_remediation_plan_are_local(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            asset = Path(temporary) / "generated.glb"
+            asset.write_bytes(b"fixture")
+            receipt = record_external_generation(asset, provider="Meshy", plan="Free", terms_url="https://example.invalid/terms", output_status="ATTRIBUTION_REQUIRED", prompt_reference="design-7", source_assets=["reference.png"])
+            self.assertEqual(receipt, sidecar_path(asset))
+            plan = plan_game_3d_remediation(asset)
+            self.assertEqual(plan["status"], "READY_FOR_LOCAL_INSPECTION")
+            self.assertEqual(asset.read_bytes(), b"fixture")
+
+    def test_audio_plan_and_scaffolds_have_explicit_local_boundaries(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            audio = root / "audio"
+            audio.mkdir()
+            (audio / "music-loop.wav").write_bytes(b"fixture")
+            plan = plan_game_audio_package(audio)
+            self.assertEqual(plan["status"], "PROVENANCE_REQUIRED")
+            slice_result = scaffold_godot_vertical_slice(root / "slice", name="Slice")
+            self.assertTrue(Path(slice_result["player_script"]).is_file())
+            self.assertTrue(Path(slice_result["checklist"]).is_file())
+            release = scaffold_game_release_pack(root / "release", name="Slice")
+            self.assertEqual(release["publication"], "not performed")
+            self.assertTrue(Path(release["manifest"]).is_file())

@@ -77,6 +77,9 @@ def detect_tools() -> dict[str, dict[str, Any]]:
     whisper_tiny_cached = (Path.home() / ".cache" / "huggingface" / "hub" / "models--Systran--faster-whisper-tiny").is_dir()
     windows_voice_registry = _windows_voice_registry_present()
     tts_root = ROOT / "examples" / "tts"
+    ace_root = ROOT / "components" / "ace-step"
+    ace_python = ace_root / ".venv" / "Scripts" / "python.exe"
+    ace_main_model = ace_root / "checkpoints" / "acestep-v15-turbo" / "model.safetensors"
     blender_roots = [
         Path.home() / "AppData" / "Local" / "Programs" / "Blender Foundation",
         Path("C:/Program Files/Blender Foundation"),
@@ -104,6 +107,16 @@ def detect_tools() -> dict[str, dict[str, Any]]:
         "tts-examples": {
             "status": "READY" if (tts_root / "tts.py").is_file() else "NOT_INSTALLED",
             "path": str(tts_root),
+        },
+        "ace-step-local": {
+            "status": "READY_LOCAL_SLOW" if ace_python.is_file() and ace_main_model.is_file() else "SETUP_INCOMPLETE" if ace_root.is_dir() else "NOT_INSTALLED",
+            "path": str(ace_root),
+            "features": {
+                "isolated_python_3_12": "READY" if ace_python.is_file() else "NOT_INSTALLED",
+                "turbo_model": "READY" if ace_main_model.is_file() else "NOT_INSTALLED",
+                "profile": "turbo_no_lm_int8_cpu_offload",
+                "expected_performance": "LOCAL_SLOW",
+            },
         },
         "windows-sapi-tts": {
             "status": "READY_INTERACTIVE_SESSION_REQUIRED" if importlib.util.find_spec("pyttsx3") and windows_voice_registry else "VOICE_CONFIGURATION_REQUIRED" if importlib.util.find_spec("pyttsx3") else "NOT_INSTALLED",

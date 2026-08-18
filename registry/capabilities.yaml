@@ -197,3 +197,18 @@ capabilities:
   - id: audit_game_prototype
     name: Audit game prototype handoff
     description: Check a local Godot project for recorded asset provenance and optional build artifacts.
+  - id: record_external_generation
+    name: Record external generation
+    description: Create local provenance for an already-downloaded external output without invoking its provider.
+  - id: plan_game_3d_remediation
+    name: Plan game 3D remediation
+    description: Create a review-only local checklist for turning an imported 3D asset into a game or print candidate.
+  - id: plan_game_audio_package
+    name: Plan game audio package
+    description: Create a local production plan for existing music and sound-effect assets.
+  - id: scaffold_godot_vertical_slice
+    name: Scaffold Godot vertical slice
+    description: Create a local Godot slice template with player script and validation checklist without launching the engine.
+  - id: scaffold_game_release_pack
+    name: Scaffold game release pack
+    description: Create a local screenshots, trailer, social, store, and metadata delivery layout without publishing.

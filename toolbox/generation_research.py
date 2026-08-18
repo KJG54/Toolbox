@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from .paths import ROOT
+
 
 class GenerationResearchError(ValueError):
     """Raised when an unsupported generation research topic is requested."""
@@ -13,21 +15,21 @@ _TOPICS = {
         "candidate": "FLUX.1 Schnell",
         "source": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
         "license_status": "apache-2.0_model_access_conditions_apply",
-        "notes": "The official model card presents local Diffusers use, but access is gated and the listed transformer file is 23.8 GB. No runtime or weights are installed.",
+        "notes": "Owner-deferred: use an approved secondary image source instead. The official model card presents local Diffusers use, but access is gated and the listed transformer file is 23.8 GB. No runtime or weights are installed.",
     },
     "music": {
         "capability": "generate_music",
         "candidate": "ACE-Step 1.5",
         "source": "https://github.com/ACE-Step/ACE-Step-1.5",
-        "license_status": "requires_review",
-        "notes": "No model or runtime is installed. Verify the exact release, weights, dependencies, and hardware before installation.",
+        "license_status": "mit_verified",
+        "notes": "Installed local component: pinned source, Python 3.12 runtime, and Ace-Step1.5 Turbo bundle. Current 6 GB profile disables the language model and uses INT8 plus CPU offload.",
     },
     "sfx": {
         "capability": "generate_sfx",
         "candidate": None,
         "source": None,
-        "license_status": "requires_research",
-        "notes": "No local sound-effect generator has been selected or installed.",
+        "license_status": "deferred_by_owner",
+        "notes": "Owner-deferred: use Toolbox procedural SFX. No AI sound-effect generator is selected or installed.",
     },
 }
 
@@ -40,12 +42,15 @@ def research_generation(kind: str) -> dict[str, object]:
         "format": "toolbox-generation-research/v1",
         "kind": kind,
         **_TOPICS[kind],
-        "required_review": [
+        "required_review": ([
+            "Measure local VRAM and generation time before routing production work.",
+            "Keep the 6 GB Turbo/no-LM profile unless stronger local hardware is available.",
+        ] if kind == "music" else [
             "Verify the current project and model-weight licenses from official sources.",
             "Review downloaded code before execution.",
             "Measure local VRAM and generation time before routing production work.",
             "Obtain approval before installing the runtime or downloading model weights.",
-        ],
+        ]),
         "external_actions_performed": [],
         "mutations_performed": [],
     }
@@ -61,12 +66,11 @@ def evaluate_generation(kind: str) -> dict[str, object]:
     hardware = detect_hardware()
     vram = max((gpu["vram_mb"] for gpu in hardware["gpus"]), default=0) / 1024
     if kind == "music":
-        status = "UNSUPPORTED_LOCAL_PYTHON" if sys.version_info[:2] not in {(3, 11), (3, 12)} else "LOCAL_SLOW"
-        decision = (
-            "ACE-Step 1.5 documents Python 3.11-3.12; this runtime must be changed before installation can be considered."
-            if status == "UNSUPPORTED_LOCAL_PYTHON"
-            else "The documented 6 GB configuration relies on quantization and CPU offload; measure output quality and time before relying on it."
-        )
+        ace_root = ROOT / "components" / "ace-step"
+        runtime = ace_root / ".venv" / "Scripts" / "python.exe"
+        model = ace_root / "checkpoints" / "acestep-v15-turbo" / "model.safetensors"
+        status = "LOCAL_SLOW" if runtime.is_file() and model.is_file() else "SETUP_REQUIRED"
+        decision = "Installed ACE-Step Turbo is ready with the no-LM, INT8, CPU-offload profile. It is expected to be slow; measure each result before production use." if status == "LOCAL_SLOW" else "ACE-Step requires its isolated Python 3.11-3.12 runtime and local model bundle before use."
         requirements = {"documented_min_vram_gb": 4, "documented_recommended_vram_gb": 6, "documented_python": ["3.11", "3.12"]}
     elif kind == "image":
         status = "HARDWARE_UPGRADE_REQUIRED"

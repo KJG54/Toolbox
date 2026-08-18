@@ -62,6 +62,13 @@ toolbox texture export-profile texture.png --profile godot-mobile --output outpu
 toolbox game sprite-animation-plan outputs/sprites.atlas.json --output outputs/animations.json
 toolbox game compare-gameplay outputs/baseline-review.json outputs/candidate-review.json
 toolbox game prototype-handoff outputs/my-godot-game --require-build
+toolbox provenance external asset.glb --provider Meshy --plan Free --terms-url https://www.meshy.ai/pricing --output-status ATTRIBUTION_REQUIRED
+toolbox game 3d-remediation-plan asset.glb --output outputs/asset-3d-plan.json
+toolbox game audio-package-plan audio --output outputs/audio-package.json
+toolbox game godot-vertical-slice --name "My Slice" --output outputs/my-slice
+toolbox game release-pack --name "My Prototype" --output outputs/release-pack
+toolbox status ace-step-local
+toolbox research evaluate-generation music
 ```
 
 Read [TOOLBOX.md](TOOLBOX.md) before asking an agent to create an artifact. The preserved
@@ -132,3 +139,12 @@ Godot assets are expected to live in the project folder and are mapped as review
 not Toolbox, generates and validates import metadata. Godot texture profiles create local PNG derivatives; sprite animation
 plans group Toolbox atlas entries by filename prefix. Use gameplay comparison to flag evidence events that were previously
 observed but are no longer observed, and use prototype handoff audit for structural/provenance readiness before sharing.
+
+For external generation websites, first receive explicit approval, then use `toolbox provenance external` **after** the output
+has been downloaded. It records the service plan and output status without contacting the provider. The 3D remediation and
+audio-package commands produce non-mutating local review plans; the vertical-slice and release-pack commands create local
+scaffolds only. See [game production workflows](docs/game-production-workflows.md) for the five-step workflow and release gates.
+
+ACE-Step is an installed local-only music component. On the current 6 GB RTX 2060 it uses Turbo without the language model,
+INT8 weights, and CPU offload; this is functional but expected to be slow. See
+[generation decisions](docs/generation-decisions.md) before changing its model configuration.

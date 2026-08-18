@@ -11,6 +11,7 @@ components/watch-skill/.venv/
 components/watch-skill/.pytest_cache/
 components/watch-skill/.ruff_cache/
 components/watch-skill/**/__pycache__/
+components/ace-step/
 
 # Machine-specific and generated media state
 runtime/

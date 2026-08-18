@@ -14,19 +14,22 @@ models:
     name: ACE-Step 1.5
     category: music
     capabilities: [generate_music]
-    license_id: requires-review
-    commercial_use: requires_review
-    status: research_candidate_not_installed
-    runtime: {local_only: true, installation_requires_approval: true, python: [3.11, 3.12]}
+    license_id: mit
+    commercial_use: allowed
+    status: installed_local_pinned
+    revision: 14c0211d5a0653b0f63e27686f4c3f151b4d8629
+    runtime: {local_only: true, component: components/ace-step, python: 3.12.13, model_bundle: Ace-Step1.5}
     hardware: {min_vram_gb: 4, recommended_vram_gb: 6}
-    source: https://github.com/ACE-Step/ACE-Step-1.5
+    installed_profile: {model: acestep-v15-turbo, language_model: disabled, quantization: int8_weight_only, cpu_offload: true, attention: eager}
+    source: https://huggingface.co/ACE-Step/Ace-Step1.5
+    source_code: https://github.com/ACE-Step/ACE-Step-1.5
   - id: flux-1-schnell
     name: FLUX.1 Schnell
     category: image
     capabilities: [generate_image]
     license_id: apache-2.0
     commercial_use: allowed
-    status: research_candidate_not_installed
+    status: deferred_by_owner
     runtime: {backend: diffusers, local_only: true, installation_requires_approval: true, model_access: gated}
     hardware: {min_vram_gb: null, recommended_vram_gb: null, listed_transformer_file_gb: 23.8}
     source: https://huggingface.co/black-forest-labs/FLUX.1-schnell

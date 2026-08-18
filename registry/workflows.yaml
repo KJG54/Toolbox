@@ -312,3 +312,55 @@ workflows:
       - capability: audit_game_prototype
         tool: toolbox-local-workflows
         output: project_handoff_readiness
+  - id: external-generation-intake
+    name: Record an approved external generation locally
+    steps:
+      - capability: record_external_generation
+        tool: toolbox-local-workflows
+        output: generation_provenance_sidecar
+  - id: remediate-game-3d-asset
+    name: Prepare an imported 3D asset for game or print review
+    steps:
+      - capability: plan_game_3d_remediation
+        tool: toolbox-local-workflows
+        output: remediation_plan
+      - capability: preflight_3d_asset
+        tool: blender
+        optional: true
+        output: local_preflight_report
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: package-game-audio
+    name: Plan a local game audio package
+    steps:
+      - capability: plan_game_audio_package
+        tool: toolbox-local-workflows
+        output: audio_package_plan
+      - capability: clean_audio
+        tool: ffmpeg
+        optional: true
+        output: reviewed_audio_derivatives
+      - capability: create_provenance_record
+        output: provenance_sidecars
+  - id: godot-vertical-slice
+    name: Scaffold a local Godot vertical slice
+    steps:
+      - capability: scaffold_godot_vertical_slice
+        tool: toolbox-local-workflows
+        output: local_godot_vertical_slice
+      - capability: map_godot_assets
+        tool: toolbox-local-workflows
+        output: reviewable_res_path_map
+  - id: game-release-pack
+    name: Scaffold a local game release and marketing pack
+    steps:
+      - capability: scaffold_game_release_pack
+        tool: toolbox-local-workflows
+        output: release_delivery_layout
+      - capability: assemble_video
+        tool: ffmpeg
+        optional: true
+        output: local_trailer_derivative
+      - capability: audit_delivery
+        tool: toolbox-local-workflows
+        output: owner_review_report
