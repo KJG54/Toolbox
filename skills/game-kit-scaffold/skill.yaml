@@ -1,0 +1,5 @@
+name: game-kit-scaffold
+description: Create an engine-neutral local game asset kit scaffold.
+version: 1
+capabilities: [scaffold_game_kit]
+external_opt_in: false

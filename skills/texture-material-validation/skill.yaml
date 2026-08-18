@@ -1,0 +1,5 @@
+name: texture-material-validation
+description: Report local texture and material-map readiness without editing source images.
+version: 1
+capabilities: [validate_textures]
+external_opt_in: false

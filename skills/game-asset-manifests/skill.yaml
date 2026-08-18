@@ -1,0 +1,5 @@
+name: game-asset-manifests
+description: Record and compare local game asset changes.
+version: 1
+capabilities: [create_asset_manifest, compare_asset_manifests]
+external_opt_in: false

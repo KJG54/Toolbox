@@ -1,0 +1,5 @@
+name: game-texture-profiles
+description: Export local game texture derivatives using bounded profile settings.
+version: 1
+capabilities: [export_texture_profile]
+external_opt_in: false

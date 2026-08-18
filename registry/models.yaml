@@ -11,12 +11,22 @@ models:
     hardware: {min_vram_gb: 4, recommended_vram_gb: 6, cpu_supported: true}
     source: https://huggingface.co/microsoft/Florence-2-base
   - id: ace-step
-    name: ACE-Step
+    name: ACE-Step 1.5
     category: music
     capabilities: [generate_music]
     license_id: requires-review
     commercial_use: requires_review
     status: research_candidate_not_installed
-    runtime: {local_only: true, installation_requires_approval: true}
-    hardware: {min_vram_gb: null, recommended_vram_gb: null}
-    source: https://github.com/ace-step/ACE-Step
+    runtime: {local_only: true, installation_requires_approval: true, python: [3.11, 3.12]}
+    hardware: {min_vram_gb: 4, recommended_vram_gb: 6}
+    source: https://github.com/ACE-Step/ACE-Step-1.5
+  - id: flux-1-schnell
+    name: FLUX.1 Schnell
+    category: image
+    capabilities: [generate_image]
+    license_id: apache-2.0
+    commercial_use: allowed
+    status: research_candidate_not_installed
+    runtime: {backend: diffusers, local_only: true, installation_requires_approval: true, model_access: gated}
+    hardware: {min_vram_gb: null, recommended_vram_gb: null, listed_transformer_file_gb: 23.8}
+    source: https://huggingface.co/black-forest-labs/FLUX.1-schnell

@@ -29,3 +29,8 @@ licenses:
     commercial_use: allowed
     review_status: verified
     source: https://github.com/python-pillow/Pillow/blob/main/LICENSE
+  - id: apache-2.0
+    name: Apache License 2.0
+    commercial_use: allowed
+    review_status: verified
+    source: https://huggingface.co/black-forest-labs/FLUX.1-schnell

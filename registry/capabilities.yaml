@@ -98,3 +98,102 @@ capabilities:
   - id: generate_sfx
     name: Generate sound effects
     description: Create sound effects from a separately approved local generation model.
+  - id: generate_image
+    name: Generate image
+    description: Create an image with a separately approved local generation model.
+  - id: pack_texture_atlas
+    name: Pack texture atlas
+    description: Pack local sprites or texture images into a source-preserving atlas derivative.
+  - id: assemble_video
+    name: Assemble video
+    description: Concatenate ordered local clips into a re-encoded local MP4 derivative.
+  - id: assign_material_maps
+    name: Assign material maps
+    description: Create a reviewable Blender derivative with explicit local texture map assignments.
+  - id: evaluate_generation_candidate
+    name: Evaluate generation candidate
+    description: Compare reviewed local generation candidate requirements with detected local hardware without installation.
+  - id: find_duplicates
+    name: Find duplicates
+    description: Report exact file duplicates and local perceptual image matches without deleting anything.
+  - id: export_texture_profile
+    name: Export texture profile
+    description: Create a source-preserving local texture derivative for a named game target profile.
+  - id: export_subtitles
+    name: Export subtitles
+    description: Export local Watch transcript evidence as SRT or WebVTT subtitles.
+  - id: export_chapters
+    name: Export chapters
+    description: Export local Watch scene evidence as FFmpeg chapter metadata.
+  - id: mix_audio
+    name: Mix audio
+    description: Mix local narration and music with controlled gain, fade, and ducking.
+  - id: render_turntable
+    name: Render turntable
+    description: Render a local Blender scene from multiple orbiting angles without changing the source.
+  - id: catalog_assets
+    name: Catalog local assets
+    description: Index and filter downloaded local assets by filename tags, format, and recorded license state.
+  - id: validate_textures
+    name: Validate textures
+    description: Report local texture dimensions, alpha, and recognizable material-map readiness evidence.
+  - id: batch_convert_3d
+    name: Batch convert 3D assets
+    description: Convert a bounded local directory of 3D assets into source-preserving derivatives.
+  - id: assemble_audio
+    name: Assemble audio
+    description: Concatenate ordered local audio clips into a separate normalized derivative.
+  - id: audit_delivery
+    name: Audit delivery
+    description: Check local handoff artifacts, required files, and provenance sidecars before delivery.
+  - id: package_delivery
+    name: Package delivery
+    description: Create a ZIP handoff package only after a local delivery audit passes.
+  - id: plan_asset_names
+    name: Plan asset names
+    description: Report non-mutating game asset naming normalization proposals.
+  - id: create_asset_manifest
+    name: Create asset manifest
+    description: Record local game asset paths, hashes, and sizes for change review.
+  - id: compare_asset_manifests
+    name: Compare asset manifests
+    description: Report added, removed, and changed game assets between saved manifests.
+  - id: plan_watch_highlights
+    name: Plan Watch highlights
+    description: Build a review-only highlight plan from saved Watch evidence.
+  - id: create_video_contact_sheet
+    name: Create video contact sheet
+    description: Create a local visual index of bounded video frames.
+  - id: create_procedural_music
+    name: Create procedural music
+    description: Generate deterministic, non-AI local music-loop WAV assets.
+  - id: create_procedural_sfx
+    name: Create procedural sound effects
+    description: Generate deterministic, non-AI local sound-effect WAV assets.
+  - id: create_procedural_3d_prop
+    name: Create procedural 3D prop
+    description: Create a simple original local Blender prop for prototyping.
+  - id: assess_game_engine_readiness
+    name: Assess game engine readiness
+    description: Detect selected local game-engine command availability without installing anything.
+  - id: scaffold_game_kit
+    name: Scaffold game kit
+    description: Create a bounded local game asset folder layout and manifest.
+  - id: create_3d_handoff_report
+    name: Create 3D handoff report
+    description: Combine local Blender inspection evidence for a reviewable game-asset handoff.
+  - id: scaffold_godot_project
+    name: Scaffold Godot project
+    description: Create and inspect a minimal local Godot project definition without installing or launching Godot.
+  - id: map_godot_assets
+    name: Map Godot assets
+    description: Report local project asset paths as Godot res:// resources without copying or importing them.
+  - id: plan_sprite_animations
+    name: Plan sprite animations
+    description: Group a local Toolbox atlas layout into reviewable sprite animation frame ranges.
+  - id: compare_gameplay_reviews
+    name: Compare gameplay reviews
+    description: Detect changes and regressions between two saved local gameplay evidence reviews.
+  - id: audit_game_prototype
+    name: Audit game prototype handoff
+    description: Check a local Godot project for recorded asset provenance and optional build artifacts.

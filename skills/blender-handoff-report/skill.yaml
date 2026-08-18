@@ -1,0 +1,5 @@
+name: blender-handoff-report
+description: Create a reviewable local Blender game-asset handoff report.
+version: 1
+capabilities: [create_3d_handoff_report]
+external_opt_in: false

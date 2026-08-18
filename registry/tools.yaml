@@ -2,7 +2,7 @@ tools:
   - id: watch-skill
     name: Watch Skill
     kind: component
-    capabilities: [watch_video, transcribe_audio, detect_scenes, understand_video, visual_qa, query_evidence_timeline, assess_asset_evidence, verify_ui_tutorial_steps, review_gameplay_events, search_evidence_library]
+    capabilities: [watch_video, transcribe_audio, detect_scenes, understand_video, visual_qa, query_evidence_timeline, assess_asset_evidence, verify_ui_tutorial_steps, review_gameplay_events, search_evidence_library, export_subtitles, export_chapters]
     license_id: mit
     cost: {tier: free}
     execution: {local: true, windows: true}
@@ -31,7 +31,7 @@ tools:
   - id: ffmpeg
     name: FFmpeg
     kind: application
-    capabilities: [normalize_media, clean_audio]
+    capabilities: [normalize_media, clean_audio, assemble_audio, assemble_video, mix_audio, create_video_contact_sheet]
     license_id: requires-review
     cost: {tier: free}
     execution: {local: true, windows: true}
@@ -46,7 +46,7 @@ tools:
   - id: blender
     name: Blender
     kind: application
-    capabilities: [model_3d, convert_3d_format, inspect_3d_asset, preflight_3d_asset, render_3d_preview, control_blender, inspect_game_asset, generate_lod]
+    capabilities: [model_3d, convert_3d_format, inspect_3d_asset, preflight_3d_asset, render_3d_preview, control_blender, inspect_game_asset, generate_lod, batch_convert_3d, assign_material_maps, render_turntable, create_procedural_3d_prop, create_3d_handoff_report]
     license_id: gpl-3.0-or-later
     cost: {tier: free}
     execution: {local: true, windows: true}
@@ -88,7 +88,7 @@ tools:
   - id: pillow-image-prep
     name: Pillow image preparation
     kind: python_library
-    capabilities: [prepare_image, upscale_image]
+    capabilities: [prepare_image, upscale_image, validate_textures, pack_texture_atlas, export_texture_profile]
     license_id: pillow-mit-cmu
     cost: {tier: free}
     execution: {local: true, windows: true}
@@ -97,5 +97,19 @@ tools:
     formats: {input: [png, jpg, jpeg, webp, bmp, tiff], output: [png, jpg, jpeg, webp, bmp, tiff]}
     hardware: {gpu_required: false}
     routing_priority: 90
+    fallback_ids: []
+    provenance: {record_version: true}
+  - id: toolbox-local-workflows
+    name: Toolbox local catalog and delivery workflows
+    kind: python_component
+    capabilities: [catalog_assets, audit_delivery, package_delivery, evaluate_generation_candidate, find_duplicates, plan_asset_names, create_asset_manifest, compare_asset_manifests, plan_watch_highlights, create_procedural_music, create_procedural_sfx, assess_game_engine_readiness, scaffold_game_kit, scaffold_godot_project, map_godot_assets, plan_sprite_animations, compare_gameplay_reviews, audit_game_prototype]
+    license_id: mit
+    cost: {tier: free}
+    execution: {local: true, windows: true}
+    interfaces: [cli, python]
+    external_opt_in: false
+    formats: {input: [json, png, jpg, jpeg, webp, wav, mp3, flac, blend, fbx, obj, gltf, glb], output: [json, zip]}
+    hardware: {gpu_required: false}
+    routing_priority: 95
     fallback_ids: []
     provenance: {record_version: true}

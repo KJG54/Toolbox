@@ -55,6 +55,6 @@ class ImageAudioAndGenerationTests(unittest.TestCase):
 
     def test_generation_research_is_review_only(self) -> None:
         result = research_generation("music")
-        self.assertEqual(result["candidate"], "ACE-Step")
+        self.assertEqual(result["candidate"], "ACE-Step 1.5")
         self.assertEqual(result["external_actions_performed"], [])
         self.assertEqual(result["mutations_performed"], [])

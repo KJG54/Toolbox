@@ -122,6 +122,20 @@ def detect_tools() -> dict[str, dict[str, Any]]:
                 "semantic_device": semantic_device,
             },
         },
+        "pillow-image-prep": {
+            "status": "READY" if visual_ready else "NOT_INSTALLED",
+            "path": str(ROOT / "toolbox" / "image_prep.py"),
+        },
+        "toolbox-local-workflows": {
+            "status": "READY" if (ROOT / "toolbox" / "delivery.py").is_file() else "NOT_INSTALLED",
+            "path": str(ROOT / "toolbox"),
+            "features": {
+                "asset_catalog": "READY" if (ROOT / "toolbox" / "asset_catalog.py").is_file() else "NOT_INSTALLED",
+                "delivery_audit": "READY" if (ROOT / "toolbox" / "delivery.py").is_file() else "NOT_INSTALLED",
+                "game_creation": "READY" if (ROOT / "toolbox" / "game_creation.py").is_file() else "NOT_INSTALLED",
+                "procedural_audio": "READY" if (ROOT / "toolbox" / "game_creation.py").is_file() else "NOT_INSTALLED",
+            },
+        },
         "ffmpeg": {
             "status": "READY" if shutil.which("ffmpeg") else "NOT_INSTALLED",
             "path": shutil.which("ffmpeg"),
