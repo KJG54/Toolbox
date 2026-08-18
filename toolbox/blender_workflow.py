@@ -458,6 +458,7 @@ def create_procedural_prop(output: Path, *, kind: str, overwrite: bool = False) 
     marker = "TOOLBOX_PROP="
     body = (
         "import bpy,json\n"
+        "from mathutils import Vector\n"
         f"kind={json.dumps(kind)}; out={json.dumps(str(output))}\n"
         "bpy.ops.object.select_all(action='SELECT'); bpy.ops.object.delete(use_global=False)\n"
         "if kind=='crate':\n"
@@ -469,6 +470,9 @@ def create_procedural_prop(output: Path, *, kind: str, overwrite: bool = False) 
         "else:\n"
         " bpy.ops.mesh.primitive_cube_add(size=2); obj=bpy.context.object; obj.name='SM_Platform'; obj.scale=(2,2,.25); bpy.ops.object.transform_apply(location=False,rotation=False,scale=True)\n"
         "obj['toolbox_generated']=True; obj['collision_hint']='UCX_'+obj.name\n"
+        "scene=bpy.context.scene\n"
+        "camera_data=bpy.data.cameras.new('ToolboxPreviewCamera'); camera=bpy.data.objects.new('ToolboxPreviewCamera',camera_data); scene.collection.objects.link(camera); camera.location=(4,-4,3); camera.rotation_euler=(Vector((0,0,0))-camera.location).to_track_quat('-Z','Y').to_euler(); scene.camera=camera\n"
+        "light_data=bpy.data.lights.new('ToolboxPreviewLight',type='AREA'); light_data.energy=1000; light_data.shape='DISK'; light_data.size=5; light=bpy.data.objects.new('ToolboxPreviewLight',light_data); scene.collection.objects.link(light); light.location=(3,-3,5); light.rotation_euler=(Vector((0,0,0))-light.location).to_track_quat('-Z','Y').to_euler()\n"
         "bpy.ops.wm.save_as_mainfile(filepath=out); print('" + marker + "'+json.dumps({'object':obj.name}))\n"
     )
     completed = subprocess.run([blender_binary(), "--background", "--factory-startup", "--disable-autoexec", "--python-expr", "exec(" + json.dumps(body) + ")"], text=True, capture_output=True, check=False, timeout=120)

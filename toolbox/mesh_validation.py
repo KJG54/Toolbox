@@ -45,13 +45,18 @@ def validate_mesh(source: Path) -> dict[str, Any]:
         raise MeshValidationError("Input does not contain a triangle mesh")
     import numpy as np
 
-    edge_counts = np.bincount(mesh.edges_unique_inverse, minlength=len(mesh.edges_unique))
+    # glTF/GLB often duplicates a position at UV or normal seams.  Those
+    # duplicates must be welded on an in-memory topology copy; otherwise a
+    # closed mesh exported from Blender can be falsely reported as open.
+    topology_mesh = mesh.copy()
+    topology_mesh.merge_vertices(merge_tex=True, merge_norm=True)
+    edge_counts = np.bincount(topology_mesh.edges_unique_inverse, minlength=len(topology_mesh.edges_unique))
     boundary_edges = int(np.count_nonzero(edge_counts == 1))
     non_manifold_edges = int(np.count_nonzero(edge_counts > 2))
     edge_manifold = non_manifold_edges == 0
-    watertight = bool(mesh.is_watertight)
-    winding_consistent = bool(mesh.is_winding_consistent)
-    is_volume = bool(mesh.is_volume)
+    watertight = bool(topology_mesh.is_watertight)
+    winding_consistent = bool(topology_mesh.is_winding_consistent)
+    is_volume = bool(topology_mesh.is_volume)
     print_status = "READY_FOR_PRINT_REVIEW" if watertight and winding_consistent and is_volume else "NOT_PRINT_READY"
     game_status = "READY_FOR_GAME_REVIEW" if len(mesh.vertices) and len(mesh.faces) else "INVALID"
     return {
@@ -59,6 +64,7 @@ def validate_mesh(source: Path) -> dict[str, Any]:
         "source": str(source),
         "geometry_count": geometry_count,
         "vertices": int(len(mesh.vertices)),
+        "topology_vertices": int(len(topology_mesh.vertices)),
         "faces": int(len(mesh.faces)),
         "edge_manifold": edge_manifold,
         "boundary_edges": boundary_edges,
@@ -66,7 +72,7 @@ def validate_mesh(source: Path) -> dict[str, Any]:
         "watertight": watertight,
         "winding_consistent": winding_consistent,
         "is_volume": is_volume,
-        "euler_number": int(mesh.euler_number),
+        "euler_number": int(topology_mesh.euler_number),
         "bounds": [[float(value) for value in row] for row in mesh.bounds.tolist()],
         "print_status": print_status,
         "game_status": game_status,
