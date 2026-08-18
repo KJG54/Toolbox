@@ -6,6 +6,7 @@ import platform
 import shutil
 import subprocess
 import ctypes
+import importlib.util
 from pathlib import Path
 from typing import Any
 
@@ -66,10 +67,15 @@ def detect_tools() -> dict[str, dict[str, Any]]:
         (watch_packages / package).exists()
         for package in ("imagehash", "PIL", "cv2")
     )
+    visual_ready = all(importlib.util.find_spec(package) for package in ("cv2", "imagehash", "PIL"))
+    semantic_runtime_ready = all(importlib.util.find_spec(package) for package in ("torch", "transformers", "huggingface_hub"))
+    semantic_model_cached = (Path.home() / ".cache" / "huggingface" / "hub" / "models--microsoft--Florence-2-base" / "snapshots" / "5ca5edf5bd017b9919c05d08aebef5e4c7ac3bac").is_dir()
+    semantic_device = _semantic_device() if semantic_runtime_ready else "NOT_INSTALLED"
     embeddings_ready = (watch_packages / "fastembed").exists()
     ocr_ready = all((watch_packages / package).exists() for package in ("rapidocr", "onnxruntime"))
     whisper_ready = (watch_packages / "faster_whisper").exists()
     whisper_tiny_cached = (Path.home() / ".cache" / "huggingface" / "hub" / "models--Systran--faster-whisper-tiny").is_dir()
+    windows_voice_registry = _windows_voice_registry_present()
     tts_root = ROOT / "examples" / "tts"
     blender_roots = [
         Path.home() / "AppData" / "Local" / "Programs" / "Blender Foundation",
@@ -99,6 +105,23 @@ def detect_tools() -> dict[str, dict[str, Any]]:
             "status": "READY" if (tts_root / "tts.py").is_file() else "NOT_INSTALLED",
             "path": str(tts_root),
         },
+        "windows-sapi-tts": {
+            "status": "READY_INTERACTIVE_SESSION_REQUIRED" if importlib.util.find_spec("pyttsx3") and windows_voice_registry else "VOICE_CONFIGURATION_REQUIRED" if importlib.util.find_spec("pyttsx3") else "NOT_INSTALLED",
+            "path": "Windows Speech API (SAPI)",
+            "features": {
+                "voice_registry": "PRESENT" if windows_voice_registry else "NOT_CONFIGURED",
+                "interactive_session_required": True,
+            },
+        },
+        "local-visual-analysis": {
+            "status": "READY" if visual_ready else "NOT_INSTALLED",
+            "path": str(ROOT / "toolbox" / "visual_runner.py"),
+            "features": {
+                "pixel_comparison": "READY" if visual_ready else "NOT_INSTALLED",
+                "semantic_model": "READY_LOCAL_MODEL" if semantic_runtime_ready and semantic_model_cached else "RUNTIME_READY_MODEL_NOT_CACHED" if semantic_runtime_ready else "NOT_INSTALLED",
+                "semantic_device": semantic_device,
+            },
+        },
         "ffmpeg": {
             "status": "READY" if shutil.which("ffmpeg") else "NOT_INSTALLED",
             "path": shutil.which("ffmpeg"),
@@ -108,6 +131,28 @@ def detect_tools() -> dict[str, dict[str, Any]]:
             "path": blender_binary,
         },
     }
+
+
+def _windows_voice_registry_present() -> bool:
+    if platform.system() != "Windows":
+        return False
+
+
+def _semantic_device() -> str:
+    """Report the installed PyTorch acceleration mode without changing it."""
+    try:
+        import torch
+
+        return "CUDA" if torch.cuda.is_available() else "CPU_ONLY_LOCAL_SLOW"
+    except (ImportError, OSError):
+        return "UNAVAILABLE"
+    try:
+        import winreg
+
+        with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\Microsoft\Speech\Voices\Tokens") as key:
+            return winreg.QueryInfoKey(key)[0] > 0
+    except OSError:
+        return False
 
 
 def doctor_report() -> dict[str, Any]:

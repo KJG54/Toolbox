@@ -1,1 +1,22 @@
-models: []
+models:
+  - id: florence-2-base
+    name: Microsoft Florence-2 Base
+    category: vision
+    capabilities: [understand_image]
+    license_id: mit
+    commercial_use: allowed
+    status: installed_local_pinned
+    revision: 5ca5edf5bd017b9919c05d08aebef5e4c7ac3bac
+    runtime: {backend: transformers, local_only: true, local_files_only: true, requires_remote_code_review: true}
+    hardware: {min_vram_gb: 4, recommended_vram_gb: 6, cpu_supported: true}
+    source: https://huggingface.co/microsoft/Florence-2-base
+  - id: ace-step
+    name: ACE-Step
+    category: music
+    capabilities: [generate_music]
+    license_id: requires-review
+    commercial_use: requires_review
+    status: research_candidate_not_installed
+    runtime: {local_only: true, installation_requires_approval: true}
+    hardware: {min_vram_gb: null, recommended_vram_gb: null}
+    source: https://github.com/ace-step/ACE-Step

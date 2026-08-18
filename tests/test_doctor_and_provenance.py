@@ -18,6 +18,7 @@ class DoctorAndProvenanceTests(unittest.TestCase):
         self.assertEqual(report["tools"]["watch-skill"]["features"]["local_whisper"], "READY_TINY_MODEL")
         self.assertEqual(report["tools"]["watch-skill"]["features"]["ocr"], "READY")
         self.assertEqual(report["tools"]["tts-examples"]["status"], "READY")
+        self.assertEqual(report["tools"]["local-visual-analysis"]["features"]["pixel_comparison"], "READY")
 
     def test_provenance_sidecar_preserves_asset(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:

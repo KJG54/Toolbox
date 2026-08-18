@@ -63,3 +63,74 @@ workflows:
         output: local_3d_derivative
       - capability: create_provenance_record
         output: provenance_sidecar
+  - id: preflight-3d-asset
+    name: Preflight and preview a local 3D asset
+    steps:
+      - capability: preflight_3d_asset
+        tool: blender
+        output: scene_readiness_report
+      - capability: render_3d_preview
+        tool: blender
+        optional: true
+        output: local_preview_image
+      - capability: inspect_3d_render
+        tool: local-visual-analysis
+        optional: true
+        output: local_visual_comparison
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: local-text-to-speech
+    name: Create local spoken audio
+    steps:
+      - capability: text_to_speech
+        tool: windows-sapi-tts
+        output: local_wav_derivative
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: asset-source-research
+    name: Research a local asset source catalog
+    steps:
+      - capability: search_assets
+        output: license_aware_source_brief
+      - capability: evaluate_license
+        output: review_requirements
+  - id: prepare-image-asset
+    name: Prepare a local image asset
+    steps:
+      - capability: prepare_image
+        tool: pillow-image-prep
+        output: image_derivative
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: clean-local-audio
+    name: Clean a local audio derivative
+    steps:
+      - capability: clean_audio
+        tool: ffmpeg
+        output: cleaned_audio_derivative
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: inspect-game-asset
+    name: Inspect local game asset readiness
+    steps:
+      - capability: inspect_game_asset
+        tool: blender
+        output: game_asset_readiness_report
+      - capability: create_provenance_record
+        optional: true
+        output: provenance_sidecar
+  - id: create-local-lod
+    name: Create a local Blender LOD derivative
+    steps:
+      - capability: generate_lod
+        tool: blender
+        output: lod_blend_derivative
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: music-and-sfx-research
+    name: Research local music and sound-effect generation
+    steps:
+      - capability: choose_tool
+        output: review_only_generation_brief
+      - capability: evaluate_license
+        output: approval_requirements

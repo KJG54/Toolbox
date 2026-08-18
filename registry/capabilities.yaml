@@ -50,3 +50,51 @@ capabilities:
   - id: convert_3d_format
     name: Convert 3D format
     description: Convert supported 3D asset formats.
+  - id: compare_visuals
+    name: Compare visuals
+    description: Compare local images using pixel and perceptual features without uploading them.
+  - id: understand_image
+    name: Understand image
+    description: Interpret a still image with a separately reviewed local vision model.
+  - id: inspect_3d_render
+    name: Inspect 3D render
+    description: Assess local render differences and scene readiness before asset handoff.
+  - id: preflight_3d_asset
+    name: Preflight 3D asset
+    description: Detect missing linked images and scene setup issues in a local Blender file.
+  - id: render_3d_preview
+    name: Render 3D preview
+    description: Produce a bounded local preview render without changing the source Blender file.
+  - id: control_blender
+    name: Control Blender
+    description: Invoke guarded, local Blender operations through the Toolbox CLI.
+  - id: choose_tool
+    name: Choose tool
+    description: Return deterministic local routing advice or a review-only capability gap.
+  - id: search_assets
+    name: Search assets
+    description: Search a curated local catalog of asset sources without downloading from them.
+  - id: evaluate_license
+    name: Evaluate license
+    description: Surface source and per-asset license-review requirements before acquisition.
+  - id: prepare_image
+    name: Prepare image
+    description: Create a non-destructive local image derivative with format, size, and alpha handling.
+  - id: upscale_image
+    name: Upscale image
+    description: Resize a local image with high-quality interpolation without inventing image detail.
+  - id: clean_audio
+    name: Clean audio
+    description: Create a local trimmed and loudness-normalized audio derivative.
+  - id: inspect_game_asset
+    name: Inspect game asset
+    description: Report UV, mesh, collision-name, and LOD-name readiness evidence from a Blender asset.
+  - id: generate_lod
+    name: Generate LOD
+    description: Create a source-preserving local Blender decimate LOD derivative.
+  - id: generate_music
+    name: Generate music
+    description: Create music from a separately approved local generation model.
+  - id: generate_sfx
+    name: Generate sound effects
+    description: Create sound effects from a separately approved local generation model.

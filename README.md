@@ -18,6 +18,18 @@ toolbox review tutorial outputs/tutorial-review.json --steps tutorial-steps.json
 toolbox review gameplay outputs/playthrough-review.json --events gameplay-events.json --output outputs/gameplay-review.json
 toolbox library search outputs "Where do we change the export setting?" --semantic
 toolbox blender convert asset.blend --output outputs/asset.glb
+toolbox blender preflight asset.blend
+toolbox blender preview asset.blend --output outputs/asset-preview.png
+toolbox visual compare reference.png candidate.png
+toolbox tts speak "Local narration" --output outputs/narration.wav
+toolbox research gap generate_image --commercial --free
+toolbox research assets "stone wall texture" --kind texture --commercial
+toolbox image prepare reference.png --output outputs/reference.webp --max-width 2048
+toolbox audio clean narration.wav --output outputs/narration-clean.wav
+toolbox blender game-asset prop.blend
+toolbox blender create-lod prop.blend --output outputs/prop-lod.blend --ratio 0.5
+toolbox vision describe reference.png --task detailed-caption
+toolbox research generation music
 ```
 
 Read [TOOLBOX.md](TOOLBOX.md) before asking an agent to create an artifact. The preserved
@@ -45,3 +57,20 @@ Use `toolbox review gameplay` for ordered gameplay events, and `toolbox library 
 search local review timelines without reprocessing original media. The optional semantic
 search uses the cached local embedding model. Add `--ocr --local-whisper --whisper-model tiny`
 to `watch-review` when locally cached OCR and offline transcription are wanted.
+
+Use `toolbox visual` for local pixel/perceptual comparison of still images and rendered previews.
+It is not a semantic vision-language model. `toolbox blender preflight` detects missing linked
+images and scene readiness without auto-running scripts embedded in the `.blend` file. `toolbox
+research` produces either deterministic routing advice or a review-only gap brief; it never installs
+software, downloads an asset, or contacts a service.
+
+Use `toolbox image prepare` to make a derived texture or reference image without replacing the
+original. Its `--allow-upscale` option uses high-quality interpolation, not generative detail. Use
+`toolbox audio clean` for a local trim and loudness-normalization derivative. `toolbox blender
+game-asset` reports, but does not create, UVs, LODs, or collision objects. Local music and SFX
+generation are research-only until an exact runtime and model have been reviewed and approved.
+
+Use `toolbox blender create-lod` to create a separate, decimated `.blend` derivative; inspect it
+before importing it into a game. `toolbox vision describe` uses the approved, pinned Florence-2 Base
+model from the local cache only. This environment currently runs it on CPU, which is suitable for
+occasional still-image inspection but may be slow for detailed or large images.
