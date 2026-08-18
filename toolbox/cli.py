@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 from .doctor import doctor_report, detect_hardware, detect_tools
+from .media import MediaError, normalize_media
 from .provenance import create_sidecar, sidecar_path
 from .registry import RegistryError, load_registry
 from .routing import recommend
@@ -33,6 +34,14 @@ def build_parser() -> argparse.ArgumentParser:
     status.add_argument("tool")
     commands.add_parser("doctor")
     commands.add_parser("hardware")
+    run = commands.add_parser("run")
+    run.add_argument("workflow", choices=["normalize-media"])
+    run.add_argument("source", type=Path)
+    run.add_argument("--output", type=Path, required=True)
+    run.add_argument("--audio-only", action="store_true")
+    run.add_argument("--max-width", type=int, default=1280)
+    run.add_argument("--force", action="store_true")
+    run.add_argument("--no-provenance", action="store_true")
     provenance = commands.add_parser("provenance")
     provenance_commands = provenance.add_subparsers(dest="provenance_command", required=True)
     show = provenance_commands.add_parser("show")
@@ -56,6 +65,26 @@ def main(argv: list[str] | None = None) -> None:
         if args.command == "hardware":
             _print(detect_hardware())
             return
+        if args.command == "run":
+            result = normalize_media(
+                args.source,
+                args.output,
+                audio_only=args.audio_only,
+                max_width=args.max_width,
+                overwrite=args.force,
+            )
+            if not args.no_provenance:
+                result["provenance"] = str(
+                    create_sidecar(
+                        args.output,
+                        tools=["ffmpeg"],
+                        source_assets=[str(args.source.resolve())],
+                        human_modifications="Toolbox local media normalization",
+                        commercial_use="requires_review",
+                    )
+                )
+            _print(result)
+            return
         if args.command == "provenance":
             path = sidecar_path(args.asset)
             if args.provenance_command == "show":
@@ -77,5 +106,5 @@ def main(argv: list[str] | None = None) -> None:
             if tool is None:
                 raise RegistryError(f"Unknown tool: {args.tool}")
             _print({"tool": tool, "runtime": detect_tools().get(args.tool, {"status": "UNKNOWN"})})
-    except (RegistryError, FileNotFoundError, FileExistsError) as error:
+    except (RegistryError, MediaError, FileNotFoundError, FileExistsError) as error:
         raise SystemExit(f"toolbox: {error}") from error

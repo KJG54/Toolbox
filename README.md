@@ -10,6 +10,7 @@ Start with:
 toolbox doctor
 toolbox search watch
 toolbox recommend watch_video --commercial --free
+toolbox run normalize-media recording.mov --output outputs/recording-proxy.mp4
 ```
 
 Read [TOOLBOX.md](TOOLBOX.md) before asking an agent to create an artifact. The preserved

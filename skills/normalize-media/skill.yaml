@@ -1,0 +1,10 @@
+id: normalize-media
+name: Normalize local media
+tool: ffmpeg
+capabilities: [normalize_media, create_provenance_record]
+inputs: [local_media]
+outputs: [mp4, wav, provenance_sidecar]
+constraints:
+  local_only: true
+  source_overwrite: forbidden
+  external_approval_required: false

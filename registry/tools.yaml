@@ -36,6 +36,7 @@ tools:
     cost: {tier: free}
     execution: {local: true, windows: true}
     interfaces: [cli]
+    adapter: adapters/ffmpeg.py
     external_opt_in: false
     formats: {input: [mp4, mov, webm, mp3, wav], output: [mp4, wav, mp3]}
     hardware: {gpu_required: false}

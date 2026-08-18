@@ -20,6 +20,9 @@ capabilities:
   - id: normalize_media
     name: Normalize media
     description: Inspect and transform media streams without replacing originals.
+  - id: create_provenance_record
+    name: Create provenance record
+    description: Record the tools and source assets used to create a derivative.
   - id: model_3d
     name: Model 3D
     description: Create and edit 3D models locally.

@@ -1,1 +1,9 @@
-workflows: []
+workflows:
+  - id: normalize-media
+    name: Normalize local media
+    steps:
+      - capability: normalize_media
+        tool: ffmpeg
+        output: portable_local_derivative
+      - capability: create_provenance_record
+        output: provenance_sidecar
