@@ -10,6 +10,7 @@ import importlib.util
 from pathlib import Path
 from typing import Any
 
+from .gltfpack_workflow import gltfpack_binary
 from .paths import ROOT
 
 
@@ -61,6 +62,7 @@ def _ram_gb() -> float | None:
 
 
 def detect_tools() -> dict[str, dict[str, Any]]:
+    gltfpack_path = gltfpack_binary()
     watch_root = ROOT / "components" / "watch-skill"
     watch_packages = watch_root / ".venv" / "Lib" / "site-packages"
     perception_ready = all(
@@ -156,6 +158,16 @@ def detect_tools() -> dict[str, dict[str, Any]]:
         "blender": {
             "status": "READY" if blender_binary else "NOT_INSTALLED",
             "path": blender_binary,
+        },
+        "trimesh": {
+            "status": "READY" if importlib.util.find_spec("trimesh") else "NOT_INSTALLED",
+            "path": "Python environment: trimesh",
+            "features": {"watertight_and_volume_checks": "READY" if importlib.util.find_spec("trimesh") else "NOT_INSTALLED"},
+        },
+        "gltfpack": {
+            "status": "READY" if gltfpack_path else "NOT_INSTALLED",
+            "path": gltfpack_path,
+            "features": {"glb_optimization": "READY" if gltfpack_path else "NOT_INSTALLED"},
         },
     }
 

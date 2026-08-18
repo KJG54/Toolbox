@@ -212,3 +212,9 @@ capabilities:
   - id: scaffold_game_release_pack
     name: Scaffold game release pack
     description: Create a local screenshots, trailer, social, store, and metadata delivery layout without publishing.
+  - id: validate_mesh
+    name: Validate mesh topology
+    description: Check a local mesh for watertightness, winding consistency, volume, and basic print-readiness evidence.
+  - id: optimize_gltf
+    name: Optimize glTF asset
+    description: Create a separate locally optimized GLB derivative for engine shipping review.

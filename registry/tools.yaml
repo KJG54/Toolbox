@@ -127,3 +127,31 @@ tools:
     routing_priority: 85
     fallback_ids: []
     provenance: {record_version: true}
+  - id: trimesh
+    name: Trimesh mesh validation
+    kind: python_dependency
+    capabilities: [validate_mesh]
+    license_id: mit
+    cost: {tier: free}
+    execution: {local: true, windows: true}
+    interfaces: [python, cli]
+    external_opt_in: false
+    formats: {input: [stl, obj, ply, "off", gltf, glb], output: [json]}
+    hardware: {gpu_required: false}
+    routing_priority: 94
+    fallback_ids: [blender]
+    provenance: {record_version: true, source: https://github.com/mikedh/trimesh}
+  - id: gltfpack
+    name: gltfpack meshoptimizer optimizer
+    kind: local_binary
+    capabilities: [optimize_gltf]
+    license_id: mit
+    cost: {tier: free}
+    execution: {local: true, windows: true}
+    interfaces: [cli]
+    external_opt_in: false
+    formats: {input: [gltf, glb], output: [glb]}
+    hardware: {gpu_required: false}
+    routing_priority: 93
+    fallback_ids: [blender]
+    provenance: {record_version: true, source: https://github.com/zeux/meshoptimizer/tree/master/gltf}

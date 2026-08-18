@@ -67,6 +67,8 @@ toolbox game 3d-remediation-plan asset.glb --output outputs/asset-3d-plan.json
 toolbox game audio-package-plan audio --output outputs/audio-package.json
 toolbox game godot-vertical-slice --name "My Slice" --output outputs/my-slice
 toolbox game release-pack --name "My Prototype" --output outputs/release-pack
+toolbox mesh validate prop.glb --output outputs/prop-mesh.json
+toolbox gltfpack prop.glb --output outputs/prop-optimized.glb
 toolbox status ace-step-local
 toolbox research evaluate-generation music
 ```
@@ -144,6 +146,10 @@ For external generation websites, first receive explicit approval, then use `too
 has been downloaded. It records the service plan and output status without contacting the provider. The 3D remediation and
 audio-package commands produce non-mutating local review plans; the vertical-slice and release-pack commands create local
 scaffolds only. See [game production workflows](docs/game-production-workflows.md) for the five-step workflow and release gates.
+
+`toolbox mesh validate` becomes available after an approved local Trimesh install and reports watertight/manifold-adjacent
+topology evidence for game and 3D-print review. `toolbox gltfpack` becomes available after an approved local gltfpack binary
+install and creates a separate optimized GLB derivative for engine testing. See [mesh validation and optimization](docs/mesh-validation-and-optimization.md).
 
 ACE-Step is an installed local-only music component. On the current 6 GB RTX 2060 it uses Turbo without the language model,
 INT8 weights, and CPU offload; this is functional but expected to be slow. See

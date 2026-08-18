@@ -22,8 +22,10 @@ from .evidence_library import EvidenceLibraryError, search_library
 from .gameplay_review import GameplayReviewError, review_gameplay, write_gameplay_review
 from .game_creation import GameCreationError, asset_manifest, asset_naming_plan, audit_game_prototype, compare_asset_manifests, compare_gameplay_reviews, engine_readiness, generate_tone_asset, inspect_godot_project, map_godot_assets, plan_game_3d_remediation, plan_game_audio_package, plan_sprite_animations, plan_watch_highlights, scaffold_game_kit, scaffold_game_release_pack, scaffold_godot_project, scaffold_godot_vertical_slice, video_contact_sheet, write_json
 from .generation_research import GenerationResearchError, evaluate_generation, research_generation
+from .gltfpack_workflow import GltfpackError, optimize_gltf
 from .image_prep import ImagePrepError, inspect_image_asset, prepare_image
 from .media import MediaError, normalize_media
+from .mesh_validation import MeshValidationError, validate_mesh
 from .provenance import create_sidecar, record_external_generation, sidecar_path
 from .registry import RegistryError, load_registry
 from .routing import recommend
@@ -339,6 +341,18 @@ def build_parser() -> argparse.ArgumentParser:
     release_pack.add_argument("--output", type=Path, required=True)
     release_pack.add_argument("--name", required=True)
     release_pack.add_argument("--force", action="store_true")
+    mesh = commands.add_parser("mesh", help="Run guarded local mesh validation through Trimesh.")
+    mesh_commands = mesh.add_subparsers(dest="mesh_command", required=True)
+    mesh_validate = mesh_commands.add_parser("validate")
+    mesh_validate.add_argument("source", type=Path)
+    mesh_validate.add_argument("--output", type=Path)
+    mesh_validate.add_argument("--force", action="store_true")
+    gltfpack = commands.add_parser("gltfpack", help="Create a separate optimized GLB with local gltfpack.")
+    gltfpack.add_argument("source", type=Path)
+    gltfpack.add_argument("--output", type=Path, required=True)
+    gltfpack.add_argument("--texture-compression", action="store_true")
+    gltfpack.add_argument("--force", action="store_true")
+    gltfpack.add_argument("--no-provenance", action="store_true")
     delivery = commands.add_parser("delivery", help="Audit and package a local handoff directory.")
     delivery_commands = delivery.add_subparsers(dest="delivery_command", required=True)
     delivery_audit = delivery_commands.add_parser("audit")
@@ -750,6 +764,18 @@ def main(argv: list[str] | None = None) -> None:
                 result = scaffold_game_release_pack(args.output, name=args.name, overwrite=args.force)
             _print(result)
             return
+        if args.command == "mesh":
+            result = validate_mesh(args.source)
+            if args.output:
+                result["output"] = str(write_json(result, args.output, overwrite=args.force))
+            _print(result)
+            return
+        if args.command == "gltfpack":
+            result = optimize_gltf(args.source, args.output, texture_compression=args.texture_compression, overwrite=args.force)
+            if not args.no_provenance:
+                result["provenance"] = str(create_sidecar(args.output, tools=["gltfpack", "meshoptimizer"], source_assets=[str(args.source.resolve())], human_modifications="Toolbox local glTF optimization derivative", commercial_use="requires_review", force=args.force))
+            _print(result)
+            return
         if args.command == "delivery":
             require_provenance = not args.allow_missing_provenance
             if args.delivery_command == "audit":
@@ -812,5 +838,5 @@ def main(argv: list[str] | None = None) -> None:
             if tool is None:
                 raise RegistryError(f"Unknown tool: {args.tool}")
             _print({"tool": tool, "runtime": detect_tools().get(args.tool, {"status": "UNKNOWN"})})
-    except (AssetCatalogError, AssetReviewError, AtlasError, AudioCleanupError, BlenderWorkflowError, CapabilityResearchError, DeliveryError, EvidenceLibraryError, GameCreationError, GameplayReviewError, GenerationResearchError, ImagePrepError, RegistryError, MediaError, SemanticVisionError, TextureProfileError, TextureValidationError, TimelineReviewError, TTSWorkflowError, TutorialReviewError, VisualEvidenceError, ValueError, WatchReviewError, FileNotFoundError, FileExistsError) as error:
+    except (AssetCatalogError, AssetReviewError, AtlasError, AudioCleanupError, BlenderWorkflowError, CapabilityResearchError, DeliveryError, EvidenceLibraryError, GameCreationError, GameplayReviewError, GenerationResearchError, GltfpackError, ImagePrepError, MeshValidationError, RegistryError, MediaError, SemanticVisionError, TextureProfileError, TextureValidationError, TimelineReviewError, TTSWorkflowError, TutorialReviewError, VisualEvidenceError, ValueError, WatchReviewError, FileNotFoundError, FileExistsError) as error:
         raise SystemExit(f"toolbox: {error}") from error

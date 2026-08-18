@@ -364,3 +364,20 @@ workflows:
       - capability: audit_delivery
         tool: toolbox-local-workflows
         output: owner_review_report
+  - id: validate-local-mesh
+    name: Validate local mesh topology for game and print review
+    steps:
+      - capability: validate_mesh
+        tool: trimesh
+        output: mesh_topology_report
+      - capability: plan_game_3d_remediation
+        tool: toolbox-local-workflows
+        output: remediation_plan
+  - id: optimize-local-gltf
+    name: Optimize a local GLB shipping derivative
+    steps:
+      - capability: optimize_gltf
+        tool: gltfpack
+        output: optimized_glb_derivative
+      - capability: create_provenance_record
+        output: provenance_sidecar
