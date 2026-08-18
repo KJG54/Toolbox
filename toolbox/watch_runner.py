@@ -22,6 +22,7 @@ def main() -> None:
     parser.add_argument("--max-frames", type=int)
     parser.add_argument("--ocr", action="store_true")
     parser.add_argument("--local-whisper", action="store_true")
+    parser.add_argument("--whisper-model")
     args = parser.parse_args()
     result = watch(
         args.source,
@@ -29,6 +30,7 @@ def main() -> None:
         run_ocr=args.ocr,
         allow_local_whisper=args.local_whisper,
         allow_cloud_stt=False,
+        whisper_model=args.whisper_model,
         out_dir=args.work_dir,
     )
     print(json.dumps(build_timeline(
@@ -40,6 +42,7 @@ def main() -> None:
             "cloud_stt": False,
             "ocr": args.ocr,
             "local_whisper": args.local_whisper,
+            "whisper_model": args.whisper_model,
             "normalization": None,
         },
     )))

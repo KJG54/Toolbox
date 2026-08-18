@@ -1,0 +1,20 @@
+{
+  "format": "toolbox-gameplay-events/v1",
+  "events": [
+    {
+      "id": "objective-started",
+      "description": "The expected objective starts.",
+      "required_terms": ["objective", "start"]
+    },
+    {
+      "id": "objective-complete",
+      "description": "The objective completion is shown after it starts.",
+      "required_terms": ["objective", "complete"]
+    },
+    {
+      "id": "no-crash",
+      "description": "The run contains no crash evidence.",
+      "forbidden_terms": ["crash", "fatal error"]
+    }
+  ]
+}

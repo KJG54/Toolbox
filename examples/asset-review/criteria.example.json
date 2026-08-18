@@ -1,0 +1,15 @@
+{
+  "format": "toolbox-asset-review-criteria/v1",
+  "criteria": [
+    {
+      "id": "approved-material-label",
+      "description": "The review evidence identifies the approved material label.",
+      "required_terms": ["approved", "material"]
+    },
+    {
+      "id": "no-placeholder",
+      "description": "No placeholder texture warning is present.",
+      "forbidden_terms": ["placeholder", "missing texture"]
+    }
+  ]
+}

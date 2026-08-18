@@ -104,6 +104,7 @@ def run_watch_review(
     max_frames: int | None = None,
     ocr: bool = False,
     local_whisper: bool = False,
+    whisper_model: str | None = None,
     overwrite: bool = False,
 ) -> dict[str, Any]:
     """Run Watch in its component environment and persist a stable local timeline."""
@@ -141,6 +142,8 @@ def run_watch_review(
         command.append("--ocr")
     if local_whisper:
         command.append("--local-whisper")
+    if whisper_model:
+        command.extend(["--whisper-model", whisper_model])
 
     environment = os.environ.copy()
     environment.update(

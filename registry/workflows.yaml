@@ -22,3 +22,44 @@ workflows:
         output: versioned_evidence_timeline
       - capability: create_provenance_record
         output: provenance_sidecar
+  - id: ask-watch-review
+    name: Ask a saved Watch review
+    steps:
+      - capability: query_evidence_timeline
+        tool: watch-skill
+        output: timestamped_evidence_answer
+      - capability: create_provenance_record
+        optional: true
+        output: provenance_sidecar
+  - id: assess-watch-review
+    name: Assess a saved Watch review
+    steps:
+      - capability: assess_asset_evidence
+        tool: watch-skill
+        output: evidence_based_assessment
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: verify-ui-tutorial
+    name: Verify a saved software or UI tutorial
+    steps:
+      - capability: verify_ui_tutorial_steps
+        tool: watch-skill
+        output: ordered_step_review
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: review-gameplay
+    name: Review a saved gameplay recording
+    steps:
+      - capability: review_gameplay_events
+        tool: watch-skill
+        output: ordered_gameplay_review
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: convert-3d-asset
+    name: Convert a local 3D asset with Blender
+    steps:
+      - capability: convert_3d_format
+        tool: blender
+        output: local_3d_derivative
+      - capability: create_provenance_record
+        output: provenance_sidecar

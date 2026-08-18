@@ -2,7 +2,7 @@ tools:
   - id: watch-skill
     name: Watch Skill
     kind: component
-    capabilities: [watch_video, transcribe_audio, detect_scenes, understand_video, visual_qa]
+    capabilities: [watch_video, transcribe_audio, detect_scenes, understand_video, visual_qa, query_evidence_timeline, assess_asset_evidence, verify_ui_tutorial_steps, review_gameplay_events, search_evidence_library]
     license_id: mit
     cost: {tier: free}
     execution: {local: true, windows: true}
@@ -46,7 +46,7 @@ tools:
   - id: blender
     name: Blender
     kind: application
-    capabilities: [model_3d, convert_3d_format]
+    capabilities: [model_3d, convert_3d_format, inspect_3d_asset]
     license_id: gpl-3.0-or-later
     cost: {tier: free}
     execution: {local: true, windows: true}

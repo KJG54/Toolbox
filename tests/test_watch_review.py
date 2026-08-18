@@ -36,7 +36,7 @@ class WatchReviewTests(unittest.TestCase):
             payload = {"format": "toolbox-watch-review/v1", "pipeline": {"normalization": None}}
             completed = subprocess.CompletedProcess([], 0, json.dumps(payload), "")
             with patch("toolbox.watch_review.subprocess.run", return_value=completed) as run:
-                result = run_watch_review(source, output, max_frames=4)
+                result = run_watch_review(source, output, max_frames=4, local_whisper=True, whisper_model="tiny")
             self.assertTrue(output.is_file())
             self.assertEqual(result["timeline"]["format"], "toolbox-watch-review/v1")
             self.assertEqual(source.read_bytes(), b"fixture")
@@ -44,3 +44,4 @@ class WatchReviewTests(unittest.TestCase):
             self.assertEqual(environment["WATCHSKILL_CLOUD_STT_ENABLED"], "false")
             self.assertEqual(environment["HF_HUB_OFFLINE"], "1")
             self.assertIn("watch_runner.py", run.call_args.args[0][1])
+            self.assertIn("--whisper-model", run.call_args.args[0])

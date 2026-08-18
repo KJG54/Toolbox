@@ -1,0 +1,5 @@
+name: watch-question-review
+description: Answer a question from a saved local Watch evidence timeline with timestamped citations.
+version: 1
+capabilities: [query_evidence_timeline]
+external_opt_in: false

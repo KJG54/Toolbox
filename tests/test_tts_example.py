@@ -17,6 +17,8 @@ class TextToSpeechExampleTests(unittest.TestCase):
             script = working / "tts.py"
             shutil.copy2(ROOT / "examples" / "tts" / "tts.py", script)
             result = subprocess.run([sys.executable, str(script)], cwd=working, text=True, capture_output=True)
+            if result.returncode and "Access is denied" in result.stderr and "sapi5" in result.stderr:
+                self.skipTest("Windows SAPI voice service is unavailable to this process.")
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             output = working / "output.wav"
             self.assertTrue(output.is_file())

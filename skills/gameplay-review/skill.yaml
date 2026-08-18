@@ -1,0 +1,5 @@
+name: gameplay-review
+description: Verify expected gameplay events and their sequence from saved local Watch evidence.
+version: 1
+capabilities: [review_gameplay_events, create_provenance_record]
+external_opt_in: false

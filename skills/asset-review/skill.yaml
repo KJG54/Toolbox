@@ -1,0 +1,5 @@
+name: asset-review
+description: Assess explicit acceptance criteria against local Watch evidence without inferring unsupported visual claims.
+version: 1
+capabilities: [assess_asset_evidence, create_provenance_record]
+external_opt_in: false

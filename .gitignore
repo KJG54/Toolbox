@@ -13,9 +13,7 @@ components/watch-skill/.ruff_cache/
 components/watch-skill/**/__pycache__/
 
 # Machine-specific and generated media state
-runtime/*.json
-runtime/health/
-runtime/locks/
+runtime/
 cache/
 outputs/
 

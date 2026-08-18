@@ -67,6 +67,9 @@ def detect_tools() -> dict[str, dict[str, Any]]:
         for package in ("imagehash", "PIL", "cv2")
     )
     embeddings_ready = (watch_packages / "fastembed").exists()
+    ocr_ready = all((watch_packages / package).exists() for package in ("rapidocr", "onnxruntime"))
+    whisper_ready = (watch_packages / "faster_whisper").exists()
+    whisper_tiny_cached = (Path.home() / ".cache" / "huggingface" / "hub" / "models--Systran--faster-whisper-tiny").is_dir()
     tts_root = ROOT / "examples" / "tts"
     blender_roots = [
         Path.home() / "AppData" / "Local" / "Programs" / "Blender Foundation",
@@ -87,7 +90,8 @@ def detect_tools() -> dict[str, dict[str, Any]]:
             "features": {
                 "perception": "READY" if perception_ready else "NOT_INSTALLED",
                 "semantic_index": "READY" if embeddings_ready else "KEYWORD_ONLY",
-                "local_whisper": "OPT_IN_CACHED_MODEL_REQUIRED",
+                "ocr": "READY" if ocr_ready else "NOT_INSTALLED",
+                "local_whisper": "READY_TINY_MODEL" if whisper_ready and whisper_tiny_cached else "ENGINE_READY_CACHED_MODEL_REQUIRED" if whisper_ready else "NOT_INSTALLED",
                 "cloud_stt": "EXTERNAL_OPT_IN",
             },
         },

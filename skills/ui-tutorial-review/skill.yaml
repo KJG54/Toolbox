@@ -1,0 +1,5 @@
+name: ui-tutorial-review
+description: Verify ordered software or UI tutorial steps from saved local Watch evidence.
+version: 1
+capabilities: [verify_ui_tutorial_steps, create_provenance_record]
+external_opt_in: false

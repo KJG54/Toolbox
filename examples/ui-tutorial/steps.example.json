@@ -1,0 +1,15 @@
+{
+  "format": "toolbox-ui-tutorial-steps/v1",
+  "steps": [
+    {
+      "id": "open-settings",
+      "description": "Open the project settings panel.",
+      "required_terms": ["project", "settings"]
+    },
+    {
+      "id": "save-change",
+      "description": "Save the configuration change.",
+      "any_of_terms": ["save", "apply"]
+    }
+  ]
+}

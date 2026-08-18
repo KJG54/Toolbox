@@ -1,0 +1,5 @@
+name: blender-workflow
+description: Inspect .blend files and create guarded local Blender format conversions with provenance.
+version: 1
+capabilities: [inspect_3d_asset, convert_3d_format, create_provenance_record]
+external_opt_in: false

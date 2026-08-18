@@ -26,6 +26,24 @@ capabilities:
   - id: create_evidence_timeline
     name: Create evidence timeline
     description: Produce a versioned, timestamped JSON timeline from locally reviewed media.
+  - id: query_evidence_timeline
+    name: Query evidence timeline
+    description: Retrieve timestamped transcript or OCR evidence from a saved local Watch timeline.
+  - id: assess_asset_evidence
+    name: Assess asset evidence
+    description: Evaluate explicit acceptance criteria against saved local transcript or OCR evidence.
+  - id: verify_ui_tutorial_steps
+    name: Verify UI tutorial steps
+    description: Check an ordered software or UI tutorial checklist against saved local transcript or OCR evidence.
+  - id: review_gameplay_events
+    name: Review gameplay events
+    description: Check expected gameplay events and sequence against saved local transcript or OCR evidence.
+  - id: search_evidence_library
+    name: Search evidence library
+    description: Search across saved local Watch evidence timelines without reprocessing media.
+  - id: inspect_3d_asset
+    name: Inspect 3D asset
+    description: Report local Blender scene counts for a .blend asset without modifying it.
   - id: model_3d
     name: Model 3D
     description: Create and edit 3D models locally.
