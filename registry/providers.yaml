@@ -1,0 +1,5 @@
+providers:
+  - id: local-windows
+    type: local_machine
+    local: true
+    supports: [windows, cpu, nvidia_gpu]

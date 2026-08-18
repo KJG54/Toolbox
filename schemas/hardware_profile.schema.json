@@ -1,0 +1,6 @@
+{
+  "type": "object",
+  "required": ["id", "os", "gpu"],
+  "properties": {"id": {"type": "string"}, "os": {"type": "string"}, "gpu": {"type": "object"}},
+  "additionalProperties": true
+}

@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "required": ["id", "name", "commercial_use", "review_status", "source"],
+  "properties": {
+    "id": {"type": "string"},
+    "name": {"type": "string"},
+    "commercial_use": {"enum": ["allowed", "allowed_with_attribution", "allowed_below_revenue_threshold", "personal_only", "noncommercial_only", "unknown", "requires_review"]},
+    "review_status": {"enum": ["verified", "pending"]},
+    "source": {"type": "string"}
+  },
+  "additionalProperties": true
+}

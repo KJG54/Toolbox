@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "watch-skill",
+  "displayName": "Watch Skill",
+  "version": "1.0.0",
+  "description": "Give the agent a video input via Watch Skill: watch, index, ask, and iterate (THE LOOP).",
+  "author": {
+    "name": "Watch Skill contributors",
+    "url": "https://github.com/oxbshw/watch-skill"
+  },
+  "homepage": "https://github.com/oxbshw/watch-skill",
+  "repository": "https://github.com/oxbshw/watch-skill",
+  "license": "MIT",
+  "keywords": ["video", "vision", "mcp", "transcription", "ocr", "the-loop"],
+  "skills": "./skills/",
+  "commands": "./commands/",
+  "mcpServers": "./.mcp.json"
+}

@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agent-creator-toolbox"
+version = "0.1.0"
+description = "Local-first capability discovery and execution routing for agents."
+requires-python = ">=3.11"
+dependencies = ["PyYAML>=6.0", "jsonschema>=4.23"]
+
+[project.optional-dependencies]
+tts-examples = ["pyttsx3>=2.90"]
+
+[project.scripts]
+toolbox = "toolbox.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["toolbox"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,24 @@
+# Python and test state
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+
+# Component-local runtime state
+components/watch-skill/.venv/
+components/watch-skill/.pytest_cache/
+components/watch-skill/.ruff_cache/
+components/watch-skill/**/__pycache__/
+
+# Machine-specific and generated media state
+runtime/*.json
+runtime/health/
+runtime/locks/
+cache/
+outputs/
+
+# Secrets and local configuration
+.env
+.env.*

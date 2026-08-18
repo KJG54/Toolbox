@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "required": ["format", "artifact", "created_with", "commercial_use"],
+  "properties": {
+    "format": {"const": "toolbox-provenance/v1"},
+    "artifact": {"type": "string"},
+    "created_with": {"type": "array"},
+    "commercial_use": {"type": "string"}
+  },
+  "additionalProperties": true
+}

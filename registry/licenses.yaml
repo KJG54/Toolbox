@@ -1,0 +1,16 @@
+licenses:
+  - id: mit
+    name: MIT License
+    commercial_use: allowed
+    review_status: verified
+    source: components/watch-skill/LICENSE
+  - id: gpl-3.0-or-later
+    name: GNU General Public License v3.0 or later
+    commercial_use: allowed
+    review_status: verified
+    source: https://www.blender.org/about/license/
+  - id: requires-review
+    name: Requires license review
+    commercial_use: requires_review
+    review_status: pending
+    source: Record must be reviewed from the authoritative vendor source before production use.

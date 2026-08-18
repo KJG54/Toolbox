@@ -1,0 +1,28 @@
+capabilities:
+  - id: watch_video
+    name: Watch video
+    description: Acquire, perceive, transcribe, and answer questions about video evidence.
+  - id: transcribe_audio
+    name: Transcribe audio
+    description: Produce timestamped speech from local audio or video.
+  - id: detect_scenes
+    name: Detect scenes
+    description: Identify distinct visual moments and representative frames.
+  - id: understand_video
+    name: Understand video
+    description: Answer evidence-grounded questions about video content.
+  - id: visual_qa
+    name: Visual QA
+    description: Compare captures or rendered assets against acceptance criteria.
+  - id: text_to_speech
+    name: Text to speech
+    description: Render text as spoken audio.
+  - id: normalize_media
+    name: Normalize media
+    description: Inspect and transform media streams without replacing originals.
+  - id: model_3d
+    name: Model 3D
+    description: Create and edit 3D models locally.
+  - id: convert_3d_format
+    name: Convert 3D format
+    description: Convert supported 3D asset formats.

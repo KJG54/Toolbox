@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "required": ["id", "name", "kind", "capabilities", "license_id", "cost", "execution", "interfaces", "hardware"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9-]+$"},
+    "name": {"type": "string", "minLength": 1},
+    "kind": {"type": "string"},
+    "capabilities": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "license_id": {"type": "string"},
+    "cost": {"type": "object", "required": ["tier"]},
+    "execution": {"type": "object", "required": ["local"]},
+    "interfaces": {"type": "array", "items": {"type": "string"}},
+    "hardware": {"type": "object"},
+    "external_opt_in": {"type": "boolean"},
+    "formats": {"type": "object"}
+  },
+  "additionalProperties": true
+}

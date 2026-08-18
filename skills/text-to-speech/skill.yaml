@@ -1,0 +1,9 @@
+id: text-to-speech
+name: Text to speech examples
+tool: tts-examples
+capabilities: [text_to_speech]
+inputs: [txt]
+outputs: [wav, mp3]
+constraints:
+  production_ready: false
+  external_approval_required: true

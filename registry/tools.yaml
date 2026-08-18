@@ -1,0 +1,58 @@
+tools:
+  - id: watch-skill
+    name: Watch Skill
+    kind: component
+    capabilities: [watch_video, transcribe_audio, detect_scenes, understand_video, visual_qa]
+    license_id: mit
+    cost: {tier: free}
+    execution: {local: true, windows: true}
+    interfaces: [cli, python, mcp, http]
+    adapter: adapters/watch.py
+    external_opt_in: false
+    formats: {input: [mp4, mov, webm, mp3, wav], output: [json, html, vtt]}
+    hardware: {gpu_required: false, recommended_vram_gb: 6}
+    routing_priority: 100
+    fallback_ids: []
+    provenance: {record_version: true}
+  - id: tts-examples
+    name: Preserved TTS examples
+    kind: example_collection
+    capabilities: [text_to_speech]
+    license_id: requires-review
+    cost: {tier: free}
+    execution: {local: true, windows: true}
+    interfaces: [python]
+    external_opt_in: false
+    formats: {input: [txt], output: [wav, mp3]}
+    hardware: {gpu_required: false}
+    routing_priority: 30
+    fallback_ids: []
+    provenance: {record_version: false}
+  - id: ffmpeg
+    name: FFmpeg
+    kind: application
+    capabilities: [normalize_media]
+    license_id: requires-review
+    cost: {tier: free}
+    execution: {local: true, windows: true}
+    interfaces: [cli]
+    external_opt_in: false
+    formats: {input: [mp4, mov, webm, mp3, wav], output: [mp4, wav, mp3]}
+    hardware: {gpu_required: false}
+    routing_priority: 80
+    fallback_ids: []
+    provenance: {record_version: true}
+  - id: blender
+    name: Blender
+    kind: application
+    capabilities: [model_3d, convert_3d_format]
+    license_id: gpl-3.0-or-later
+    cost: {tier: free}
+    execution: {local: true, windows: true}
+    interfaces: [cli, python, gui]
+    external_opt_in: false
+    formats: {input: [blend, fbx, obj, gltf, glb], output: [blend, fbx, obj, gltf, glb]}
+    hardware: {gpu_required: false, recommended_vram_gb: 8}
+    routing_priority: 90
+    fallback_ids: []
+    provenance: {record_version: true}

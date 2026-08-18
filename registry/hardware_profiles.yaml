@@ -1,0 +1,6 @@
+hardware_profiles:
+  - id: current-pc
+    os: windows
+    cpu: Intel Core i7-8700
+    ram_gb: 32
+    gpu: {vendor: nvidia, model: RTX 2060, vram_gb: 6}

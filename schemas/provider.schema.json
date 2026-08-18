@@ -1,0 +1,6 @@
+{
+  "type": "object",
+  "required": ["id", "type", "local"],
+  "properties": {"id": {"type": "string"}, "type": {"type": "string"}, "local": {"type": "boolean"}},
+  "additionalProperties": true
+}

@@ -1,0 +1,35 @@
+{
+  "format": "toolbox-preservation-transformations/v1",
+  "transformations": [
+    {
+      "original": "Watch Skill/watch-skill/watch-silent.cmd",
+      "migrated": "components/watch-skill/watch-silent.cmd",
+      "reason": "Replaced a machine-specific workspace path with a component-relative launcher path."
+    },
+    {
+      "original": "Watch Skill/README.md",
+      "migrated": "docs/watch-local-install.md",
+      "reason": "Replaced the standalone installation note with the Toolbox component location and preservation record."
+    },
+    {
+      "original": "Watch Skill/watch-skill/pyproject.toml",
+      "migrated": "components/watch-skill/pyproject.toml",
+      "reason": "Declared the YAML parser used by the Watch agent-document validation test."
+    },
+    {
+      "original": "Watch Skill/watch-skill/tests/health/test_doctor.py",
+      "migrated": "components/watch-skill/tests/health/test_doctor.py",
+      "reason": "Made the Playwright doctor unit test mock its optional dependency instead of requiring it to be installed."
+    },
+    {
+      "original": "Watch Skill/watch-skill/uv.lock",
+      "migrated": "components/watch-skill/uv.lock",
+      "reason": "Regenerated the lockfile after declaring the Watch development-test dependency."
+    },
+    {
+      "original": "Text to Speech/tts2.py",
+      "migrated": "examples/tts/tts2.py",
+      "reason": "Removed two trailing whitespace-only lines so the preserved example passes the repository whitespace check without behavior changes."
+    }
+  ]
+}

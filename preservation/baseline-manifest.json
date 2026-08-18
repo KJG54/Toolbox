@@ -1,0 +1,1663 @@
+{
+  "format": "toolbox-baseline-manifest/v1",
+  "root": "C:\\Users\\kryst\\Code\\Tools",
+  "excluded_parts": [
+    ".git",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
+    "__pycache__"
+  ],
+  "files": [
+    {
+      "path": "IDEA.md",
+      "sha256": "f2b521e967261f2a3482115ae81a65c7bde7fae3da8b31dcfeb9891344479a10",
+      "bytes": 141
+    },
+    {
+      "path": "Text to Speech/edge_output.mp3",
+      "sha256": "c5aef8c573452a5a3874881fe4a620671526849687fd22f0da8e3c77088484e0",
+      "bytes": 47376
+    },
+    {
+      "path": "Text to Speech/output.mp3",
+      "sha256": "3e60e4681787167ed3bbc5197919bc2d4b4c2d6f0b4c31ae8c9a442b1f3e70ac",
+      "bytes": 78912
+    },
+    {
+      "path": "Text to Speech/output.wav",
+      "sha256": "8d8c8c64b1983719c954f6cdb163e7f2a53194cd61655c95b7baa55f106bf5aa",
+      "bytes": 110034
+    },
+    {
+      "path": "Text to Speech/textToSpeech.py",
+      "sha256": "4fc86d9cec0d41b93b0c742b52ee1828643d2a934e8dc8a7bda8e8d713b3f870",
+      "bytes": 243
+    },
+    {
+      "path": "Text to Speech/tts.py",
+      "sha256": "c5d5b681e1afaaeff34c52e08ac56a636b1d3993fada3ae066906f9b3ddb7c48",
+      "bytes": 296
+    },
+    {
+      "path": "Text to Speech/tts2.py",
+      "sha256": "6016c905dcf3c6a007ceb2504e71195f1c972b251d1f8f42f71f8f8aa19a865d",
+      "bytes": 842
+    },
+    {
+      "path": "Watch Skill/README.md",
+      "sha256": "bce5e77cad4d4d295c0c9e53d41367a12fd357bce2936ce114f86be15c2ae3de",
+      "bytes": 11221
+    },
+    {
+      "path": "Watch Skill/watch-skill/.claude-plugin/marketplace.json",
+      "sha256": "a03bf45b96b89cae50ed0388b9f2860aa88453d9c74d8172f8dfbe7205e8e72f",
+      "bytes": 907
+    },
+    {
+      "path": "Watch Skill/watch-skill/.gitattributes",
+      "sha256": "70fec3cc950e892cc32178797d89d2e1a0a8d1ebfdafdbdd5e731672c3c627a9",
+      "bytes": 71
+    },
+    {
+      "path": "Watch Skill/watch-skill/.github/FUNDING.yml",
+      "sha256": "8f329d24dff47c929ea0a212c64105493568d502189e83fcad0997cdedcb7934",
+      "bytes": 118
+    },
+    {
+      "path": "Watch Skill/watch-skill/.github/ISSUE_TEMPLATE/bug_report.yml",
+      "sha256": "f0782f36eb7d3a9a8a7bf5acd6b53acb0835233ed059e4542c1a8bdbd7c1ebf3",
+      "bytes": 1095
+    },
+    {
+      "path": "Watch Skill/watch-skill/.github/ISSUE_TEMPLATE/feature_request.yml",
+      "sha256": "3679158650dfd6785d9f3fc9ed5a9a450117a416243f0bd11bcb2e93d42789b3",
+      "bytes": 650
+    },
+    {
+      "path": "Watch Skill/watch-skill/.github/ISSUE_TEMPLATE/new_agent_support.yml",
+      "sha256": "352a1e84c658c6b0e663caaf02e8805f37924e7e454f3e3e339bbd0c9aa8e906",
+      "bytes": 748
+    },
+    {
+      "path": "Watch Skill/watch-skill/.github/PULL_REQUEST_TEMPLATE.md",
+      "sha256": "c609523e24249e9103eed737850ea19ada86ab67faabcd29632658c09dcf5831",
+      "bytes": 630
+    },
+    {
+      "path": "Watch Skill/watch-skill/.github/workflows/ci.yml",
+      "sha256": "6f9e1f6724adb2e5b832883f214c28d87e5de2b3707eb4966ab5795338cabab9",
+      "bytes": 2137
+    },
+    {
+      "path": "Watch Skill/watch-skill/.github/workflows/integration.yml",
+      "sha256": "3eb2643a52cdff9cd2a092fce275b8f2547a60ff44ed13b178cef59f5f3bd44e",
+      "bytes": 1058
+    },
+    {
+      "path": "Watch Skill/watch-skill/.github/workflows/release.yml",
+      "sha256": "75f0a61701b066dafec5084776714e118ab2265226b4141757322e932c1e24ed",
+      "bytes": 1834
+    },
+    {
+      "path": "Watch Skill/watch-skill/.gitignore",
+      "sha256": "3ead61d31258baab685895411f08efebb6fa4d340a08283320f61f80f7843b19",
+      "bytes": 572
+    },
+    {
+      "path": "Watch Skill/watch-skill/.python-version",
+      "sha256": "49a506dd32096b010d75205acf3430c9ae6c40351888129499e5a5e487126c93",
+      "bytes": 5
+    },
+    {
+      "path": "Watch Skill/watch-skill/adapters/agents-md/AGENTS.md",
+      "sha256": "422a5692e3738de29db0491985b8cefeb93c50f20bcb7c4aa45d768b089452cd",
+      "bytes": 4540
+    },
+    {
+      "path": "Watch Skill/watch-skill/adapters/claude-skill/.claude-plugin/plugin.json",
+      "sha256": "514a6eccc1b4bd11680403dfa034dc8276f274d018ba7f4f699a936831d9f6d2",
+      "bytes": 674
+    },
+    {
+      "path": "Watch Skill/watch-skill/adapters/claude-skill/commands/setup-watch-skill.md",
+      "sha256": "8de2f0b752673207d36c801bdf2be6195697fd00b63bec5d5e409c881ca3d5b0",
+      "bytes": 3935
+    },
+    {
+      "path": "Watch Skill/watch-skill/adapters/claude-skill/skills/asking-with-evidence/SKILL.md",
+      "sha256": "d8de2e07e73606d9011a7a1e828b87e93b657dd64b9a8304a3a7d13365b8788f",
+      "bytes": 2031
+    },
+    {
+      "path": "Watch Skill/watch-skill/adapters/claude-skill/skills/configuring-vision/SKILL.md",
+      "sha256": "9d9de75dd884a53613bd31dddc9805e61bb4019674b599e913f8b38ba6d26c83",
+      "bytes": 2033
+    },
+    {
+      "path": "Watch Skill/watch-skill/adapters/claude-skill/skills/extracting-structure/SKILL.md",
+      "sha256": "5fca0702b26d8612398904231b5ad278d55d8307b9c1f233e20b0c1a984b391d",
+      "bytes": 1976
+    },
+    {
+      "path": "Watch Skill/watch-skill/adapters/claude-skill/skills/learning-from-mistakes/SKILL.md",
+      "sha256": "8e893858d390da3393d68684d7c1d2bd42b1aecb011b5ba17feb6e194f050b4c",
+      "bytes": 1527
+    },
+    {
+      "path": "Watch Skill/watch-skill/adapters/claude-skill/skills/recovering-from-errors/SKILL.md",
+      "sha256": "38665e6e773479545334931eb86bb9eff773bbc7442d07b2d8c9395517689d02",
+      "bytes": 1818
+    },
+    {
+      "path": "Watch Skill/watch-skill/adapters/claude-skill/skills/sharing-results/SKILL.md",
+      "sha256": "d4524b7a95bde2f54af5f9c35f8ebf3ffdc0188697e9327d5e2882b91d693eb0",
+      "bytes": 1637
+    },
+    {
+      "path": "Watch Skill/watch-skill/adapters/claude-skill/skills/the-loop/SKILL.md",
+      "sha256": "c962afe85af61636fa9b96197a69b800f47d24b01fd19ee3cb34feb7d60f5555",
+      "bytes": 2512
+    },
+    {
+      "path": "Watch Skill/watch-skill/adapters/claude-skill/skills/video-memory/SKILL.md",
+      "sha256": "4140acd969375ba4a2ca6dda6b35f9efab920fd43dadde53e80b3c1be9ac7ce7",
+      "bytes": 2267
+    },
+    {
+      "path": "Watch Skill/watch-skill/adapters/claude-skill/skills/watch/SKILL.md",
+      "sha256": "17b1a4d3caea734de6ca0e82a65881f9766ca8a040fd4b58390da20d9e898167",
+      "bytes": 5363
+    },
+    {
+      "path": "Watch Skill/watch-skill/adapters/claude-skill/skills/watching-videos/SKILL.md",
+      "sha256": "47647485502cb001c25ccc1cefe86b0b340ae24ef79f3794f1ccd544dcdcac5e",
+      "bytes": 2417
+    },
+    {
+      "path": "Watch Skill/watch-skill/artifacts/six-free-ai-video-generators-research.md",
+      "sha256": "4c93962787ddab69e4fe891a1e9df1ecab984be0a12f44921192d90e201e576c",
+      "bytes": 9424
+    },
+    {
+      "path": "Watch Skill/watch-skill/artifacts/six-free-ai-video-generators-viewer.html",
+      "sha256": "f17150e0dfdfccc0306cf302efaef8715bc9bb672a2218d9d3be71e3f7dbd859",
+      "bytes": 441592
+    },
+    {
+      "path": "Watch Skill/watch-skill/benchmarks/cost/README.md",
+      "sha256": "646761443ad6df58caaced38b5e401f01166cc0953841324b530b4f7f49193b2",
+      "bytes": 944
+    },
+    {
+      "path": "Watch Skill/watch-skill/benchmarks/cost/RESULTS.md",
+      "sha256": "91d82634585b76c034cb070effa5212a48b323eb026b2690b5b62019e2e5293a",
+      "bytes": 976
+    },
+    {
+      "path": "Watch Skill/watch-skill/benchmarks/cost/run_cost_benchmark.py",
+      "sha256": "3ade85b2c930d94de8af619ff6e9e733c5195856501c08298638952bc1455026",
+      "bytes": 8213
+    },
+    {
+      "path": "Watch Skill/watch-skill/benchmarks/perception/fixtures/arabic_rtl.png",
+      "sha256": "6b27604e49ee6ba710496f3a40003c760c2ff639c0f93d2677c3986cba2264ad",
+      "bytes": 8356
+    },
+    {
+      "path": "Watch Skill/watch-skill/benchmarks/perception/fixtures/cjk.png",
+      "sha256": "cf5effcf6089c36c8f00f84d039fe555ff9e2d5b1a30a9a0b02affdf5c93e9a9",
+      "bytes": 14051
+    },
+    {
+      "path": "Watch Skill/watch-skill/benchmarks/perception/fixtures/fixtures.json",
+      "sha256": "a6147c304edb3e2872eb2b5d5a4d52b376d91c239a02efc10850ef87d46b1760",
+      "bytes": 850
+    },
+    {
+      "path": "Watch Skill/watch-skill/benchmarks/perception/fixtures/mixed_script.png",
+      "sha256": "bb97073b97da939306662747f01fa5a3afc141c4610c001977d764c223f9b4b9",
+      "bytes": 14537
+    },
+    {
+      "path": "Watch Skill/watch-skill/benchmarks/perception/fixtures/screen_text.png",
+      "sha256": "2822fd3622b37d744a1dc5960b2bc2622a49c0e6c4068897981e0b5fd02959ff",
+      "bytes": 14557
+    },
+    {
+      "path": "Watch Skill/watch-skill/benchmarks/perception/fixtures/sea_lao.png",
+      "sha256": "83d7c77eab6538b95a79b76e97262568912729d70abd5eb4ac3d6da6ec99d2f4",
+      "bytes": 8121
+    },
+    {
+      "path": "Watch Skill/watch-skill/benchmarks/perception/fixtures/subtitles.png",
+      "sha256": "2bc5295fa14cf045de89958b4e1f8b27c19e59b69327ed1fe66bb850d42055a3",
+      "bytes": 8811
+    },
+    {
+      "path": "Watch Skill/watch-skill/benchmarks/perception/make_fixtures.py",
+      "sha256": "d590a00aeeab3f8f1a8a59670af6a33cedbeaa17b93f1979c54ea9d4d1679f55",
+      "bytes": 3873
+    },
+    {
+      "path": "Watch Skill/watch-skill/benchmarks/perception/README.md",
+      "sha256": "0b3ce3c99e283c24a7e7e87f7133af1037b7a40d9a9b3b8611a1a66210de4ded",
+      "bytes": 2078
+    },
+    {
+      "path": "Watch Skill/watch-skill/benchmarks/perception/RESULTS.md",
+      "sha256": "ca9e1fe7ab7573749eeba4bcae3aee66dbc760a42368530da52e6ad8c3224fe8",
+      "bytes": 1452
+    },
+    {
+      "path": "Watch Skill/watch-skill/CHANGELOG.md",
+      "sha256": "b280825ee21a8990cc39140cd15af13310f7fe0827d49bc532ac6204700b05b3",
+      "bytes": 19003
+    },
+    {
+      "path": "Watch Skill/watch-skill/CONTRIBUTING.md",
+      "sha256": "2c363158a11c9d11e9f3cfe5453ced29ecbeb1eeb4e1bf9935f6bd7d9807f343",
+      "bytes": 3853
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/agent-zero.md",
+      "sha256": "5a12d1138201330ec4f83b6f0fc27b42e0ba318356291f815220198f7e87924d",
+      "bytes": 1469
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/claude-code.md",
+      "sha256": "13186ac0ca27bf655b526bd03178c6e0290a033f844e700059c6be3094812236",
+      "bytes": 1867
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/claude-desktop.md",
+      "sha256": "582a93a76593e679e11196fab8151e883e2bd535e7f5bd88adf8e89acb90cc1c",
+      "bytes": 1340
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/cline.md",
+      "sha256": "c8da428e073e759fe448d85b44c735e25a935d2dac7d88aaa5907a4e6b72b6c3",
+      "bytes": 1272
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/codex-cli.md",
+      "sha256": "e65331f668d9ff8a05dfe7242ed81460188c54f98ae941626fd139b44ef239a7",
+      "bytes": 1301
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/cursor.md",
+      "sha256": "e1238dc7e9af253c7b3daebcb2f9369e5aefe58aab5aabf6d6ce4320a212b557",
+      "bytes": 1368
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/frameworks.md",
+      "sha256": "cf61128e05ac8ca50efb6c2e21742d375bfe48b1d5d9c20fe21291075f3dc86f",
+      "bytes": 4846
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/gemini-cli.md",
+      "sha256": "ee6c2b632acfd1173a0b53b5b9acc2351f2c6dfcdd3f83bd0bdd12bf35751261",
+      "bytes": 1126
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/github-copilot-cli.md",
+      "sha256": "1445f1184a0fee4047771796d880b5153fe6336b219bd42ec23f2186967ef800",
+      "bytes": 1536
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/goose.md",
+      "sha256": "3383bf5bdb8285048e76cb86b890878f94cf77d30d2b94fdf26fabe8a2c8a0e1",
+      "bytes": 1471
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/hermes.md",
+      "sha256": "c8580d7f5a04eb3faee0bfb85a312b8d4409f9470a20190b51f9f551e3ede4b7",
+      "bytes": 1925
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/kilocode.md",
+      "sha256": "8a656aafc2d493bc8514602f592f3f48cfbc8cdb7f3a2417485ba9e88afd89a2",
+      "bytes": 1454
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/kimi-code.md",
+      "sha256": "699c597ffe2f1e9003368e32fa9d2d0e5b3eb31c0c207a2ae802049f6104f32a",
+      "bytes": 1339
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/openclaw.md",
+      "sha256": "09f5716115758369b03296a39516137fadc1c2fb417e1c5deff409d18e9b2a9c",
+      "bytes": 1855
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/opencode.md",
+      "sha256": "9580c103c82ecb5a48132b4c0c02945fe32e1e355083a16afc9888959690df7e",
+      "bytes": 1283
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/openhands.md",
+      "sha256": "c43052045089084bc84668cf7e48e0ec53120b8106d2b75f0aa4e60b91d5d377",
+      "bytes": 1361
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/pi.md",
+      "sha256": "b6db66bcda852e928a74cb5a3c587774198fa2e53c3eb55eb670e5e6c3d6d900",
+      "bytes": 1822
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/qodo.md",
+      "sha256": "694d5870b863ce7650c1c1a10a34f459773b5dcf9465f25125a09700a12aa3dd",
+      "bytes": 1412
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/qwen-code.md",
+      "sha256": "062e9e875afb6f768519464fc5efd91ad15cbdfaaa7093f40a0ba7b368038b21",
+      "bytes": 1347
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/README.md",
+      "sha256": "f538ee07ddd721ffa4a8aaaabcf108abba6dea143e7dba77d0bbb23bcdcdf183",
+      "bytes": 5231
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/vscode.md",
+      "sha256": "b89d5ee2d56a596b4c6835b3538aefaf6b699ab6389d36a2e398df6eda845ec3",
+      "bytes": 1172
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/agents/windsurf.md",
+      "sha256": "0425a62699af7c4dc770e35b57df7ef9a708656b6a782d2c79e77023ac6d2904",
+      "bytes": 1147
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/architecture.md",
+      "sha256": "4f5a1d735b3ec8a0a734640a67ff2cbc477a347547fc1056975d903238ab44ad",
+      "bytes": 18550
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/agent-zero.webp",
+      "sha256": "59373eec0d7bf928f44709f185dd184ccc159db2eb70e3d7e7b526fd4e5a2af1",
+      "bytes": 122346
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/claude-code.webp",
+      "sha256": "4fec4d49f4ec0582259dcdbbf8ec81375b145ac333abfff2cb8b6f8f8a16b255",
+      "bytes": 116336
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/claude-desktop.webp",
+      "sha256": "3263c0d030ff56a4e780ceab1b115e28729488bb41c331c414a9ec89f39dfe4d",
+      "bytes": 108774
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/cline.webp",
+      "sha256": "d000bc2790e4cd71b0219a39dedc41e33c84cf9f56b66dbac94e2c06a8d9c1e3",
+      "bytes": 151556
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/codex-cli.webp",
+      "sha256": "076309088e6e45c581054272a013a2427b3e77d1923aa990269b2a5c04bdb601",
+      "bytes": 143234
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/cursor.webp",
+      "sha256": "dc6a05001c389e05c968989a0327aa1b50599bbc9dec07ab3ec02188b053e58a",
+      "bytes": 122046
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/frameworks.webp",
+      "sha256": "dd1ee29f2af64721ddb9755006364138e74472863776873007e1c285713aea3b",
+      "bytes": 153088
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/gemini-cli.webp",
+      "sha256": "88dd268d8f9ad7d414b912fabf03c538cc976b9874e29ae48877160439fe6f0e",
+      "bytes": 109800
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/github-copilot-cli.webp",
+      "sha256": "4917826650c4235190d022762b5d0737b4489d046a70afa90430b5f039110825",
+      "bytes": 127466
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/goose.webp",
+      "sha256": "ee22fe1119ed2a75ea6769b466534d7d2fe99c58c50a14a5f616ae86543e32c1",
+      "bytes": 129774
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/hermes.webp",
+      "sha256": "2cdfcd9fa301d2b12e9abb2fd191a6a33f0bcfc81f2ed9efb77080d9e9e53084",
+      "bytes": 113216
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/kilocode.webp",
+      "sha256": "15a9d1bd4f3c435c53af55e544ccc0dd3a4aafb144efaf06fed252cddde17bc5",
+      "bytes": 136868
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/kimi-code.webp",
+      "sha256": "0f7644a2a9b7de987cc6955f7b4ef5674367e32269099ee85dfd8e9cd89cd9dc",
+      "bytes": 110202
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/openclaw.webp",
+      "sha256": "8976c22f1c714f280e7c89109b3c649bbee2554e50cb58178334edf7fd6e9685",
+      "bytes": 136678
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/opencode.webp",
+      "sha256": "fd2a1d14bd9bcd970b93fe3b5bb020c0c28fe8bdb4fc0b0057f264c088163afe",
+      "bytes": 131352
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/openhands.webp",
+      "sha256": "71f6debcea54da04a8f69c15c88709925cba88eca621ea8651f534cc5797456f",
+      "bytes": 108304
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/pi.webp",
+      "sha256": "9a493dfe3eec092c54e3618d20bee14e6696154855a9840b8de002e9df87b10b",
+      "bytes": 86492
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/qodo.webp",
+      "sha256": "a6ad1f102bcb0f639f2a8e4966de133531dce53852faa61c7be65b56cbfcf547",
+      "bytes": 144756
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/qwen-code.webp",
+      "sha256": "87db5a9e5763f3885757fd803211c50ea4ace3aa5c6b4c57a360dee47ec96ee2",
+      "bytes": 167834
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/README.md",
+      "sha256": "d8b128d8bee5f2e727d031b061254e7ba1127bef1eb8290c73ff658729b94d5d",
+      "bytes": 2139
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/vscode.webp",
+      "sha256": "6db2c0eaf45e078b20adfa60d9cbc70f89bad3d395c4febd89023750aa92e96a",
+      "bytes": 127564
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/agents/windsurf.webp",
+      "sha256": "f134880cf27d1d312e7b94a9b7100219b776dfce8825ef6a2290ba8394036d90",
+      "bytes": 129286
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/lessons_loop.gif",
+      "sha256": "0c64a87846f166f5924246cc1c2126b594a89cb285b2ecb125f05b3e43fd3ac6",
+      "bytes": 74552
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/loop_before_after.gif",
+      "sha256": "94386b5d8ba16a953411e7e04f5c49b147be9fe2d55756acafc671b68923ec83",
+      "bytes": 151852
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/savings_meter.png",
+      "sha256": "d928cc192130cbf867623e4df72bdc89a9800021ac3f1fd54c4528e5de39ab5f",
+      "bytes": 29423
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/watch-skill-repositories-alt.webp",
+      "sha256": "a8ef99f4f83bfcfc724a08a4b73921482d94c9623a37521fed9d52244f4bd88f",
+      "bytes": 144364
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/assets/watch-skill-repositories.webp",
+      "sha256": "09640f45def70bf0ac9550a8dadd3e28eaf739b6037ae1f508dfe966ea613ea1",
+      "bytes": 136910
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/configuration.md",
+      "sha256": "f5961afba908fd2ad3c6811b9ec3c9d56d7ce910351696db7a687a16bca89545",
+      "bytes": 19232
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/cost.md",
+      "sha256": "70df5f7a7b55a19ad26f38e6c538b3d82650f5ddd41488c86e81b9e2a1553bb4",
+      "bytes": 2425
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/DECISIONS.md",
+      "sha256": "a55c73431a42388c0198c5d43c04aa9fffec2aaa9e843d3b071f20103115b93b",
+      "bytes": 14753
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/getting-started.md",
+      "sha256": "87bda33380e4f18e69aa3552ce4aec160635786b2cd363e7f38fd05549485d1e",
+      "bytes": 4937
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/guides/arabic-in-arabic-out.md",
+      "sha256": "37084cc4dc4b914a2b2fed8745904d14eb8b804296b351d997758eaa982eae40",
+      "bytes": 3624
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/guides/how-it-improves-itself.md",
+      "sha256": "951ede6b6a476a33bd0ede1eef7c095aec10795eb7082f84467060a495cd7b58",
+      "bytes": 3360
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/guides/lessons-and-savings.md",
+      "sha256": "6b640b98131855fa77abfaca77aa460e76227ad679d3f3685c3f9ed25a8da465",
+      "bytes": 3652
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/guides/the-loop.md",
+      "sha256": "e9dbc86c5ada19e86f52193b779d8ec32b2c6c8839900d364e4c9c8213504b6d",
+      "bytes": 4066
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/guides/youtube-analysis.md",
+      "sha256": "45074aea5b5ef580d37a5990d67bd8c976e4bf8c1c8b02323c03ce202a56a9c8",
+      "bytes": 3273
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/packs/agent-self-verification.md",
+      "sha256": "4828fee95a597535857465f8280ad70ce41ad31d448a32bca9797be6a1def93b",
+      "bytes": 1822
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/packs/browser-agent-verification.md",
+      "sha256": "d25da2388d850b2cbecd79d725ab37e7e14db24dcd963c4a99882763bbf9dad4",
+      "bytes": 2538
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/packs/content-creators.md",
+      "sha256": "b350984695e99a7a7288e619e10b0dd0b4ec159fd7e5ddefdd59b8487ac8feb2",
+      "bytes": 1421
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/packs/learning-research.md",
+      "sha256": "31e009abd661452ba110e929c7f10d0f6f5dbc8dc615580404e391baa01ed914",
+      "bytes": 1461
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/packs/meetings-lectures.md",
+      "sha256": "2be90607b0d0ba45763b01515d3652e951444c95f61189ccd5e41a36d96dfbaa",
+      "bytes": 1561
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/packs/monitoring-ops.md",
+      "sha256": "83bad38448d09789112196ee0c335357885419735a18a315c461bb5f3b572039",
+      "bytes": 2068
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/packs/qa-bug-hunting.md",
+      "sha256": "b575aa22dff0a0bfd912b1c614f6fa2fb486adb6bae8b02f4b85fb01371ef68f",
+      "bytes": 1447
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/packs/README.md",
+      "sha256": "518461e575b3be505670ece2089b542e612183716a3014ea75df1193524ec0d9",
+      "bytes": 1498
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/README.md",
+      "sha256": "141391899869b060c9f2c1d319ba50272eab54c86e0fec19ebd1857b2df40462",
+      "bytes": 3078
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/ROADMAP.md",
+      "sha256": "3929797511eec2426480cbe0ab7f52de1263ec7b8316b893b41d0d1e0155e1de",
+      "bytes": 3466
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/tools/README.md",
+      "sha256": "dd2d0c3b5ce833184139b2405795e1f13ea80feb9ec63c611a05c104c41fd54f",
+      "bytes": 15337
+    },
+    {
+      "path": "Watch Skill/watch-skill/docs/troubleshooting.md",
+      "sha256": "265da78253d1752cc21df7a49bd171eda73ebd012d026f623dc69daf356fb5b6",
+      "bytes": 5884
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/01-watch-and-ask/README.md",
+      "sha256": "c38747c8f7acccac9f766d98021722db236f359b81fa600267705807b18afb67",
+      "bytes": 2761
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/01-watch-and-ask/watch_and_ask.py",
+      "sha256": "893d76bfd2c56757944e26e0c6d4f81e162badfb16c38b06858656a73a9b7d7f",
+      "bytes": 1602
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/02-focused-moment/focused_moment.py",
+      "sha256": "c394a4fe65fb298853c5fdb6a0ae542d4e3d399d3b66772f59a0c283148957ca",
+      "bytes": 1758
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/02-focused-moment/README.md",
+      "sha256": "095bca1e71831351c7fa5989093122ec76c51b12290fe5f78c37f666aa8a8b36",
+      "bytes": 1875
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/03-cross-video-search/cross_video_search.py",
+      "sha256": "24d6a7015d8e30b99c1a31734798f316d63074458964438bf6d6ee0122c410cb",
+      "bytes": 1667
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/03-cross-video-search/README.md",
+      "sha256": "1538f185040fd7f76c08a87ddd10d6aef0d593e66573d7bab3a6dfa57d8c55ea",
+      "bytes": 1304
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/04-ui-loop/page_broken.html",
+      "sha256": "a2c8006084762dc19cbd7df2b06f672b54786b45b917058606919984a56dbbea",
+      "bytes": 1408
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/04-ui-loop/page_fixed.html",
+      "sha256": "5c91cb9b244df2f628c726e4031ac19de9a9f94aaf306aa34fc8043811b996eb",
+      "bytes": 1312
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/04-ui-loop/README.md",
+      "sha256": "670f92f63bc59ab063d15a19ad9f907ce160f916e21980d3b82c8b1c34a07298",
+      "bytes": 2571
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/04-ui-loop/ui_loop.py",
+      "sha256": "29cd15e1151c46127320f941f00d9cbbfa2cffb5e971b3f29609a9040caf2446",
+      "bytes": 4940
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/05-multilingual-arabic/ask_in_arabic.py",
+      "sha256": "d9eaa6d758fd3aa71ada3ca219bd9b0ec917c89342652a8eb4fea9a1d61c2c8e",
+      "bytes": 1447
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/05-multilingual-arabic/index_arabic.py",
+      "sha256": "a1f22c5fd2af6a60a2b9d2678ce6aa93ea87c916d80acffcd33a511826556d9c",
+      "bytes": 1727
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/05-multilingual-arabic/README.md",
+      "sha256": "26838fb5d4c5e6c9df6d2045d1d36889ad0db40e19186c0325d3642c7fd48275",
+      "bytes": 2874
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/06-agent-integration/agent_integration.py",
+      "sha256": "d2fe6cef4059ec362a4c27b28dd4edf943c167201d85506e35ec4afc474bc0c3",
+      "bytes": 1677
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/06-agent-integration/README.md",
+      "sha256": "3ddebf0af0e163a08cf53c3a2d4540de1f116e8cdb3e433b77a43c338cf58382",
+      "bytes": 2219
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/07-lessons-and-stats/lessons_and_stats.py",
+      "sha256": "723a7684f6ffa2bbf0cf4a4b4f37c49d2fdb8f475669306c48d073ca7ba22b49",
+      "bytes": 2738
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/07-lessons-and-stats/README.md",
+      "sha256": "518673955472ca5acea435aa34d25d37645ef63146d6f80c0aadb27c401a65cc",
+      "bytes": 2569
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/08-loop-types/game_broken.html",
+      "sha256": "7974e36af415126931d40212380d67521f008b655c34bf0b914e859e73a37968",
+      "bytes": 1109
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/08-loop-types/game_fixed.html",
+      "sha256": "68d0625ff0f156f4e39deceeb97dab1d92828de44607e643317dbc72afbadbe5",
+      "bytes": 1107
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/08-loop-types/game_loop.py",
+      "sha256": "717ba296efbf6c482f18d1d3c8a743481e892f9727b58bfda673fe70ee4ed290",
+      "bytes": 1990
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/08-loop-types/monitor_loop.py",
+      "sha256": "cfdd0d14f78c6631bc84235f37609c4f92dbb029435aa68bb9c3fd75b4c6cb99",
+      "bytes": 2698
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/08-loop-types/README.md",
+      "sha256": "80cd4a7e25923de502697ef316ba0069f9979441fa1d52fb6ca6bf6b315d4d6f",
+      "bytes": 4310
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/08-loop-types/render_title_card.py",
+      "sha256": "d0e61b31ab80096bf31c66f9c9fcabe59988786540b159a4b22669de2ef2bdfb",
+      "bytes": 1408
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/08-loop-types/video_gen_loop.py",
+      "sha256": "1c35f891fcf869f8c7bef0090093e2f956519d9dac8caae37b962bec4f331c64",
+      "bytes": 2121
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/09-framework-adapters/_demo_clip.py",
+      "sha256": "12c1ac3d05386b56f090396e29898777ace0455ad6b923d227b9b9e003426676",
+      "bytes": 1542
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/09-framework-adapters/crewai_example.py",
+      "sha256": "f83fe5a121104c7812d9406c50bc1e1e520b44dd0cdef3c217790cf365002283",
+      "bytes": 1192
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/09-framework-adapters/langchain_example.py",
+      "sha256": "41c40e2343ac395d911418d70c4a8b2bc4dd2f5499b67ff7ebd141dfdb6a481b",
+      "bytes": 1263
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/09-framework-adapters/openai_agents_example.py",
+      "sha256": "5609345955b86195eb4d1891392345c69ab22cb346852d36c8464db93c3803bd",
+      "bytes": 1559
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/09-framework-adapters/README.md",
+      "sha256": "dd38e00f6018c4fc57df30da90aa0f27c1bba3a0949f3e130ac64be14ac27d25",
+      "bytes": 1769
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/10-structured-extraction/extraction_demo.py",
+      "sha256": "b4626c6cd4ed30949cd16f557ce60b9311753c0f6ec453f5c07fce980840eeaa",
+      "bytes": 3298
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/10-structured-extraction/README.md",
+      "sha256": "1b53d684bfcc472ad7724e0692254d8b07382cc1054a7c4908016ea22a2200c8",
+      "bytes": 1972
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/11-batch-mode/batch_demo.py",
+      "sha256": "3e25ac2def0d740210834c22b8e71634e9091ddffcf2e50ad7c568db91a282ee",
+      "bytes": 3086
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/11-batch-mode/README.md",
+      "sha256": "ce56e0a8a8173a9461d0af23668d7259a4f82ff6cd76da96193161d9886083d6",
+      "bytes": 1217
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/12-library-memory/library_demo.py",
+      "sha256": "e46c9addcaaad3ae6df4f2ee7e3ee8edc5e8d206f7b02437f152ccfd97e46ab4",
+      "bytes": 4271
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/12-library-memory/README.md",
+      "sha256": "0043121c03c553d1cb15b8490b77f8e1796009a85d804912c78c65b804e30f1d",
+      "bytes": 2729
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/13-self-improvement/README.md",
+      "sha256": "d916a5d72c965152f64c79246709c6f0a74b17c4870c94763e0a5d1cd2ec602f",
+      "bytes": 2319
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/13-self-improvement/self_improvement_demo.py",
+      "sha256": "18a08e2f07928b3e6e19be648a9056585a0c67554b6ac6b6253a1e5d2283460b",
+      "bytes": 6368
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/14-browser-verification/browser_verification_demo.py",
+      "sha256": "46962cb5de431440dfbacbc58ae85f1bd6f630d23a98294d7b96107f73202806",
+      "bytes": 3571
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/14-browser-verification/checkout_buggy.html",
+      "sha256": "561c86f807cc9a9bf14a3640dbd63579acb85208ca9bc1677b937c5c6f2f1ac7",
+      "bytes": 2069
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/14-browser-verification/checkout_fixed.html",
+      "sha256": "31dbfdc4f03a87454f0cc293ab04ad03f93aa5331aaa2678e787c4d750a02761",
+      "bytes": 1799
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/14-browser-verification/README.md",
+      "sha256": "bf83d924db062245254eed2353de8dd71b468c428d62ed3070cc8b59ca790df8",
+      "bytes": 2978
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/15-private-offline-workflow/offline_workflow.py",
+      "sha256": "c120df53eccb13b3b6d7be5139fcbc7be14cbc8df6bee380ca05874ba7f34013",
+      "bytes": 2777
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/15-private-offline-workflow/README.md",
+      "sha256": "d979cb94dd6c537d34c7a4caf114715464e2bad7c12944f9f960bbab348223d6",
+      "bytes": 1262
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/16-shareable-viewer/export_viewer.py",
+      "sha256": "afbde906a370032a34adc149416577e581917f67311f3adc478e44b410be9120",
+      "bytes": 898
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/16-shareable-viewer/README.md",
+      "sha256": "75bc20aff8eecdeddf55d5cc0425d25ebc559607f8cf9e9ad9bf8f6308d83b40",
+      "bytes": 909
+    },
+    {
+      "path": "Watch Skill/watch-skill/examples/README.md",
+      "sha256": "12e8ce004cb16b6519ee5e8a84c35042dee653d45d737b508a8b4e00c6b5df45",
+      "bytes": 3261
+    },
+    {
+      "path": "Watch Skill/watch-skill/LICENSE",
+      "sha256": "eebd1fe1e58c6555775697c05bdec184584aeeb0ae11b18fcb5403c2ebc4d1ad",
+      "bytes": 1063
+    },
+    {
+      "path": "Watch Skill/watch-skill/pyproject.toml",
+      "sha256": "01ef1cf74fe91137d5ef3a1e8230bb1f256695e05c76c38372dd39df4c14af2c",
+      "bytes": 2782
+    },
+    {
+      "path": "Watch Skill/watch-skill/README.md",
+      "sha256": "58bd20f31cb21492a0e7bc16261faaa3731bf0d52334feaab03184f22caeff4e",
+      "bytes": 14369
+    },
+    {
+      "path": "Watch Skill/watch-skill/scripts/golden_path.py",
+      "sha256": "a8c7951897b6471bcd791aa713a1bf9a81e0cc4867e964d683b6158bd55a4ae3",
+      "bytes": 8842
+    },
+    {
+      "path": "Watch Skill/watch-skill/scripts/install.ps1",
+      "sha256": "92d41eea689adf9cf8738936719ebd62d4fd4426447cb01de444f0011463aefb",
+      "bytes": 2834
+    },
+    {
+      "path": "Watch Skill/watch-skill/scripts/install.sh",
+      "sha256": "681b6784b14b4be7f85850917622c43e49b4d39314de1cc65dee8468bd878f01",
+      "bytes": 2472
+    },
+    {
+      "path": "Watch Skill/watch-skill/SECURITY.md",
+      "sha256": "0e72a4c706c2ad5d6c74d20fc59d0f2fcddcb66355335332426811e9c8889380",
+      "bytes": 1968
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/__init__.py",
+      "sha256": "d2257e63ed4ae7bde40f08c27cf84fcf36037edad6d43deaa4a5909d1adc5b43",
+      "bytes": 281
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/acquire/__init__.py",
+      "sha256": "fe4f3d8fff4f70c1ba8e7a6b7972b7e3d3853f5bc83ce0d9a101b0a5846befbe",
+      "bytes": 579
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/acquire/cache.py",
+      "sha256": "f7b3a57a367b67d4b6e4dba544b1a1f81250656b10f660f399e3c7d39f30a0d2",
+      "bytes": 4571
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/acquire/cobalt.py",
+      "sha256": "f68bc47bb3a5bf3de522ea40ffe679aa7334c9b137835fc8b259d7ad1da6d955",
+      "bytes": 3746
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/acquire/direct.py",
+      "sha256": "6b26a63ba17c9c328c38d6484d26a58302d6cc25ca88deed5994e2240b7651b9",
+      "bytes": 2149
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/acquire/resolver.py",
+      "sha256": "5d298953fab22347462ce567dc916289e877aa5c76836f063e5e4be71a6e00fa",
+      "bytes": 6453
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/acquire/sources.py",
+      "sha256": "5cfbbf2821e7e9b265e722d8c0140aaea960ca7f21a723e0853c84e0e0ed0a62",
+      "bytes": 2048
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/acquire/types.py",
+      "sha256": "0e24b80f8c5ac6f69cffd6355f3a4d40514e14cb16fa77abff8e7e2ecf306e64",
+      "bytes": 774
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/acquire/ytdlp.py",
+      "sha256": "92985a6b33c6dc70bdc91bfc9421c044aba648b2a11371d2287a32d587adb752",
+      "bytes": 8083
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/answer/__init__.py",
+      "sha256": "aed671f85d3c4e31b2f8748db11e27a2208c860d427076597be7fb7841afa958",
+      "bytes": 461
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/answer/cache.py",
+      "sha256": "5a4fc6e4e68ec6a80d227dfe41236f2e02fd7ca4e2e66e0562b3074f3a26d16f",
+      "bytes": 6273
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/answer/confidence.py",
+      "sha256": "2d013fdb88ac130e14a85f01eebf94c0027e413d1c899d1f88f3a8b8dce21899",
+      "bytes": 4809
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/answer/crops.py",
+      "sha256": "b93cd06c10f8942ca8a631e6659783f3f24bc786f1276c0418aef42026d856ee",
+      "bytes": 2976
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/answer/engine.py",
+      "sha256": "ba51341bc1bea955b2c516afa56e06dc45543abf864242fc324518a68657008c",
+      "bytes": 15522
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/answer/ladder.py",
+      "sha256": "5584d6fb04d8ed3f31386eb8150c466c14176ddeb60e06c0c5e2524e789e7caf",
+      "bytes": 6931
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/answer/localize.py",
+      "sha256": "b734b71b15c1467d3b1c304c73479d475873da94d208ffb9066710b1c7e0ed1f",
+      "bytes": 12678
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/answer/types.py",
+      "sha256": "2a2f1eb02b73e2046958d722daf7d3c0fde5e883432656af89101504c9ac50d3",
+      "bytes": 2092
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/batch.py",
+      "sha256": "1c1985647f55f608e20f978dbf76e84eea0c4652f44f6dedb9ff1d1415f83494",
+      "bytes": 5942
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/bench/__init__.py",
+      "sha256": "cbc38fb65ff05418324cd6f051a4cd5067a13be8c4e738be738cab4021f552c4",
+      "bytes": 172
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/bench/perception.py",
+      "sha256": "7c19a41a8cb577fb20dddae8191f23114f36509ddc8491ec336db28274b4a186",
+      "bytes": 6860
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/config.py",
+      "sha256": "1396d878440984fedf2543df245c4b69e2796e144c029baa59813ad20c271e43",
+      "bytes": 11716
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/errors.py",
+      "sha256": "bdb11c896e50c57145ae44760ac92bf52ecd1638135e0357247c59c3c7eb0b37",
+      "bytes": 2652
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/extract/__init__.py",
+      "sha256": "f6c163b855cda3beed6c45ffa35438a05a491c27852414ec2ef149b5fe335a4d",
+      "bytes": 487
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/extract/bug_report.py",
+      "sha256": "e0f79f9a25b83f7e67ba6125f40b48b97de77c3958956949121df637bd6db544",
+      "bytes": 5236
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/extract/chapters.py",
+      "sha256": "5c3e670f79b4dc7b9f04389bc23906aed1fb1e749e9bd644f9e6d8bbfcbe4e4f",
+      "bytes": 4601
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/extract/hook.py",
+      "sha256": "eed5bd184c7e88cd4f37c9e8b65ec5922c3d58df723545e5485edeedadd47d7f",
+      "bytes": 5833
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/health/__init__.py",
+      "sha256": "77bd692a4f7e8b402242c24705d5f354544c23a11a6940ae54bec06e54e2a537",
+      "bytes": 317
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/health/agents_setup.py",
+      "sha256": "f9bd6026bb4440861d30a326ae81d01d7c958d30546d8d82026307a4260fbf82",
+      "bytes": 5818
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/health/binaries.py",
+      "sha256": "e5ec30a5faf4571ea2611525b5ed820ebc6793840487fcf13fb0fb7e0818aa25",
+      "bytes": 7169
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/health/clean.py",
+      "sha256": "d8013594363e7463f0a6c7669e213b752394fe599ee84e7d4015c674bb768bfc",
+      "bytes": 3584
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/health/doctor.py",
+      "sha256": "749142c4a7607eb9e4ca8f60d7f08492ee55fb1a2485acd2ade715aa7bc7afca",
+      "bytes": 23604
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/health/log.py",
+      "sha256": "70d9b3a234f09f230269f6dd6fbf079fe9025eaf5fb67cc781211ab01206438d",
+      "bytes": 1484
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/health/vision_setup.py",
+      "sha256": "afd9e327965a77432a079281d86c2b8618574eda9e7092d67c26fa9c638bf05f",
+      "bytes": 9032
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/index/__init__.py",
+      "sha256": "f87f05df4888386cb180d037fb3329d5acf29db25106e8351885eff467112f33",
+      "bytes": 696
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/index/db.py",
+      "sha256": "3628392f4476fcc9ed02939450e62b44e0bb17647bad6b81baa92741abe0130c",
+      "bytes": 11468
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/index/embeddings.py",
+      "sha256": "59842f9fbc7895b8b304c5c6357a3eaef5936548630d0d4bd9ecbba0903a606b",
+      "bytes": 2717
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/index/retrieval.py",
+      "sha256": "ebcfef6e1fd52e2ad27656c0eadd5c38c0d885ee750736a98f479cb291997b53",
+      "bytes": 9842
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/index/store.py",
+      "sha256": "e0123448e50b95b40b9236ffbd22d6704c3f20b705ba04611c1b96940d4331c2",
+      "bytes": 12191
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/index/textnorm.py",
+      "sha256": "af0af28eae1f0cdb92c279a3ea2e667c33ad5459e52a7944e413775ccaeaab18",
+      "bytes": 7812
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/integrations/__init__.py",
+      "sha256": "2751bff42543b0f5a1b0469e721981afbb865883796bdf60b5db380bef6f2a61",
+      "bytes": 690
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/integrations/_core.py",
+      "sha256": "89deb820d61538841f77a2684abe427ae90e1fe5c4db90517297afc407ef01f3",
+      "bytes": 3258
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/integrations/autogen.py",
+      "sha256": "ed6361c1e91733405bdd63ebcf219bf69d9e4f7c750759a1071cba89e4929a53",
+      "bytes": 923
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/integrations/crewai.py",
+      "sha256": "2ed18474744b76b41dab423e4cb391fb3573eaa2dafdee2c399e531a6c965e6c",
+      "bytes": 1196
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/integrations/langchain.py",
+      "sha256": "073a9b3a761c038f22ff185b30fc6aeb6276219de0f1927367d7925969937bd4",
+      "bytes": 1047
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/integrations/llamaindex.py",
+      "sha256": "77801f5142219295d195d604b4301006c8662f690612e7a802bd8fa143b327c6",
+      "bytes": 890
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/integrations/openai_agents.py",
+      "sha256": "2fb85992dfb8db952c0f9b2b16ad964c596eeda5c1c0872b1ea41b714761bfd1",
+      "bytes": 897
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/jobs.py",
+      "sha256": "70638f4d378d1938cc8caf0ffad9a080b7d3e2ed4deae71783978b2047568557",
+      "bytes": 3917
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/lessons/__init__.py",
+      "sha256": "b5e91fdfa209a55d0dd498ec9da967e47f0f70fbd7d70c011b859edb2954cbb7",
+      "bytes": 730
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/lessons/classify.py",
+      "sha256": "240cd12986708998b96805770ca695caac31a9e95711b322d4bb1271c103f039",
+      "bytes": 4016
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/lessons/evals.py",
+      "sha256": "8188d9f334b8ec9fb5c359583be29ddaed78f4c50defbbe2000cb0073881fee4",
+      "bytes": 8096
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/lessons/inject.py",
+      "sha256": "40abe0f67aa8fb63ab9f7fbfb60c77c8f54f76984eac4a1b286ef2eb87bfb3e3",
+      "bytes": 2687
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/lessons/profiles.py",
+      "sha256": "f2358642c28a660efb689ca9ef6b39495713ed12b7702c44ff4987d6d520daf2",
+      "bytes": 3388
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/lessons/report.py",
+      "sha256": "7c9b6e3f6885b0f68f4e9b9d26845602f9a8d00cfeb71c127c1748df2fe83f58",
+      "bytes": 3431
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/lessons/store.py",
+      "sha256": "6c2efa5293075634dd2ebac72d42e5440e6c35670b62bc38e050d0573bf98ac6",
+      "bytes": 5949
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/library/__init__.py",
+      "sha256": "a97844ed3afdf051b0a31f7f67c6cf6aee00376d034a7ac79a479cc971c958a1",
+      "bytes": 793
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/library/notes.py",
+      "sha256": "6434c700cc938ac9fd225632edb40af46502473d6bb055a6f5336586ef919681",
+      "bytes": 8431
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/library/synthesize.py",
+      "sha256": "2a202927a79c3af537199d4e9af464d5849d2ffb17382464fc08107082fc1e8c",
+      "bytes": 14130
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/loop/__init__.py",
+      "sha256": "17e3026207a2d16f6b479752c7263cd9a4d584ddbf0de44412da8945bf7abcf7",
+      "bytes": 1501
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/loop/artifact.py",
+      "sha256": "2f4dfa4ab87d31a6da47da8bf8449e0fe33cf9af14d020acbc01a4ad39253f17",
+      "bytes": 3041
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/loop/capture.py",
+      "sha256": "b5946afe841e59d5a08dbb657b237048c82f4478f2f937c2a45fc6b53c5202c2",
+      "bytes": 8629
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/loop/critic.py",
+      "sha256": "bde41fbde55eb7dc598dd156f1a922f350962f2e22831b2c2cc5a070f31c344c",
+      "bytes": 12730
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/loop/diff.py",
+      "sha256": "c8be237839eb243c28450eca2269ac74353ced071d135210b72304b84b489a89",
+      "bytes": 4397
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/loop/framework.py",
+      "sha256": "d2505bad844e96aa60562da9d5aae0ada9bb8f96965a26a8c5e23c526125081a",
+      "bytes": 8420
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/loop/monitor.py",
+      "sha256": "2ca9a13a1c0ac1ddb49f3a5a4acee53cf83a4307a3c8ce68d5d47b9551580108",
+      "bytes": 7228
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/loop/reportfmt.py",
+      "sha256": "0ea5a43db2554d7e8ea7cd46539bdca73deb3e505cb9ddc00564a3b15dceb5be",
+      "bytes": 1748
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/loop/runner.py",
+      "sha256": "c10f016747bb29029230b8b079b81de22003eff4ba1b12b3da6e1f087c954bf7",
+      "bytes": 10260
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/loop/webhook.py",
+      "sha256": "12c46581d1176637048cd10a248f68d3dc39f324c9bf42f807d00caa2ef5b949",
+      "bytes": 3167
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/perceive/__init__.py",
+      "sha256": "4723d4dc1d6b81361b9b7f9fe6f963239a01c18c698d21bced2c0831609e29f6",
+      "bytes": 691
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/perceive/budget.py",
+      "sha256": "673fc9c376b7780669e2c793b223d09921172bde773738aff748388767f6f133",
+      "bytes": 3776
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/perceive/engine.py",
+      "sha256": "edd0ee61c7228ac5c17e582c3a40eef83f9154cc5a0493ceb0093fb3964d4af1",
+      "bytes": 8016
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/perceive/media.py",
+      "sha256": "35a6df8590539229e4b95f3c54b89ca302bacef9531bbd22373fc42c2d2d176a",
+      "bytes": 3513
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/perceive/ocr.py",
+      "sha256": "90c76cc5f0546b51e492624e89152aa159a644c533ca12fd8904b13a63d66228",
+      "bytes": 6276
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/perceive/ocr_backends.py",
+      "sha256": "7e410f62384f586aceb4a7e2b56071f58b0efc8dbec0ad2819deb9654188974f",
+      "bytes": 13155
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/perceive/scenes.py",
+      "sha256": "0c76a1f6c364829d0be6d7f9ef6d0dc07ffae0514638fdd6478a0ae98d771b0b",
+      "bytes": 3341
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/perceive/types.py",
+      "sha256": "1f9f66119afc3f11bf9ed55551c20398c40cca64ef23f5305efd425ec5f4baf8",
+      "bytes": 2492
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/proc.py",
+      "sha256": "73a9379088e1d59c2154c9884d8cca828a051c5a0df44faf32af646f87a2923d",
+      "bytes": 6017
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/report.py",
+      "sha256": "272b137ddbb660604b26e0282347e88821d0073ff8b41bff1dd73b9b6daf853c",
+      "bytes": 4225
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/surfaces/__init__.py",
+      "sha256": "f691052f2a22e2d9c0a209cf1e5b5e6f0bdd1cc7a34e192a14848631abce3934",
+      "bytes": 204
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/surfaces/api/__init__.py",
+      "sha256": "ba4a5a856c49aaba3a1b4cd23ad5cb76509559829815aeface376952a7e573c5",
+      "bytes": 299
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/surfaces/api/app.py",
+      "sha256": "719b8ff85e04150b77559bb5139c45bbbc3fccc0f18a480ead9437ca02b9836e",
+      "bytes": 12914
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/surfaces/cli/__init__.py",
+      "sha256": "21c48800d50e50a8562763ba6e61926618ad7df36a16d47bc4bf1a3313b611cd",
+      "bytes": 64
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/surfaces/cli/main.py",
+      "sha256": "2292c621b301efa62ccdcdc72ec8428511385b33ff154b92c0312343a91aa35c",
+      "bytes": 39104
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/surfaces/mcp/__init__.py",
+      "sha256": "e6eae682864669b29d198f2ab057f5f155462677e318519d477307ef90d9053c",
+      "bytes": 76
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/surfaces/mcp/server.py",
+      "sha256": "f5a30c3c50af820f48fd214c85380820a47608578345a9b6137633ab1e7b06df",
+      "bytes": 24105
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/transcribe/__init__.py",
+      "sha256": "6875679d7352cb5241d44d076ca3d3d51b10ef2dd67435dcb947dc61afde43e0",
+      "bytes": 481
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/transcribe/audio.py",
+      "sha256": "78cea50caa3cfc18b9ea247ab8c1966032b969583bc639761807fda015c0855b",
+      "bytes": 5506
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/transcribe/cloud.py",
+      "sha256": "e77ec57688277ae664e545defca76a5f13bb1e6fdd8b5f0314e277cc522652b8",
+      "bytes": 7582
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/transcribe/diarize.py",
+      "sha256": "e817598b568ff375e06986778b7b94ca5b1bc1e1b1fb1f074c49daee8c0cfcf2",
+      "bytes": 4510
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/transcribe/ladder.py",
+      "sha256": "01193ecca1d391ceb7cdc50b95363cf483984bd21e64b4c1b1f0bad6fae28be6",
+      "bytes": 2852
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/transcribe/local.py",
+      "sha256": "3c704e82f4ddba916513011dff491f65ab04d10dbe0db064a67061f3e31041d0",
+      "bytes": 4729
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/transcribe/types.py",
+      "sha256": "18eae7ca081fc59d91d610d6d27c6ae1cfbe278163c731a4e44552121762d3aa",
+      "bytes": 2201
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/transcribe/vtt.py",
+      "sha256": "016a0f91d097e47c8f12e8b01c55ed346b93ea9847d78ffe4c902fbd61a73dc4",
+      "bytes": 2053
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/viewer.py",
+      "sha256": "6fa3ccc593ebed7e9d4ab00157dad492410ba6f884c6dfa6f5cc1337ef2cb3c8",
+      "bytes": 8816
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/vision/__init__.py",
+      "sha256": "c0a809eee2e22e78c6381f83c2b7b4e336d63698291a8efd4a3361c0855906cb",
+      "bytes": 715
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/vision/client.py",
+      "sha256": "fce51dbb09602e3d97f4c068a5d0ecd9ba8a68f04fb839696cedc9bfd07d3ea5",
+      "bytes": 11976
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/vision/cost.py",
+      "sha256": "c9ddbe27748887361a399ac20e37b166907ff205a5f07fd78cf5bbd594cee1c6",
+      "bytes": 1925
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/vision/local_health.py",
+      "sha256": "5e7fce6513b98a9349b55e666546e62736d4f886676d4f6fdc59fe3063c02a96",
+      "bytes": 4115
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/vision/model.py",
+      "sha256": "670f9afeaf387c66b541dbcbcf0688dcc120fd9f56e729f32ee14ca8e52c1640",
+      "bytes": 6568
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/vision/prices.json",
+      "sha256": "718e4990d153126670ee060c2a3b279bfbe06a222ee9bc0838fc1df77a7744c5",
+      "bytes": 644
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/vision/registry.py",
+      "sha256": "cbe6b1a6183f6033098ce549bf8575c35c2f47ad2ed8f8f1d2155df8c1a39c74",
+      "bytes": 2578
+    },
+    {
+      "path": "Watch Skill/watch-skill/src/watch_skill/watch.py",
+      "sha256": "4a683bf47a10949f9b7ebf91e23a89f30d62326c2a6a6b6a425c854bf7b7e68b",
+      "bytes": 5870
+    },
+    {
+      "path": "Watch Skill/watch-skill/templates/agent-adapter/docs-skeleton.md",
+      "sha256": "cf438e068e9cd2f2a6b312e8b4d2f4acfae79fca377cf2f8913e3bef37dfeb8b",
+      "bytes": 1453
+    },
+    {
+      "path": "Watch Skill/watch-skill/templates/agent-adapter/README.md",
+      "sha256": "78ef4cb10e0eecb5d2ddb784ef752b1f0af47bb784c10919182530a419cc56f6",
+      "bytes": 1791
+    },
+    {
+      "path": "Watch Skill/watch-skill/templates/agent-adapter/validate.py",
+      "sha256": "85eb2058802e72db5b727762d1e52a7cdc0703c841d688e10d09693d3d6f7c8e",
+      "bytes": 2714
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/acquire/test_acquire_chain.py",
+      "sha256": "eac204ac0a9210e0d4635e1b254d41b69b519e22b6e17a81c3c574e5a8bad98a",
+      "bytes": 2804
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/acquire/test_cache.py",
+      "sha256": "7cee9df3d5f0c821baf40fbdba05c26269916087a7074fadafd54928a8e0025e",
+      "bytes": 2336
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/acquire/test_sources.py",
+      "sha256": "1fc99a283b46ac50949c2f9304f5228c15c841005ec58858762a23c430e359f9",
+      "bytes": 1560
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/acquire/test_ytdlp.py",
+      "sha256": "bc34611279b88d37faa49aa20c0f698de3a3a7e21daf2e54518e23104a66302a",
+      "bytes": 4910
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/answer/test_answer.py",
+      "sha256": "2d8f03db5c3fa512376b96b6ba461204cc9e63b39c07d3ed0c4c0e511988284f",
+      "bytes": 15103
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/answer/test_cost_meter.py",
+      "sha256": "a1d404d20e529aa83a3a790397a552544963206fbb96f082d9d84b3a272513a4",
+      "bytes": 5195
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/answer/test_localize.py",
+      "sha256": "6818a990fdf925073b61e09ba7cd6782550c09e806236c1e7d68b92afe9bf00c",
+      "bytes": 5436
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/answer/test_token_economy.py",
+      "sha256": "dde8dc8202eacc8580183d86e4d38c50d91c60fada0a799a0bf78d76af0cf8a9",
+      "bytes": 8443
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/conftest.py",
+      "sha256": "ecb62b66ada0d153cfdb730725d32eef7adcac2128386b1a49f6ccc55ce8601b",
+      "bytes": 3259
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/extract/test_extract.py",
+      "sha256": "9155b7a873245480b605e4c75be77becf74a425edabeff2737c919d672e83dd5",
+      "bytes": 7094
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/health/test_binaries.py",
+      "sha256": "ebb318caffee7c41775b103ccd1a498efdf683c11ba9e5f16ab7d4239dd9bdce",
+      "bytes": 3116
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/health/test_clean.py",
+      "sha256": "c7257ee0083ac60c1a28edb2d4562d9a622e455cf11126d1718e91f309d71e76",
+      "bytes": 2234
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/health/test_doctor.py",
+      "sha256": "59e1e016f757a81d5f2d0ec1748349f4020794583664dfd4ece5ff03020b5f67",
+      "bytes": 7862
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/health/test_doctor_repairs.py",
+      "sha256": "ed326265838fd276b26708b0a79e478d7f131f6ca4b31f914a09a8be49016ba7",
+      "bytes": 5494
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/health/test_vision_setup.py",
+      "sha256": "3615cb59e2da240fbd8d28582204759c629d863adecaf96d6a97789e8875b382",
+      "bytes": 5499
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/index/test_arabic.py",
+      "sha256": "6586bc8a087173abf003a95a5897382227b6a779d138080d7e451e7a6eea1dd4",
+      "bytes": 4920
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/index/test_i18n.py",
+      "sha256": "8ad2f0b952c5cfd7f53c5deb53df815c263122dacdc2b1bb1e0d3d0f46ef250a",
+      "bytes": 7483
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/index/test_i18n_v07.py",
+      "sha256": "e3116a9e44380cccce3e13d2657242cce4b64d68ca75f5c8f76d4b347fe08dce",
+      "bytes": 8221
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/index/test_index.py",
+      "sha256": "0e2b6c1498e10a63f0f9d1eb161857d8913853663d5e8e6ab66c916037f2313a",
+      "bytes": 11095
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/integrations/test_adapters.py",
+      "sha256": "17324762828d20d9ef222d76d36db75f8d6ab0c16863f9b8c44a4e0ad9c881a3",
+      "bytes": 4407
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/lessons/test_eval_report.py",
+      "sha256": "dcd7c0e1655dc315236b531ea6567f89985212e26dc063516ef1e7e74c69902a",
+      "bytes": 4661
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/lessons/test_lessons.py",
+      "sha256": "da26a0de91ce37270c36d6f2f7a53fd02c51db79394e94b4f5ee0c8db7ae7d38",
+      "bytes": 9613
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/library/test_library.py",
+      "sha256": "c87ea6f3b9f43f6dc49281d63ad8c64a53e0b58ecee7387123c876b2d122034f",
+      "bytes": 7377
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/loop/test_capture.py",
+      "sha256": "be3935224b9381bfc9fc3bfe4a99233bc40ef3ed196f4315b58a8916bfc6b090",
+      "bytes": 2046
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/loop/test_describe_critic.py",
+      "sha256": "cc9986b80865bea0a5b97176f02bacd37282874eb0e449f4e2e475571a7a35e3",
+      "bytes": 11266
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/loop/test_framework.py",
+      "sha256": "6bddb86ac7caeddef5c571ba03aeff514aeff2fc28b28fa5dd9076eb98e866f2",
+      "bytes": 11994
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/loop/test_loop.py",
+      "sha256": "adbaa7cfbbae0996717897140c5a4dfe99467d8925befadf99cbe9a5320eda45",
+      "bytes": 9564
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/loop/test_webhook.py",
+      "sha256": "e034718eefc995b74697ab2d1d4422f33a6006219e445f54a31ae912ce37fe50",
+      "bytes": 3898
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/perceive/test_budget.py",
+      "sha256": "0976afd500af9ba2f5788bf0f6c16272adb1060d45e85b06a3c94a597329cb77",
+      "bytes": 1680
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/perceive/test_flow_cues.py",
+      "sha256": "63b38e2c9090f4a00f64d224c6861e509ee012d3585d4c35898473c6b71f759d",
+      "bytes": 1259
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/perceive/test_ocr_backends.py",
+      "sha256": "b8c383951a7742b1e2b55d02d5fa997275450a0f3cff0b3153bff6f48c078b6b",
+      "bytes": 4545
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/perceive/test_perceive.py",
+      "sha256": "761fc92f76f0b871f5fde4d0d068deefa3df680b6aec52f27066a3d451ff85d0",
+      "bytes": 6811
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/surfaces/test_api.py",
+      "sha256": "c0fbe26f4a42693530f34c0881add6b4590c31050a4d4cb700c9fe3caf9147df",
+      "bytes": 3740
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/surfaces/test_mcp_server.py",
+      "sha256": "35e4637aa880940c11ba90c36fdf4d5afe46e2632a627db6a24c5448e6d52d9c",
+      "bytes": 3570
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/test_agent_docs.py",
+      "sha256": "dbfcd8b7479eca4fbc91f2282f31b02a3db10c570da61ad623cdf1b7c80fb2c2",
+      "bytes": 2767
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/test_batch.py",
+      "sha256": "796fab42a06757d4a8546073c4883752f0b439f89b87fefe0592ca1209c18d29",
+      "bytes": 4602
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/test_config.py",
+      "sha256": "cc5b5f6e99ec808393d43bda9955513566417859191cd47dec4db501427f1d9b",
+      "bytes": 3781
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/test_error_fix_audit.py",
+      "sha256": "e3e4c88373acb26673708c7599edab997c701a716d2c6e7bb5c113b02181e415",
+      "bytes": 6024
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/test_errors.py",
+      "sha256": "86e2746635b1fe5469f6ba46095a2532c632ab34c85595f1eb282c38e5db23dd",
+      "bytes": 1246
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/test_jobs.py",
+      "sha256": "bebefc96b052cc630b2103bde843d63f7b32a0e31f25e03813572e12bdfa5aab",
+      "bytes": 1942
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/test_no_console_windows.py",
+      "sha256": "9efce9778e153bf2caeb1820cf09950d0e4f20ff3606fa6da863eac9609021ff",
+      "bytes": 6436
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/test_plugin_packaging.py",
+      "sha256": "114e2f78e1c4958d4ae35d9caa2b75751aef3189e82f580918addcb1295c6fd0",
+      "bytes": 3533
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/test_skills_library.py",
+      "sha256": "a3412285b5815c135ea639bf90c4a3726255e28475615ef7d841e7069ab4522b",
+      "bytes": 3634
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/test_viewer.py",
+      "sha256": "12179612a7bd1543a19e4de7b94a8fe52abb297659c1b281db7b4280dc9e8f94",
+      "bytes": 5263
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/test_watch_pipeline.py",
+      "sha256": "7212d54bfa7df98099d96dae6545902b03d203916ab6e4433a0e1e4d1042ee78",
+      "bytes": 2263
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/transcribe/test_diarize.py",
+      "sha256": "e7b6b0d1153dfd40e917beebe3b185b5dc664ff079965bb73dbc6eea3aa59626",
+      "bytes": 3783
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/transcribe/test_privacy.py",
+      "sha256": "9e51fc591f7112d6c06ef62bd47a83717dbffb764a24eabdf8df4f4dc436a4a9",
+      "bytes": 2335
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/transcribe/test_transcribe.py",
+      "sha256": "3cbee95125848d62e8c18428b12d7bc686125fed2fc51c7676d6623513e901aa",
+      "bytes": 3916
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/vision/test_local_health.py",
+      "sha256": "b8648158ef9c938f31dd34151217dc790845c6132bc541c2c724c7b8e09799fc",
+      "bytes": 4335
+    },
+    {
+      "path": "Watch Skill/watch-skill/tests/vision/test_vision.py",
+      "sha256": "72d7fa65d35509655e1c61e85a56f45f2111b2d53d1bec0dcfd2eef51c86eeec",
+      "bytes": 11749
+    },
+    {
+      "path": "Watch Skill/watch-skill/uv.lock",
+      "sha256": "f038a8f713959557ae7781248eecffe9767344f3641f8897e5381289b08ef3fa",
+      "bytes": 1343371
+    },
+    {
+      "path": "Watch Skill/watch-skill/watch-silent.cmd",
+      "sha256": "d81481146ba3d6e447a19e7cd00118334ea78a44b6a8783e70f43031a79c4d43",
+      "bytes": 2043
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "type": "object",
+  "required": ["id", "name", "steps"],
+  "properties": {"id": {"type": "string"}, "name": {"type": "string"}, "steps": {"type": "array"}},
+  "additionalProperties": true
+}

@@ -1,0 +1,10 @@
+id: watch
+name: Watch media and verify visual output
+tool: watch-skill
+capabilities: [watch_video, transcribe_audio, detect_scenes, understand_video, visual_qa]
+inputs: [video, audio, url, image_sequence]
+outputs: [summary, transcript, evidence_grounded_answer, verification_report]
+constraints:
+  local_first: true
+  external_approval_required: true
+  cloud_gpu_supported: false
