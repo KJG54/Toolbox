@@ -27,6 +27,26 @@
       "reason": "Regenerated the lockfile after declaring the Watch development-test dependency."
     },
     {
+      "original": "Watch Skill/watch-skill/src/watch_skill/answer/cache.py",
+      "migrated": "components/watch-skill/src/watch_skill/answer/cache.py",
+      "reason": "Added a conservative dependency-free cache fallback so semantically equivalent questions with the same meaningful terms reuse local evidence when the optional embedding extra is not installed."
+    },
+    {
+      "original": "Watch Skill/watch-skill/src/watch_skill/index/store.py",
+      "migrated": "components/watch-skill/src/watch_skill/index/store.py",
+      "reason": "Pins the intended embedding model metadata even when the optional embedding runtime is absent."
+    },
+    {
+      "original": "Watch Skill/watch-skill/src/watch_skill/index/retrieval.py",
+      "migrated": "components/watch-skill/src/watch_skill/index/retrieval.py",
+      "reason": "Adds a narrow local script-substring fallback after an exact FTS miss for CJK, Kana, or Hangul questions."
+    },
+    {
+      "original": "Watch Skill/watch-skill/src/watch_skill/lessons/inject.py",
+      "migrated": "components/watch-skill/src/watch_skill/lessons/inject.py",
+      "reason": "Adds local keyword-based lesson guidance when the optional embedding package and model are absent."
+    },
+    {
       "original": "Text to Speech/tts2.py",
       "migrated": "examples/tts/tts2.py",
       "reason": "Removed two trailing whitespace-only lines so the preserved example passes the repository whitespace check without behavior changes."

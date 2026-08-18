@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import sqlite3
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
@@ -13,6 +14,7 @@ from watch_skill.index.store import get_video
 
 _FTS_CANDIDATES = 24
 _VECTOR_CANDIDATES = 24
+_SCRIPT_RUN = re.compile(r"[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]{2,}")
 
 
 @dataclass
@@ -87,7 +89,43 @@ def _fts_hits(conn: sqlite3.Connection, query: str, video_id: str | None) -> lis
         hits.append(
             Hit(row["video_id"], row["kind"], row["ref_id"], row["timestamp"], row["text"], score)
         )
+    if not hits:
+        hits = _script_substring_hits(conn, query, video_id)
     return hits
+
+
+def _script_substring_hits(
+    conn: sqlite3.Connection, query: str, video_id: str | None
+) -> list[Hit]:
+    """Recover an informative CJK/Kana/Hangul phrase from a full question.
+
+    FTS tokenization has no word boundaries for these scripts.  The normal
+    FTS query is intentionally strict; only after it misses do we try the
+    longest two-or-more-character source phrase as a local SQL fallback.
+    """
+    fragments = _SCRIPT_RUN.findall(query)
+    candidates = {
+        fragment[start:start + width]
+        for fragment in fragments
+        for width in range(min(4, len(fragment)), 1, -1)
+        for start in range(len(fragment) - width + 1)
+    }
+    for candidate in sorted(candidates, key=len, reverse=True):
+        sql = (
+            "SELECT video_id, kind, ref_id, timestamp, text FROM fts "
+            "WHERE text LIKE ?"
+        )
+        params: list[Any] = [f"%{candidate}%"]
+        if video_id:
+            sql += " AND video_id = ?"
+            params.append(video_id)
+        rows = conn.execute(sql + " LIMIT ?", [*params, _FTS_CANDIDATES]).fetchall()
+        if rows:
+            return [
+                Hit(row["video_id"], row["kind"], row["ref_id"], row["timestamp"], row["text"], 0.8)
+                for row in rows
+            ]
+    return []
 
 
 def _vector_hits(conn: sqlite3.Connection, query: str, video_id: str | None) -> list[Hit]:

@@ -1,0 +1,5 @@
+name: watch-review
+description: Create a local, evidence-first timeline from a video using the preserved Watch component.
+version: 1
+capabilities: [watch_video, create_evidence_timeline, create_provenance_record]
+external_opt_in: false

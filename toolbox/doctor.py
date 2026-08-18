@@ -61,6 +61,12 @@ def _ram_gb() -> float | None:
 
 def detect_tools() -> dict[str, dict[str, Any]]:
     watch_root = ROOT / "components" / "watch-skill"
+    watch_packages = watch_root / ".venv" / "Lib" / "site-packages"
+    perception_ready = all(
+        (watch_packages / package).exists()
+        for package in ("imagehash", "PIL", "cv2")
+    )
+    embeddings_ready = (watch_packages / "fastembed").exists()
     tts_root = ROOT / "examples" / "tts"
     blender_roots = [
         Path.home() / "AppData" / "Local" / "Programs" / "Blender Foundation",
@@ -78,6 +84,12 @@ def detect_tools() -> dict[str, dict[str, Any]]:
         "watch-skill": {
             "status": "READY" if (watch_root / "pyproject.toml").is_file() else "NOT_INSTALLED",
             "path": str(watch_root),
+            "features": {
+                "perception": "READY" if perception_ready else "NOT_INSTALLED",
+                "semantic_index": "READY" if embeddings_ready else "KEYWORD_ONLY",
+                "local_whisper": "OPT_IN_CACHED_MODEL_REQUIRED",
+                "cloud_stt": "EXTERNAL_OPT_IN",
+            },
         },
         "tts-examples": {
             "status": "READY" if (tts_root / "tts.py").is_file() else "NOT_INSTALLED",

@@ -8,6 +8,7 @@ embeddings. Invalidation: per-video on re-watch (store deletes the rows) or
 from __future__ import annotations
 
 import json
+import re
 import sqlite3
 from typing import Any
 
@@ -16,6 +17,36 @@ from watch_skill.config import get_settings
 from watch_skill.index import embeddings as emb
 from watch_skill.index.db import connect, get_meta, set_meta
 from watch_skill.index.textnorm import normalize_for_search
+
+
+_QUESTION_STOPWORDS = {
+    "a", "an", "and", "appear", "at", "do", "does", "for", "how", "in", "is",
+    "of", "on", "show", "the", "time", "to", "up", "what", "when", "where", "which",
+}
+
+
+def _content_terms(question: str) -> set[str]:
+    """Return conservative lexical anchors for no-embedding cache matching."""
+    return {
+        term for term in re.findall(r"[\w'-]+", normalize_for_search(question))
+        if len(term) > 2 and term not in _QUESTION_STOPWORDS
+    }
+
+
+def _lexical_near_match(rows: list[sqlite3.Row], question: str) -> Answer | None:
+    """Reuse a cache entry only when its meaningful question terms fully agree.
+
+    This keeps local installs useful when the optional embedding extra is absent,
+    without treating broad questions such as "when does it start" as equivalent.
+    """
+    query_terms = _content_terms(question)
+    if len(query_terms) < 2:
+        return None
+    for row in rows:
+        stored_terms = _content_terms(row["question"])
+        if query_terms == stored_terms:
+            return _revive(row["answer_json"])
+    return None
 
 
 def lookup(video_id: str, question: str) -> Answer | None:
@@ -42,19 +73,22 @@ def _semantic_lookup(
     conn: sqlite3.Connection, video_id: str, question: str, threshold: float
 ) -> Answer | None:
     rows = conn.execute(
-        "SELECT embedding, dim, answer_json FROM answers "
-        "WHERE video_id = ? AND embedding IS NOT NULL",
+        "SELECT question, embedding, dim, answer_json FROM answers "
+        "WHERE video_id = ?",
         (video_id,),
     ).fetchall()
     if not rows:
         return None
+    embedding_rows = [row for row in rows if row["embedding"] is not None]
+    if not embedding_rows:
+        return _lexical_near_match(rows, question)
     model_name = get_meta(conn, "embedding_model")
     vecs = emb.embed_texts([question], model_name=model_name)
     if not vecs:
-        return None
+        return _lexical_near_match(rows, question)
     query = vecs[0]
     best_row, best_sim = None, 0.0
-    for row in rows:
+    for row in embedding_rows:
         stored = emb.unpack_vector(row["embedding"], row["dim"])
         sim = emb.cosine_similarity(query, stored)
         if sim > best_sim:

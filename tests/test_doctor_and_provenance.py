@@ -14,6 +14,7 @@ class DoctorAndProvenanceTests(unittest.TestCase):
         report = doctor_report()
         self.assertIn("hardware", report)
         self.assertEqual(report["tools"]["watch-skill"]["status"], "READY")
+        self.assertEqual(report["tools"]["watch-skill"]["features"]["perception"], "READY")
         self.assertEqual(report["tools"]["tts-examples"]["status"], "READY")
 
     def test_provenance_sidecar_preserves_asset(self) -> None:

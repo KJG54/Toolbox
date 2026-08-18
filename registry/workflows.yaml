@@ -7,3 +7,18 @@ workflows:
         output: portable_local_derivative
       - capability: create_provenance_record
         output: provenance_sidecar
+  - id: watch-review
+    name: Review local video with Watch
+    steps:
+      - capability: normalize_media
+        tool: ffmpeg
+        optional: true
+        output: portable_local_derivative
+      - capability: watch_video
+        tool: watch-skill
+        output: local_frames_and_transcript
+      - capability: create_evidence_timeline
+        tool: watch-skill
+        output: versioned_evidence_timeline
+      - capability: create_provenance_record
+        output: provenance_sidecar

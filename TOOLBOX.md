@@ -15,6 +15,11 @@ commercial-use terms, interfaces, and file formats. Present a proposed registry 
 review. Do not install software, download models, add registry records, spend money, or
 upload user content as part of research.
 
+When recommending a next capability, state the concrete use cases, why it helps this
+workflow over time, its local hardware and installation prerequisites, and what it does
+not do. Make the recommendation actionable without implying approval to install or invoke
+anything external.
+
 External APIs are `external_opt_in`: do not invoke them or send media outside the machine
 without explicit approval. Cloud GPU, rented GPU, remote jobs, and billable compute are out
 of scope. If the machine is insufficient, report `HARDWARE_UPGRADE_REQUIRED`.

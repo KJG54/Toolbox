@@ -127,9 +127,12 @@ def _index_texts(conn: sqlite3.Connection, video_id: str, items: list[tuple]) ->
         or get_settings().embedding_model
         or emb.MODEL_NAME
     )
+    # Pin the intended model even when the optional embedding runtime is not
+    # installed yet.  A later local installation must use one stable model
+    # rather than silently mixing vectors in the same index.
+    set_meta(conn, "embedding_model", model_name)
     vectors = emb.embed_texts([text for _, _, _, text in items], model_name=model_name)
     if vectors:
-        set_meta(conn, "embedding_model", model_name)
         for (kind, ref_id, timestamp, text), vector in zip(items, vectors, strict=False):
             conn.execute(
                 """INSERT INTO embeddings (video_id, kind, ref_id, timestamp, text, vector, dim)

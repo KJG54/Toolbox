@@ -23,6 +23,9 @@ capabilities:
   - id: create_provenance_record
     name: Create provenance record
     description: Record the tools and source assets used to create a derivative.
+  - id: create_evidence_timeline
+    name: Create evidence timeline
+    description: Produce a versioned, timestamped JSON timeline from locally reviewed media.
   - id: model_3d
     name: Model 3D
     description: Create and edit 3D models locally.
