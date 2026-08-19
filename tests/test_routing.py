@@ -44,3 +44,14 @@ class RoutingTests(unittest.TestCase):
         result = recommend("generate_video", registry=load_registry(), hardware=GPU_6, installed={})
         self.assertTrue(result["capability_gap"])
         self.assertIn("Research candidates", result["next_action"])
+
+    def test_ace_step_is_routable_but_local_slow_on_current_gpu(self) -> None:
+        result = recommend(
+            "generate_music",
+            registry=load_registry(),
+            hardware=GPU_6,
+            installed={"ace-step-local": {"status": "READY_LOCAL_SLOW"}},
+        )
+        self.assertEqual(result["recommendations"][0]["id"], "ace-step-local")
+        self.assertTrue(result["recommendations"][0]["installed"])
+        self.assertEqual(result["recommendations"][0]["hardware"], HardwareOutcome.LOCAL_SLOW)

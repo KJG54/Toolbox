@@ -70,7 +70,7 @@ def recommend(
         if reasons:
             rejected.append({"id": tool["id"], "reasons": reasons, "hardware": outcome})
             continue
-        ready = installed.get(tool["id"], {}).get("status") == "READY"
+        ready = installed.get(tool["id"], {}).get("status", "").startswith("READY")
         score = tool.get("routing_priority", 0) + 15 + (20 if ready else 0)
         if tool.get("cost", {}).get("tier") == "free":
             score += 15

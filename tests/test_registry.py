@@ -10,6 +10,8 @@ class RegistryTests(unittest.TestCase):
     def test_seed_registry_validates(self) -> None:
         registry = load_registry()
         self.assertEqual(registry.find("tools", "watch-skill")["adapter"], "adapters/watch.py")
+        self.assertEqual(registry.find("tools", "ace-step-local")["capabilities"], ["generate_music"])
+        self.assertEqual(registry.find("tools", "gltfpack")["capabilities"], ["optimize_gltf"])
 
     def test_duplicate_tool_id_is_rejected(self) -> None:
         registry = load_registry()

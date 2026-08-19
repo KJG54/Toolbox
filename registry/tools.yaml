@@ -123,7 +123,7 @@ tools:
     interfaces: [cli, python, local_http]
     external_opt_in: false
     formats: {input: [txt, json, wav], output: [wav, flac, mp3, lrc]}
-    hardware: {gpu_required: true, min_vram_gb: 4, recommended_vram_gb: 6}
+    hardware: {gpu_required: true, min_vram_gb: 4, recommended_vram_gb: 8}
     routing_priority: 85
     fallback_ids: []
     provenance: {record_version: true}
