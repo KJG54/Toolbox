@@ -57,3 +57,33 @@ tools:
     routing_priority: 90
     fallback_ids: []
     provenance: {record_version: true}
+  - id: ace-step-local
+    name: ACE-Step local music generation
+    kind: local_component
+    capabilities: [generate_music]
+    license_id: mit
+    cost: {tier: free}
+    execution: {local: true, windows: true}
+    interfaces: [cli, python]
+    external_opt_in: false
+    formats: {input: [txt, json], output: [wav]}
+    hardware: {gpu_required: true, min_vram_gb: 4, recommended_vram_gb: 8}
+    routing_priority: 85
+    fallback_ids: []
+    local_interface: {python: components/ace-step/.venv/Scripts/python.exe, entrypoint: components/ace-step/gen_track.py}
+    provenance: {record_version: true, source: https://github.com/ACE-Step/ACE-Step-1.5}
+  - id: gltfpack
+    name: gltfpack meshoptimizer optimizer
+    kind: local_binary
+    capabilities: [optimize_gltf]
+    license_id: mit
+    cost: {tier: free}
+    execution: {local: true, windows: true}
+    interfaces: [cli]
+    external_opt_in: false
+    formats: {input: [gltf, glb], output: [glb]}
+    hardware: {gpu_required: false}
+    routing_priority: 94
+    fallback_ids: [blender]
+    local_interface: {command: components/gltfpack/gltfpack.exe}
+    provenance: {record_version: true, source: https://github.com/zeux/meshoptimizer}

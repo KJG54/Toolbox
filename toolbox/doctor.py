@@ -71,6 +71,10 @@ def detect_tools() -> dict[str, dict[str, Any]]:
     whisper_ready = (watch_packages / "faster_whisper").exists()
     whisper_tiny_cached = (Path.home() / ".cache" / "huggingface" / "hub" / "models--Systran--faster-whisper-tiny").is_dir()
     tts_root = ROOT / "examples" / "tts"
+    ace_root = ROOT / "components" / "ace-step"
+    ace_python = ace_root / ".venv" / "Scripts" / "python.exe"
+    ace_turbo_model = ace_root / "checkpoints" / "acestep-v15-turbo" / "model.safetensors"
+    gltfpack_binary = ROOT / "components" / "gltfpack" / "gltfpack.exe"
     blender_roots = [
         Path.home() / "AppData" / "Local" / "Programs" / "Blender Foundation",
         Path("C:/Program Files/Blender Foundation"),
@@ -99,6 +103,16 @@ def detect_tools() -> dict[str, dict[str, Any]]:
             "status": "READY" if (tts_root / "tts.py").is_file() else "NOT_INSTALLED",
             "path": str(tts_root),
         },
+        "ace-step-local": {
+            "status": "READY_LOCAL_SLOW" if ace_python.is_file() and ace_turbo_model.is_file() else "SETUP_INCOMPLETE" if ace_root.is_dir() else "NOT_INSTALLED",
+            "path": str(ace_root),
+            "features": {
+                "isolated_python": "READY" if ace_python.is_file() else "NOT_INSTALLED",
+                "turbo_model": "READY" if ace_turbo_model.is_file() else "NOT_INSTALLED",
+                "profile": "turbo_no_lm_int8_cpu_offload",
+                "expected_performance": "LOCAL_SLOW",
+            },
+        },
         "ffmpeg": {
             "status": "READY" if shutil.which("ffmpeg") else "NOT_INSTALLED",
             "path": shutil.which("ffmpeg"),
@@ -106,6 +120,10 @@ def detect_tools() -> dict[str, dict[str, Any]]:
         "blender": {
             "status": "READY" if blender_binary else "NOT_INSTALLED",
             "path": blender_binary,
+        },
+        "gltfpack": {
+            "status": "READY" if gltfpack_binary.is_file() else "NOT_INSTALLED",
+            "path": str(gltfpack_binary) if gltfpack_binary.is_file() else None,
         },
     }
 

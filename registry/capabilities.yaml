@@ -50,3 +50,9 @@ capabilities:
   - id: convert_3d_format
     name: Convert 3D format
     description: Convert supported 3D asset formats.
+  - id: generate_music
+    name: Generate music
+    description: Generate local music with an explicitly installed and hardware-gated model.
+  - id: optimize_gltf
+    name: Optimize glTF asset
+    description: Create a separate locally optimized GLB derivative for engine shipping review.
