@@ -50,9 +50,171 @@ capabilities:
   - id: convert_3d_format
     name: Convert 3D format
     description: Convert supported 3D asset formats.
+  - id: compare_visuals
+    name: Compare visuals
+    description: Compare local images using pixel and perceptual features without uploading them.
+  - id: understand_image
+    name: Understand image
+    description: Interpret a still image with a separately reviewed local vision model.
+  - id: inspect_3d_render
+    name: Inspect 3D render
+    description: Assess local render differences and scene readiness before asset handoff.
+  - id: preflight_3d_asset
+    name: Preflight 3D asset
+    description: Detect missing linked images and scene setup issues in a local Blender file.
+  - id: render_3d_preview
+    name: Render 3D preview
+    description: Produce a bounded local preview render without changing the source Blender file.
+  - id: control_blender
+    name: Control Blender
+    description: Invoke guarded, local Blender operations through the Toolbox CLI.
+  - id: choose_tool
+    name: Choose tool
+    description: Return deterministic local routing advice or a review-only capability gap.
+  - id: search_assets
+    name: Search assets
+    description: Search a curated local catalog of asset sources without downloading from them.
+  - id: evaluate_license
+    name: Evaluate license
+    description: Surface source and per-asset license-review requirements before acquisition.
+  - id: prepare_image
+    name: Prepare image
+    description: Create a non-destructive local image derivative with format, size, and alpha handling.
+  - id: upscale_image
+    name: Upscale image
+    description: Resize a local image with high-quality interpolation without inventing image detail.
+  - id: clean_audio
+    name: Clean audio
+    description: Create a local trimmed and loudness-normalized audio derivative.
+  - id: inspect_game_asset
+    name: Inspect game asset
+    description: Report UV, mesh, collision-name, and LOD-name readiness evidence from a Blender asset.
+  - id: generate_lod
+    name: Generate LOD
+    description: Create a source-preserving local Blender decimate LOD derivative.
   - id: generate_music
     name: Generate music
-    description: Generate local music with an explicitly installed and hardware-gated model.
+    description: Create music from a separately approved local generation model.
+  - id: generate_sfx
+    name: Generate sound effects
+    description: Create sound effects from a separately approved local generation model.
+  - id: generate_image
+    name: Generate image
+    description: Create an image with a separately approved local generation model.
+  - id: pack_texture_atlas
+    name: Pack texture atlas
+    description: Pack local sprites or texture images into a source-preserving atlas derivative.
+  - id: assemble_video
+    name: Assemble video
+    description: Concatenate ordered local clips into a re-encoded local MP4 derivative.
+  - id: assign_material_maps
+    name: Assign material maps
+    description: Create a reviewable Blender derivative with explicit local texture map assignments.
+  - id: evaluate_generation_candidate
+    name: Evaluate generation candidate
+    description: Compare reviewed local generation candidate requirements with detected local hardware without installation.
+  - id: find_duplicates
+    name: Find duplicates
+    description: Report exact file duplicates and local perceptual image matches without deleting anything.
+  - id: export_texture_profile
+    name: Export texture profile
+    description: Create a source-preserving local texture derivative for a named game target profile.
+  - id: export_subtitles
+    name: Export subtitles
+    description: Export local Watch transcript evidence as SRT or WebVTT subtitles.
+  - id: export_chapters
+    name: Export chapters
+    description: Export local Watch scene evidence as FFmpeg chapter metadata.
+  - id: mix_audio
+    name: Mix audio
+    description: Mix local narration and music with controlled gain, fade, and ducking.
+  - id: render_turntable
+    name: Render turntable
+    description: Render a local Blender scene from multiple orbiting angles without changing the source.
+  - id: catalog_assets
+    name: Catalog local assets
+    description: Index and filter downloaded local assets by filename tags, format, and recorded license state.
+  - id: validate_textures
+    name: Validate textures
+    description: Report local texture dimensions, alpha, and recognizable material-map readiness evidence.
+  - id: batch_convert_3d
+    name: Batch convert 3D assets
+    description: Convert a bounded local directory of 3D assets into source-preserving derivatives.
+  - id: assemble_audio
+    name: Assemble audio
+    description: Concatenate ordered local audio clips into a separate normalized derivative.
+  - id: audit_delivery
+    name: Audit delivery
+    description: Check local handoff artifacts, required files, and provenance sidecars before delivery.
+  - id: package_delivery
+    name: Package delivery
+    description: Create a ZIP handoff package only after a local delivery audit passes.
+  - id: plan_asset_names
+    name: Plan asset names
+    description: Report non-mutating game asset naming normalization proposals.
+  - id: create_asset_manifest
+    name: Create asset manifest
+    description: Record local game asset paths, hashes, and sizes for change review.
+  - id: compare_asset_manifests
+    name: Compare asset manifests
+    description: Report added, removed, and changed game assets between saved manifests.
+  - id: plan_watch_highlights
+    name: Plan Watch highlights
+    description: Build a review-only highlight plan from saved Watch evidence.
+  - id: create_video_contact_sheet
+    name: Create video contact sheet
+    description: Create a local visual index of bounded video frames.
+  - id: create_procedural_music
+    name: Create procedural music
+    description: Generate deterministic, non-AI local music-loop WAV assets.
+  - id: create_procedural_sfx
+    name: Create procedural sound effects
+    description: Generate deterministic, non-AI local sound-effect WAV assets.
+  - id: create_procedural_3d_prop
+    name: Create procedural 3D prop
+    description: Create a simple original local Blender prop for prototyping.
+  - id: assess_game_engine_readiness
+    name: Assess game engine readiness
+    description: Detect selected local game-engine command availability without installing anything.
+  - id: scaffold_game_kit
+    name: Scaffold game kit
+    description: Create a bounded local game asset folder layout and manifest.
+  - id: create_3d_handoff_report
+    name: Create 3D handoff report
+    description: Combine local Blender inspection evidence for a reviewable game-asset handoff.
+  - id: scaffold_godot_project
+    name: Scaffold Godot project
+    description: Create and inspect a minimal local Godot project definition without installing or launching Godot.
+  - id: map_godot_assets
+    name: Map Godot assets
+    description: Report local project asset paths as Godot res:// resources without copying or importing them.
+  - id: plan_sprite_animations
+    name: Plan sprite animations
+    description: Group a local Toolbox atlas layout into reviewable sprite animation frame ranges.
+  - id: compare_gameplay_reviews
+    name: Compare gameplay reviews
+    description: Detect changes and regressions between two saved local gameplay evidence reviews.
+  - id: audit_game_prototype
+    name: Audit game prototype handoff
+    description: Check a local Godot project for recorded asset provenance and optional build artifacts.
+  - id: record_external_generation
+    name: Record external generation
+    description: Create local provenance for an already-downloaded external output without invoking its provider.
+  - id: plan_game_3d_remediation
+    name: Plan game 3D remediation
+    description: Create a review-only local checklist for turning an imported 3D asset into a game or print candidate.
+  - id: plan_game_audio_package
+    name: Plan game audio package
+    description: Create a local production plan for existing music and sound-effect assets.
+  - id: scaffold_godot_vertical_slice
+    name: Scaffold Godot vertical slice
+    description: Create a local Godot slice template with player script and validation checklist without launching the engine.
+  - id: scaffold_game_release_pack
+    name: Scaffold game release pack
+    description: Create a local screenshots, trailer, social, store, and metadata delivery layout without publishing.
+  - id: validate_mesh
+    name: Validate mesh topology
+    description: Check a local mesh for watertightness, winding consistency, volume, and basic print-readiness evidence.
   - id: optimize_gltf
     name: Optimize glTF asset
     description: Create a separate locally optimized GLB derivative for engine shipping review.

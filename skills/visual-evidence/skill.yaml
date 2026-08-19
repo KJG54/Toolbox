@@ -1,0 +1,5 @@
+name: visual-evidence
+description: Compare local images and render outputs with pixel and perceptual evidence.
+version: 1
+capabilities: [compare_visuals, inspect_3d_render]
+external_opt_in: false

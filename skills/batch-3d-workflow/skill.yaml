@@ -1,0 +1,5 @@
+name: batch-3d-workflow
+description: Convert bounded folders of local 3D assets into reviewable derivatives.
+version: 1
+capabilities: [batch_convert_3d]
+external_opt_in: false

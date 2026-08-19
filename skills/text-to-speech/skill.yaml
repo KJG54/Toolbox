@@ -1,9 +1,5 @@
-id: text-to-speech
-name: Text to speech examples
-tool: tts-examples
-capabilities: [text_to_speech]
-inputs: [txt]
-outputs: [wav, mp3]
-constraints:
-  production_ready: false
-  external_approval_required: true
+name: text-to-speech
+description: Produce guarded local Windows WAV narration with provenance.
+version: 1
+capabilities: [text_to_speech, create_provenance_record]
+external_opt_in: false

@@ -1,0 +1,5 @@
+name: godot-project-adapter
+description: Scaffold, inspect, and map local assets in a Godot project without running Godot.
+version: 1
+capabilities: [scaffold_godot_project, map_godot_assets]
+external_opt_in: false

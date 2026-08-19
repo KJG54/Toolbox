@@ -1,0 +1,5 @@
+name: game-asset-naming
+description: Plan non-mutating game asset filename normalization.
+version: 1
+capabilities: [plan_asset_names]
+external_opt_in: false

@@ -1,0 +1,5 @@
+name: duplicate-finder
+description: Find exact and perceptually similar local assets without deleting files.
+version: 1
+capabilities: [find_duplicates]
+external_opt_in: false

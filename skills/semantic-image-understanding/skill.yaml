@@ -1,0 +1,5 @@
+name: semantic-image-understanding
+description: Describe a local still image with the approved pinned local Florence-2 model.
+version: 1
+capabilities: [understand_image]
+external_opt_in: false

@@ -1,0 +1,5 @@
+name: generation-candidate-evaluation
+description: Compare reviewed local generation candidates with detected hardware without installing them.
+version: 1
+capabilities: [evaluate_generation_candidate]
+external_opt_in: false

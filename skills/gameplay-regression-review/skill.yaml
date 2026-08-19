@@ -1,0 +1,5 @@
+name: gameplay-regression-review
+description: Compare local gameplay evidence reviews for observed-event regressions.
+version: 1
+capabilities: [compare_gameplay_reviews]
+external_opt_in: false

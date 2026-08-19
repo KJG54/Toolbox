@@ -1,0 +1,5 @@
+name: prototype-handoff-audit
+description: Audit local Godot prototype provenance and optional build-artifact readiness.
+version: 1
+capabilities: [audit_game_prototype]
+external_opt_in: false

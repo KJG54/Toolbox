@@ -14,3 +14,23 @@ licenses:
     commercial_use: requires_review
     review_status: pending
     source: Record must be reviewed from the authoritative vendor source before production use.
+  - id: cc0
+    name: Creative Commons Zero 1.0 Universal
+    commercial_use: allowed
+    review_status: verified
+    source: https://creativecommons.org/publicdomain/zero/1.0/
+  - id: per-asset-review
+    name: Per-asset license review required
+    commercial_use: requires_review
+    review_status: verified
+    source: The provider allows more than one asset license; inspect the selected asset before use.
+  - id: pillow-mit-cmu
+    name: Pillow MIT-CMU License
+    commercial_use: allowed
+    review_status: verified
+    source: https://github.com/python-pillow/Pillow/blob/main/LICENSE
+  - id: apache-2.0
+    name: Apache License 2.0
+    commercial_use: allowed
+    review_status: verified
+    source: https://huggingface.co/black-forest-labs/FLUX.1-schnell

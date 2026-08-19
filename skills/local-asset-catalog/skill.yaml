@@ -1,0 +1,5 @@
+name: local-asset-catalog
+description: Index and search downloaded local assets without external lookup or mutation.
+version: 1
+capabilities: [catalog_assets]
+external_opt_in: false

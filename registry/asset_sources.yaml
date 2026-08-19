@@ -1,0 +1,22 @@
+asset_sources:
+  - id: poly-haven
+    name: Poly Haven
+    homepage: https://polyhaven.com/
+    kinds: [texture, hdri, model]
+    tags: [pbr, environment, material, 3d, game]
+    license_id: cc0
+    per_asset_review_required: false
+  - id: kenney
+    name: Kenney
+    homepage: https://kenney.nl/assets
+    kinds: [2d, 3d, ui, game]
+    tags: [game, prototype, sprite, interface, model]
+    license_id: cc0
+    per_asset_review_required: false
+  - id: freesound
+    name: Freesound
+    homepage: https://freesound.org/
+    kinds: [audio, sfx, ambience]
+    tags: [sound, effects, field-recording, game]
+    license_id: per-asset-review
+    per_asset_review_required: true

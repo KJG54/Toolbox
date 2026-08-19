@@ -1,0 +1,5 @@
+name: local-image-generation-research
+description: Assess a reviewed offline image-generation candidate without installation or cloud execution.
+version: 1
+capabilities: [generate_image, evaluate_generation_candidate]
+external_opt_in: false

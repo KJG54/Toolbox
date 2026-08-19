@@ -1,0 +1,5 @@
+name: procedural-blender-props
+description: Create simple original local Blender prototype props.
+version: 1
+capabilities: [create_procedural_3d_prop]
+external_opt_in: false

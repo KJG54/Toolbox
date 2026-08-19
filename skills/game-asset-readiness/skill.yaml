@@ -1,0 +1,5 @@
+name: game-asset-readiness
+description: Inspect game-asset readiness and create a separate, reviewable Blender LOD derivative.
+version: 1
+capabilities: [inspect_game_asset, generate_lod]
+external_opt_in: false

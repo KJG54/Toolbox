@@ -1,0 +1,5 @@
+name: procedural-game-audio
+description: Generate deterministic local music-loop and sound-effect WAV prototypes.
+version: 1
+capabilities: [create_procedural_music, create_procedural_sfx]
+external_opt_in: false
