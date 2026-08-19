@@ -1,0 +1,5 @@
+name: audio-cleanup
+description: Create a guarded local FFmpeg audio cleanup derivative with provenance.
+version: 1
+capabilities: [clean_audio, create_provenance_record]
+external_opt_in: false

@@ -1,0 +1,5 @@
+name: game-engine-readiness
+description: Report local game engine command availability without installation.
+version: 1
+capabilities: [assess_game_engine_readiness]
+external_opt_in: false

@@ -1,0 +1,5 @@
+name: texture-atlas-packing
+description: Pack local sprites or textures into a source-preserving PNG atlas derivative.
+version: 1
+capabilities: [pack_texture_atlas]
+external_opt_in: false

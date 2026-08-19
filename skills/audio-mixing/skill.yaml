@@ -1,0 +1,5 @@
+name: audio-mixing
+description: Mix local narration and music with controlled gain and ducking.
+version: 1
+capabilities: [mix_audio]
+external_opt_in: false

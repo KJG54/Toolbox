@@ -1,0 +1,5 @@
+name: image-preparation
+description: Inspect and derive locally resized image assets with provenance.
+version: 1
+capabilities: [prepare_image, upscale_image, create_provenance_record]
+external_opt_in: false

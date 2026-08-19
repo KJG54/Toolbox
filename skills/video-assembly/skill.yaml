@@ -1,0 +1,5 @@
+name: video-assembly
+description: Concatenate local video clips into a separate portable MP4 derivative.
+version: 1
+capabilities: [assemble_video]
+external_opt_in: false

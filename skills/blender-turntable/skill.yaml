@@ -1,0 +1,5 @@
+name: blender-turntable
+description: Render a local Blender turntable frame sequence without changing its source file.
+version: 1
+capabilities: [render_turntable]
+external_opt_in: false

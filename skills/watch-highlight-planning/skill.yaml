@@ -1,0 +1,5 @@
+name: watch-highlight-planning
+description: Plan video highlights from saved local Watch evidence.
+version: 1
+capabilities: [plan_watch_highlights]
+external_opt_in: false

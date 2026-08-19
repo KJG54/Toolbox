@@ -1,0 +1,5 @@
+name: delivery-package
+description: Audit provenance and required local outputs before creating a ZIP handoff package.
+version: 1
+capabilities: [audit_delivery, package_delivery]
+external_opt_in: false

@@ -1,0 +1,5 @@
+name: video-contact-sheets
+description: Create local video contact sheets for review.
+version: 1
+capabilities: [create_video_contact_sheet]
+external_opt_in: false

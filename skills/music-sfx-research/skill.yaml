@@ -1,0 +1,5 @@
+name: music-sfx-research
+description: Produce review-only briefs for local music and sound-effect generation candidates.
+version: 1
+capabilities: [generate_music, generate_sfx, choose_tool, evaluate_license]
+external_opt_in: false

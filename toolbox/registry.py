@@ -36,6 +36,7 @@ REGISTRY_FILES = {
     "hardware_profiles": "hardware_profiles.yaml",
     "providers": "providers.yaml",
     "workflows": "workflows.yaml",
+    "asset_sources": "asset_sources.yaml",
 }
 
 SCHEMA_FILES = {
@@ -46,6 +47,7 @@ SCHEMA_FILES = {
     "hardware_profiles": "hardware_profile.schema.json",
     "providers": "provider.schema.json",
     "workflows": "workflow.schema.json",
+    "asset_sources": "asset_source.schema.json",
 }
 
 
@@ -118,5 +120,14 @@ def validate_registry(registry: Registry) -> None:
         for format_name in tool.get("formats", {}).get("input", []) + tool.get("formats", {}).get("output", []):
             if not isinstance(format_name, str) or not format_name or format_name.startswith("."):
                 errors.append(f"tool '{tool['id']}' has invalid format '{format_name}'")
+    for kind in ("models", "asset_sources"):
+        for record in registry.records(kind):
+            license_id = record.get("license_id")
+            if license_id not in license_ids:
+                errors.append(f"{kind[:-1]} '{record['id']}' references unknown license '{license_id}'")
+    for model in registry.records("models"):
+        for capability in model.get("capabilities", []):
+            if capability not in capability_ids:
+                errors.append(f"model '{model['id']}' references unknown capability '{capability}'")
     if errors:
         raise RegistryError("Registry validation failed:\n- " + "\n- ".join(errors))

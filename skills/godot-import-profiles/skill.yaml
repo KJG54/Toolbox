@@ -1,0 +1,5 @@
+name: godot-import-profiles
+description: Prepare local Godot-ready texture derivatives and review their import paths.
+version: 1
+capabilities: [export_texture_profile, map_godot_assets]
+external_opt_in: false

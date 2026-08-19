@@ -1,0 +1,5 @@
+name: ace-step-music-generation
+description: Run the installed local ACE-Step Turbo music component within the approved 6 GB hardware profile.
+version: 1
+capabilities: [generate_music]
+external_opt_in: false

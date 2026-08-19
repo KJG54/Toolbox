@@ -1,0 +1,5 @@
+name: sprite-animation-planning
+description: Plan sprite animation frame ranges from a local Toolbox atlas layout.
+version: 1
+capabilities: [plan_sprite_animations]
+external_opt_in: false

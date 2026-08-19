@@ -1,0 +1,5 @@
+name: capability-research
+description: Return deterministic local routing advice or a review-only capability-gap brief.
+version: 1
+capabilities: [choose_tool]
+external_opt_in: false

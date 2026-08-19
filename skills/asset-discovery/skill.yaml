@@ -1,0 +1,5 @@
+name: asset-discovery
+description: Find license-aware asset sources without downloading external assets.
+version: 1
+capabilities: [search_assets, evaluate_license]
+external_opt_in: false

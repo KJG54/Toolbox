@@ -1,0 +1,5 @@
+name: audio-assembly
+description: Assemble ordered local audio clips into a separate normalized derivative.
+version: 1
+capabilities: [assemble_audio]
+external_opt_in: false

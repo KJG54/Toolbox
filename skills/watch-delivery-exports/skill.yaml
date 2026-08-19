@@ -1,0 +1,5 @@
+name: watch-delivery-exports
+description: Export local Watch evidence as subtitle and chapter delivery files.
+version: 1
+capabilities: [export_subtitles, export_chapters]
+external_opt_in: false

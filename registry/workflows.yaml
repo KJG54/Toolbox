@@ -63,3 +63,321 @@ workflows:
         output: local_3d_derivative
       - capability: create_provenance_record
         output: provenance_sidecar
+  - id: preflight-3d-asset
+    name: Preflight and preview a local 3D asset
+    steps:
+      - capability: preflight_3d_asset
+        tool: blender
+        output: scene_readiness_report
+      - capability: render_3d_preview
+        tool: blender
+        optional: true
+        output: local_preview_image
+      - capability: inspect_3d_render
+        tool: local-visual-analysis
+        optional: true
+        output: local_visual_comparison
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: local-text-to-speech
+    name: Create local spoken audio
+    steps:
+      - capability: text_to_speech
+        tool: windows-sapi-tts
+        output: local_wav_derivative
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: asset-source-research
+    name: Research a local asset source catalog
+    steps:
+      - capability: search_assets
+        output: license_aware_source_brief
+      - capability: evaluate_license
+        output: review_requirements
+  - id: prepare-image-asset
+    name: Prepare a local image asset
+    steps:
+      - capability: prepare_image
+        tool: pillow-image-prep
+        output: image_derivative
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: clean-local-audio
+    name: Clean a local audio derivative
+    steps:
+      - capability: clean_audio
+        tool: ffmpeg
+        output: cleaned_audio_derivative
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: inspect-game-asset
+    name: Inspect local game asset readiness
+    steps:
+      - capability: inspect_game_asset
+        tool: blender
+        output: game_asset_readiness_report
+      - capability: create_provenance_record
+        optional: true
+        output: provenance_sidecar
+  - id: create-local-lod
+    name: Create a local Blender LOD derivative
+    steps:
+      - capability: generate_lod
+        tool: blender
+        output: lod_blend_derivative
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: music-and-sfx-research
+    name: Research local music and sound-effect generation
+    steps:
+      - capability: choose_tool
+        output: review_only_generation_brief
+      - capability: evaluate_license
+        output: approval_requirements
+  - id: catalog-local-assets
+    name: Catalog downloaded local assets
+    steps:
+      - capability: catalog_assets
+        tool: toolbox-local-workflows
+        output: local_asset_catalog
+  - id: validate-textures
+    name: Validate local textures and material maps
+    steps:
+      - capability: validate_textures
+        tool: pillow-image-prep
+        output: texture_readiness_report
+  - id: batch-convert-3d
+    name: Batch convert and preview local 3D assets
+    steps:
+      - capability: batch_convert_3d
+        tool: blender
+        output: local_3d_derivatives
+      - capability: create_provenance_record
+        output: provenance_sidecars
+  - id: assemble-local-audio
+    name: Assemble local audio clips
+    steps:
+      - capability: assemble_audio
+        tool: ffmpeg
+        output: assembled_audio_derivative
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: audit-and-package-delivery
+    name: Audit and package a local delivery
+    steps:
+      - capability: audit_delivery
+        tool: toolbox-local-workflows
+        output: handoff_readiness_report
+      - capability: package_delivery
+        tool: toolbox-local-workflows
+        output: local_delivery_zip
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: pack-texture-atlas
+    name: Pack a local texture atlas
+    steps:
+      - capability: pack_texture_atlas
+        tool: pillow-image-prep
+        output: atlas_image_and_layout
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: assemble-local-video
+    name: Assemble local video clips
+    steps:
+      - capability: assemble_video
+        tool: ffmpeg
+        output: assembled_mp4_derivative
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: assign-local-material-maps
+    name: Assign local texture maps to a Blender derivative
+    steps:
+      - capability: assign_material_maps
+        tool: blender
+        output: reviewable_blend_derivative
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: evaluate-local-generation-candidate
+    name: Evaluate a local generation candidate
+    steps:
+      - capability: evaluate_generation_candidate
+        tool: toolbox-local-workflows
+        output: local_hardware_and_license_decision
+  - id: find-local-duplicates
+    name: Find local duplicate assets
+    steps:
+      - capability: find_duplicates
+        tool: toolbox-local-workflows
+        output: duplicate_report
+  - id: export-game-texture-profile
+    name: Export a local game texture profile
+    steps:
+      - capability: export_texture_profile
+        tool: pillow-image-prep
+        output: texture_derivative
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: export-watch-subtitles-and-chapters
+    name: Export Watch subtitles and chapters
+    steps:
+      - capability: export_subtitles
+        tool: watch-skill
+        output: subtitle_file
+      - capability: export_chapters
+        tool: watch-skill
+        output: chapter_metadata
+  - id: mix-local-audio
+    name: Mix local narration and music
+    steps:
+      - capability: mix_audio
+        tool: ffmpeg
+        output: mixed_audio_derivative
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: render-local-turntable
+    name: Render a local Blender turntable
+    steps:
+      - capability: render_turntable
+        tool: blender
+        output: turntable_frame_sequence
+      - capability: create_provenance_record
+        output: provenance_sidecars
+  - id: local-game-prototype-assets
+    name: Create a free local game prototype asset kit
+    steps:
+      - capability: scaffold_game_kit
+        tool: toolbox-local-workflows
+        output: game_asset_folder_layout
+      - capability: create_procedural_music
+        tool: toolbox-local-workflows
+        optional: true
+        output: local_music_loop
+      - capability: create_procedural_sfx
+        tool: toolbox-local-workflows
+        optional: true
+        output: local_sfx_assets
+      - capability: create_procedural_3d_prop
+        tool: blender
+        optional: true
+        output: local_prototype_prop
+      - capability: create_provenance_record
+        output: provenance_sidecars
+  - id: game-asset-change-review
+    name: Review game asset changes before handoff
+    steps:
+      - capability: create_asset_manifest
+        tool: toolbox-local-workflows
+        output: versioned_asset_manifest
+      - capability: compare_asset_manifests
+        tool: toolbox-local-workflows
+        output: asset_change_report
+      - capability: create_3d_handoff_report
+        tool: blender
+        optional: true
+        output: 3d_handoff_report
+  - id: godot-prototype-foundation
+    name: Create a local Godot prototype foundation
+    steps:
+      - capability: scaffold_godot_project
+        tool: toolbox-local-workflows
+        output: local_godot_project
+      - capability: map_godot_assets
+        tool: toolbox-local-workflows
+        output: reviewable_res_path_map
+      - capability: export_texture_profile
+        tool: pillow-image-prep
+        optional: true
+        output: godot_texture_derivative
+  - id: sprite-animation-planning
+    name: Plan local sprite animations
+    steps:
+      - capability: pack_texture_atlas
+        tool: pillow-image-prep
+        output: atlas_layout
+      - capability: plan_sprite_animations
+        tool: toolbox-local-workflows
+        output: reviewable_animation_plan
+  - id: gameplay-regression-review
+    name: Compare local gameplay evidence runs
+    steps:
+      - capability: review_gameplay_events
+        tool: watch-skill
+        output: baseline_and_candidate_reviews
+      - capability: compare_gameplay_reviews
+        tool: toolbox-local-workflows
+        output: local_regression_report
+  - id: prototype-handoff-audit
+    name: Audit a local game prototype handoff
+    steps:
+      - capability: audit_game_prototype
+        tool: toolbox-local-workflows
+        output: project_handoff_readiness
+  - id: external-generation-intake
+    name: Record an approved external generation locally
+    steps:
+      - capability: record_external_generation
+        tool: toolbox-local-workflows
+        output: generation_provenance_sidecar
+  - id: remediate-game-3d-asset
+    name: Prepare an imported 3D asset for game or print review
+    steps:
+      - capability: plan_game_3d_remediation
+        tool: toolbox-local-workflows
+        output: remediation_plan
+      - capability: preflight_3d_asset
+        tool: blender
+        optional: true
+        output: local_preflight_report
+      - capability: create_provenance_record
+        output: provenance_sidecar
+  - id: package-game-audio
+    name: Plan a local game audio package
+    steps:
+      - capability: plan_game_audio_package
+        tool: toolbox-local-workflows
+        output: audio_package_plan
+      - capability: clean_audio
+        tool: ffmpeg
+        optional: true
+        output: reviewed_audio_derivatives
+      - capability: create_provenance_record
+        output: provenance_sidecars
+  - id: godot-vertical-slice
+    name: Scaffold a local Godot vertical slice
+    steps:
+      - capability: scaffold_godot_vertical_slice
+        tool: toolbox-local-workflows
+        output: local_godot_vertical_slice
+      - capability: map_godot_assets
+        tool: toolbox-local-workflows
+        output: reviewable_res_path_map
+  - id: game-release-pack
+    name: Scaffold a local game release and marketing pack
+    steps:
+      - capability: scaffold_game_release_pack
+        tool: toolbox-local-workflows
+        output: release_delivery_layout
+      - capability: assemble_video
+        tool: ffmpeg
+        optional: true
+        output: local_trailer_derivative
+      - capability: audit_delivery
+        tool: toolbox-local-workflows
+        output: owner_review_report
+  - id: validate-local-mesh
+    name: Validate local mesh topology for game and print review
+    steps:
+      - capability: validate_mesh
+        tool: trimesh
+        output: mesh_topology_report
+      - capability: plan_game_3d_remediation
+        tool: toolbox-local-workflows
+        output: remediation_plan
+  - id: optimize-local-gltf
+    name: Optimize a local GLB shipping derivative
+    steps:
+      - capability: optimize_gltf
+        tool: gltfpack
+        output: optimized_glb_derivative
+      - capability: create_provenance_record
+        output: provenance_sidecar
