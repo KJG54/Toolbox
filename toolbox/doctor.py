@@ -64,6 +64,8 @@ def _ram_gb() -> float | None:
 def detect_tools() -> dict[str, dict[str, Any]]:
     gltfpack_path = gltfpack_binary()
     watch_root = ROOT / "components" / "watch-skill"
+    watch_managed_ytdlp = ROOT / "runtime" / "watch-skill" / "bin" / "yt-dlp.exe"
+    ytdlp_path = str(watch_managed_ytdlp) if watch_managed_ytdlp.is_file() else shutil.which("yt-dlp")
     watch_packages = watch_root / ".venv" / "Lib" / "site-packages"
     perception_ready = all(
         (watch_packages / package).exists()
@@ -104,6 +106,7 @@ def detect_tools() -> dict[str, dict[str, Any]]:
                 "ocr": "READY" if ocr_ready else "NOT_INSTALLED",
                 "local_whisper": "READY_TINY_MODEL" if whisper_ready and whisper_tiny_cached else "ENGINE_READY_CACHED_MODEL_REQUIRED" if whisper_ready else "NOT_INSTALLED",
                 "cloud_stt": "EXTERNAL_OPT_IN",
+                "public_url_download": "READY" if ytdlp_path else "INSTALLATION_REQUIRED",
             },
         },
         "tts-examples": {

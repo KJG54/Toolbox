@@ -9,13 +9,19 @@ import sys
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
 
-from .media import normalize_media
 from .paths import ROOT
 
 
 class WatchReviewError(ValueError):
     """Raised when a requested Watch review cannot safely run locally."""
+
+
+def is_public_http_url(source: str) -> bool:
+    """Return whether source is an HTTP(S) URL rather than a local media path."""
+    parsed = urlparse(source.strip())
+    return parsed.scheme in {"http", "https"} and bool(parsed.netloc)
 
 
 def component_python() -> Path:
@@ -96,7 +102,7 @@ def build_timeline(result: Any, *, source_asset: str, pipeline: dict[str, Any]) 
 
 
 def run_watch_review(
-    source: Path,
+    source: Path | str,
     output: Path,
     *,
     normalize: bool = False,
@@ -105,18 +111,27 @@ def run_watch_review(
     ocr: bool = False,
     local_whisper: bool = False,
     whisper_model: str | None = None,
+    allow_download: bool = False,
     overwrite: bool = False,
 ) -> dict[str, Any]:
     """Run Watch in its component environment and persist a stable local timeline."""
-    source = source.resolve()
+    source_text = str(source).strip()
+    is_url = is_public_http_url(source_text)
+    if is_url and not allow_download:
+        raise WatchReviewError(
+            "A public video URL requires --allow-download; this is the explicit network permission for that one source"
+        )
+    if not is_url:
+        source_path = Path(source_text).expanduser().resolve()
+        if not source_path.is_file():
+            raise FileNotFoundError(f"Media source does not exist: {source_path}")
+        source_text = str(source_path)
     output = output.resolve()
-    if not source.is_file():
-        raise FileNotFoundError(f"Media source does not exist: {source}")
     if output.suffix.casefold() != ".json":
         raise WatchReviewError("watch-review output must use a .json extension")
     if output.exists() and not overwrite:
         raise FileExistsError(f"Output already exists: {output}; use --force to replace it")
-    if source == output:
+    if not is_url and Path(source_text) == output:
         raise WatchReviewError("output must differ from source")
 
     work_dir = output.with_name(f"{output.stem}.watch-work")
@@ -124,18 +139,16 @@ def run_watch_review(
         raise FileExistsError(f"Watch work directory already exists: {work_dir}; use --force or choose another output")
     work_dir.mkdir(parents=True, exist_ok=True)
 
-    reviewed_source = source
-    normalization: dict[str, Any] | None = None
-    if normalize:
-        reviewed_source = work_dir / f"{source.stem}.proxy.mp4"
-        normalization = normalize_media(source, reviewed_source, max_width=max_width, overwrite=overwrite)
-
     command = [
         str(component_python()),
         str(ROOT / "toolbox" / "watch_runner.py"),
-        "--source", str(reviewed_source),
+        "--source", source_text,
         "--work-dir", str(work_dir),
     ]
+    if is_url:
+        command.append("--allow-download")
+    if normalize:
+        command.extend(["--normalize", "--max-width", str(max_width)])
     if max_frames is not None:
         command.extend(["--max-frames", str(max_frames)])
     if ocr:
@@ -166,7 +179,6 @@ def run_watch_review(
     except json.JSONDecodeError as error:
         raise WatchReviewError("Watch review returned malformed structured output") from error
 
-    timeline["pipeline"]["normalization"] = normalization
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(timeline, indent=2) + "\n", encoding="utf-8")
     return {"output": str(output), "work_dir": str(work_dir), "timeline": timeline}

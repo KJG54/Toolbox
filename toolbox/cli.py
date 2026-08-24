@@ -19,6 +19,7 @@ from .doctor import doctor_report, detect_hardware, detect_tools
 from .delivery import DeliveryError, audit_delivery, package_delivery
 from .duplicate_finder import find_duplicates
 from .evidence_library import EvidenceLibraryError, search_library
+from .full_watch import run_full_watch
 from .gameplay_review import GameplayReviewError, review_gameplay, write_gameplay_review
 from .game_creation import GameCreationError, asset_manifest, asset_naming_plan, audit_game_prototype, compare_asset_manifests, compare_gameplay_reviews, engine_readiness, generate_tone_asset, inspect_godot_project, map_godot_assets, plan_game_3d_remediation, plan_game_audio_package, plan_sprite_animations, plan_watch_highlights, scaffold_game_kit, scaffold_game_release_pack, scaffold_godot_project, scaffold_godot_vertical_slice, video_contact_sheet, write_json
 from .generation_research import GenerationResearchError, evaluate_generation, research_generation
@@ -64,17 +65,22 @@ def build_parser() -> argparse.ArgumentParser:
     commands.add_parser("hardware")
     run = commands.add_parser("run")
     run.add_argument("workflow", choices=["normalize-media", "watch-review"])
-    run.add_argument("source", type=Path)
+    run.add_argument("source", help="Local media path, or an http(s) URL for watch-review with --allow-download.")
     run.add_argument("--output", type=Path, required=True)
     run.add_argument("--audio-only", action="store_true")
     run.add_argument("--max-width", type=int, default=1280)
     run.add_argument("--force", action="store_true")
     run.add_argument("--no-provenance", action="store_true")
     run.add_argument("--normalize", action="store_true", help="Create a local MP4 proxy before Watch analysis.")
+    run.add_argument("--allow-download", action="store_true", help="Permit watch-review to retrieve this one public http(s) URL without credentials or self-installing tools.")
     run.add_argument("--max-frames", type=int, help="Limit retained evidence frames for watch-review.")
     run.add_argument("--ocr", action="store_true", help="Enable Watch OCR when its local dependency is installed.")
     run.add_argument("--local-whisper", action="store_true", help="Use a cached local Whisper model; model downloads remain blocked.")
     run.add_argument("--whisper-model", help="Cached faster-whisper model name, such as tiny or small.")
+    full_watch = commands.add_parser("watch", help="Watch, index, and answer from a local file or approved public video URL.")
+    full_watch.add_argument("source", help="Local media path or public http(s) video URL.")
+    full_watch.add_argument("--question", default="What happens in this video?", help="Question to answer from the indexed video.")
+    full_watch.add_argument("--allow-download", action="store_true", help="Permit retrieval of this one public URL; Watch may update its local yt-dlp extractor when the source requires it.")
     review = commands.add_parser("review", help="Query locally saved Watch evidence timelines.")
     review_commands = review.add_subparsers(dest="review_command", required=True)
     ask_review = review_commands.add_parser("ask")
@@ -425,8 +431,10 @@ def main(argv: list[str] | None = None) -> None:
             return
         if args.command == "run":
             if args.workflow == "normalize-media":
+                if args.allow_download:
+                    raise ValueError("--allow-download applies only to watch-review")
                 result = normalize_media(
-                    args.source,
+                    Path(args.source),
                     args.output,
                     audio_only=args.audio_only,
                     max_width=args.max_width,
@@ -444,6 +452,7 @@ def main(argv: list[str] | None = None) -> None:
                     ocr=args.ocr,
                     local_whisper=args.local_whisper,
                     whisper_model=args.whisper_model,
+                    allow_download=args.allow_download,
                     overwrite=args.force,
                 )
                 tools = ["watch-skill", *(["ffmpeg"] if args.normalize else [])]
@@ -453,13 +462,16 @@ def main(argv: list[str] | None = None) -> None:
                     create_sidecar(
                         args.output,
                         tools=tools,
-                        source_assets=[str(args.source.resolve())],
-                        human_modifications=note,
+                        source_assets=[args.source if args.workflow == "watch-review" else str(Path(args.source).resolve())],
+                        human_modifications=("Toolbox local Watch evidence review of an owner-approved public URL" if args.workflow == "watch-review" and args.allow_download else note),
                         commercial_use="requires_review",
                         force=args.force,
                     )
                 )
             _print(result)
+            return
+        if args.command == "watch":
+            _print(run_full_watch(args.source, question=args.question, allow_download=args.allow_download))
             return
         if args.command == "review":
             if args.review_command == "ask":

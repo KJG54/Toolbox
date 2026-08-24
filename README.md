@@ -7,12 +7,15 @@ must be reviewed before an agent uses an external service or new tool.
 Start with:
 
 ```powershell
-toolbox doctor
-toolbox search watch
-toolbox recommend watch_video --commercial --free
-toolbox run normalize-media recording.mov --output outputs/recording-proxy.mp4
-toolbox run watch-review recording.mov --output outputs/recording-review.json --normalize
-toolbox review ask outputs/recording-review.json "When do the calibration bars appear?"
+$toolbox = ".\toolbox.cmd"
+function toolbox { & $toolbox @args }
+& $toolbox doctor
+& $toolbox search watch
+& $toolbox recommend watch_video --commercial --free
+& $toolbox watch "https://example.com/public-video" --allow-download
+& $toolbox run normalize-media recording.mov --output outputs/recording-proxy.mp4
+& $toolbox run watch-review recording.mov --output outputs/recording-review.json --normalize
+& $toolbox review ask outputs/recording-review.json "When do the calibration bars appear?"
 toolbox review assess outputs/asset-review.json --criteria criteria.json --output outputs/asset-assessment.json
 toolbox review tutorial outputs/tutorial-review.json --steps tutorial-steps.json --output outputs/tutorial-verification.json
 toolbox review gameplay outputs/playthrough-review.json --events gameplay-events.json --output outputs/gameplay-review.json
@@ -73,7 +76,10 @@ toolbox status ace-step-local
 toolbox research evaluate-generation music
 ```
 
-Read [TOOLBOX.md](TOOLBOX.md) before asking an agent to create an artifact. The preserved
+`toolbox.cmd` is deliberately repository-local, not a global PATH command. In the remaining
+examples, `toolbox` abbreviates `& $toolbox` from the Toolbox root. Read
+[TOOLBOX.md](TOOLBOX.md) and [the Watch quick start](docs/watch-local-install.md) before
+asking an agent to create an artifact. The preserved
 Watch source lives in `components/watch-skill`; TTS material is deliberately retained as
 examples rather than presented as a production engine.
 
@@ -81,7 +87,13 @@ examples rather than presented as a production engine.
 runs the preserved Watch component, and saves timestamped frames and available transcript
 segments as a versioned JSON timeline. Cloud STT and model downloads are blocked; `--ocr`
 and `--local-whisper` are explicit local add-ons, with Whisper restricted to already-cached
-models.
+models. For a public video URL, the owner must explicitly permit retrieval of that one URL
+with `--allow-download`; the guarded workflow never installs or updates its downloader.
+
+`toolbox watch` restores the full Watch experience for a local file or owner-approved public
+URL: acquire, index, and answer a question from timestamped evidence. It uses the local Watch
+cache/index and may self-update its local `yt-dlp` extractor only after a requested public source
+fails due to extractor breakage. Cloud STT and cloud vision remain disabled.
 
 Use `toolbox review ask` to query a saved review without reprocessing the original video.
 It returns matching transcript or OCR evidence with timestamps and never invents content

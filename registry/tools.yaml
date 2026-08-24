@@ -8,8 +8,8 @@ tools:
     execution: {local: true, windows: true}
     interfaces: [cli, python, mcp, http]
     adapter: adapters/watch.py
-    external_opt_in: false
-    formats: {input: [mp4, mov, webm, mp3, wav], output: [json, html, vtt]}
+    external_opt_in: true
+    formats: {input: [mp4, mov, webm, mp3, wav, url], output: [json, html, vtt]}
     hardware: {gpu_required: false, recommended_vram_gb: 6}
     routing_priority: 100
     fallback_ids: []

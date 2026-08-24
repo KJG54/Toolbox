@@ -22,6 +22,15 @@ workflows:
         output: versioned_evidence_timeline
       - capability: create_provenance_record
         output: provenance_sidecar
+  - id: full-watch-public-url
+    name: Watch and answer from an owner-approved public video URL
+    steps:
+      - capability: watch_video
+        tool: watch-skill
+        output: indexed_local_video_evidence
+      - capability: query_evidence_timeline
+        tool: watch-skill
+        output: timestamped_evidence_answer
   - id: ask-watch-review
     name: Ask a saved Watch review
     steps:
